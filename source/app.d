@@ -9,7 +9,7 @@ import std.algorithm;
 import std.typecons;
 
 enum Team { H, A }
-enum Had : Team { H = Team.H, D, A = Team.A}
+enum Res : Team { H = Team.H, D, A = Team.A}
 enum NumericOperator { lt = "<", mt = ">" }
 enum LogicOperator { AND, OR }
 
@@ -157,12 +157,13 @@ class ParameterForLastGames : Parameter {
 // MAIN //
 //////////
 
-class ProfitAndCommones {
-  double profit;
-  double commones;
-  this(double profit, double commones) {
-    this.profit = profit;
-    this.commones = commones;
+class ProfitAndOccurances {
+  double[Res] profit;
+  int occurances = 0;
+  this() {
+    profit[Res.H] = 0;
+    profit[Res.D] = 0;
+    profit[Res.A] = 0;
   }
 }
 
@@ -180,7 +181,6 @@ void main(string[] args) {
                        [new TeamRuleWithConstant(new ParameterForLastGames("corners", Team.A,  0), NumericOperator.lt, 0.5),
                        new TeamRuleWithConstant(new ParameterForLastGames("fouls", Team.H, 1), NumericOperator.mt, 0.5)],
                        [LogicOperator.AND]);
-
   writeln(rule);
   //foreach(record; file.byLine.joiner("\n").csvReader!(Tuple!(string, string, string, string, int, int , string, int , int, string, string, int, int, int, int, int, int , int, int, int, int, int, int, double, double, int, double, double, double, double, double, double, double, int, double, double, int, double, double, double, double, double, double, double, int , double, double, double, double, double, int, double, double, double, double, double, double, int, double, double, double, double, int, double, double, double, double, double)))
   auto file = File("E0.csv", "r");
@@ -191,13 +191,48 @@ void main(string[] args) {
   }
   auto swh = new SeasonWithHeader(records.header, games);
   file.close();
-  auto profitAndCommones = getProfitAndCommones([swh], rule);
+  auto profitAndOccurances = getProfitAndOccurances([swh], rule);
 }
 
-ProfitAndCommones getProfitAndCommones(SeasonWithHeader[] swhs, Rule rule) {
-  writeln(swhs[0].games[0]["Div"]);
-  writeln(swhs[0].header[4]);
-  return null;
+ProfitAndOccurances getProfitAndOccurances(SeasonWithHeader[] swhs, Rule rule) {
+//  writeln(swhs[0].games[0]["Div"]);
+//  writeln(swhs[0].header[4]);
+  auto pao = new ProfitAndOccurances();
+  foreach (swh; swhs) {
+    foreach (game; swh.games) {
+      if (ruleAplies(game, rule)) {
+        pao.occurances++;
+        Res res = getResult(game);
+        double profit = getProfit(game);
+        if (res == Res.H) {
+          pao.profit[Res.H] += profit;
+          pao.profit[Res.D] -= 1;
+          pao.profit[Res.A] -= 1;
+        } else if (res == Res.D) {
+          pao.profit[Res.H] -= 1;
+          pao.profit[Res.D] += profit;
+          pao.profit[Res.A] -= 1;
+        } else {
+          pao.profit[Res.H] -= 1;
+          pao.profit[Res.D] -= 1;
+          pao.profit[Res.A] += profit;
+        }
+      }
+    }
+  }
+  return pao;
+}
+
+bool ruleAplies(string[string] game, Rule rule) {
+  return false;
+}
+
+Res getResult(string[string] game) {
+  return Res.H;
+}
+
+double getProfit(string[string] game) {
+  return 0;
 }
 
 
