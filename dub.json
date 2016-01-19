@@ -1,0 +1,8 @@
+{
+	"name": "odd-rules-4",
+	"description": "A minimal D application.",
+	"copyright": "Copyright © 2016, jure",
+	"authors": ["jure"],
+	"dependencies": {
+	}
+}
