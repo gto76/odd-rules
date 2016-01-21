@@ -1,8 +1,7 @@
 import std.algorithm;
 import std.array;
 import std.conv;
-import std.csv;
-import std.file;
+import std.format;
 import std.range;
 import std.regex;
 import std.stdio;
@@ -10,6 +9,7 @@ import std.string;
 import std.typecons;
 
 import rule;
+import season;
 
 public static const bool USE_AVERAGE_ODDS = true;
 public static const string BETBRAIN_AVERAGE = "BbAv";
@@ -27,19 +27,22 @@ class ProfitAndOccurances {
     return profit[res] / occurances;
   }
   override public string toString() {
-    return "H: " ~ to!string(getAvgProfit(Res.H)) ~ " D: " ~ to!string(getAvgProfit(Res.D))
-           ~ " A: " ~ to!string(getAvgProfit(Res.A)) ~ " occ: " ~ to!string(occurances);
+    auto w = appender!string();
+    auto spec = singleSpec("%.2f");
+    w.put("H: ");
+    append(w, spec, Res.H);
+    w.put(" D: ");
+    append(w, spec, Res.D);
+    w.put(" A: ");
+    append(w, spec, Res.A);
+    w.put(" occ: ");
+    w.put(to!string(occurances));
+//    return "H: " ~append(Res.H) ~ " D: " ~ to!string(getAvgProfit(Res.D))
+//           ~ " A: " ~ to!string(getAvgProfit(Res.A)) ~ " occ: " ~ to!string(occurances);
+    return w.data;
   }
-}
-
-class Season {
-  string[string] features;
-  string[] header;
-  string[string][] games;
-  this(string[string] features, string[] header, string[string][] games) {
-    this.features = features;
-    this.header = header;
-    this.games = games;
+  private void append(Appender!string w, FormatSpec!char spec, Res res) {
+    formatElement(w, getAvgProfit(res), spec);
   }
 }
 
@@ -48,8 +51,8 @@ class Season {
 //////////
 
 void main(string[] args) {
-  // TODO season in for of: before current.
-  Rule rule = new Rule([new DiscreteRule("country", ["germany", "england"]), new DigitRule("season", NumericOperator.lt, 2014)],
+  // todo season in for of: before current.
+  Rule rule = new Rule([new DiscreteRule("country", ["germany", "england"])],
                        [new TeamRuleWithConstant(new ParameterForLastGames("corners", Team.A,  0), NumericOperator.lt, 0.5),
                         new TeamRuleWithConstant(new ParameterForLastGames("fouls", Team.H, 1), NumericOperator.mt, 0.5)],
                        [LogicOperator.AND]);
@@ -59,36 +62,6 @@ void main(string[] args) {
   ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
   writeln(profitAndOccurances);
   writeln("The End");
-}
-
-private Season[] loadSeasonsFromDir(string dir) {
-  Season[] seasons;
-  foreach(fileName; dirEntries(dir, "*.csv", SpanMode.shallow)) {
-    writeln("$$$ Loading season file: "~fileName);
-    auto file = File(fileName, "r");
-    auto records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
-    string[string][] games;
-    foreach(record; records) {
-      games ~= record;
-    }
-    auto features = getSeasonsFeatures(fileName);
-    auto season = new Season(features, records.header, games);
-    seasons ~= season;
-    file.close();
-  }
-  return seasons;
-}
-
-private string[string] getSeasonsFeatures(string fileName) {
-  string[] header = ["sport", "country", "league", "season"];
-  int i = 0;
-  string[string] features;
-  string fileNameNoExtension = split(fileName, ".")[0];
-  fileNameNoExtension = split(fileNameNoExtension, "\\")[1];
-  foreach(feature; split(fileNameNoExtension, "-")) {
-    features[header[i++]] = to!string(feature);
-  }
-  return features;
 }
 
 private ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
@@ -107,30 +80,6 @@ private ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) 
     }
   }
   return pao;
-}
-
-private bool seasonFitsTheRule(Season season, Rule rule) {
-  foreach (generalRule; rule.generalRules) {
-    if (!ruleApplies(generalRule, season.features[generalRule.parameter])) {
-      return false;
-    }
-  }
-  return true;
-}
-
-private bool ruleApplies(GeneralRule rule, string parameterValue) {
-  if (typeid(rule) == typeid(DigitRule)) {
-    DigitRule digitRule = cast(DigitRule) rule;
-    if (digitRule.numericOperator == NumericOperator.lt) {
-      return to!double(parameterValue) < digitRule.constant;
-    } else {
-      return to!double(parameterValue) >= digitRule.constant;
-    }
-  } else if (typeid(rule) == typeid(DiscreteRule)) {
-    DiscreteRule disRule = cast(DiscreteRule) rule;
-    return disRule.values.canFind(parameterValue);
-  }
-  return false;
 }
 
 private void setProfit(ProfitAndOccurances pao, Res res, double profit) {
