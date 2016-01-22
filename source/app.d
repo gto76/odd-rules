@@ -19,11 +19,12 @@ import averages;
 //////////
 
 void main(string[] args) {
-  // Team rule needs to be updated. In case of specifiying for how many seasons in past we want to go.
+  // Team rule needs to be updated. In case of specifiying for how many seasons in past we want to
+  // go.
   Rule rule = new Rule(
       [new DiscreteRule("country", ["germany", "england"])],
-      [new TeamRule(new ParameterForLastGames("corners", Team.A,  0), NumericOperator.lt, null, 0.5),
-       new TeamRule(new ParameterForLastGames("fouls", Team.H, 1), NumericOperator.mt, null, 0.5)],
+      [new TeamRule(new Parameter("corners", Team.A, 1), NumericOperator.lt, null, 0.5),
+       new TeamRule(new Parameter("fouls", Team.H, 2), NumericOperator.mt, null, 0.5)],
       [LogicOperator.AND]);
   Season[] seasons = loadSeasonsFromDir("csv");
   setAverages(seasons);

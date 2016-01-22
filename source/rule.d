@@ -102,7 +102,8 @@ class TeamRule {
   NumericOperator numericOperator;
   Parameter otherParameter;
   double constant;
-  this(Parameter parameter, NumericOperator numericOperator, Parameter otherParameter, double constant) {
+  this(Parameter parameter, NumericOperator numericOperator, Parameter otherParameter,
+       double constant) {
     this.parameter = parameter;
     this.numericOperator = numericOperator;
     this.otherParameter = otherParameter;
@@ -126,32 +127,38 @@ class TeamRule {
 // PARAMETER //
 ///////////////
 
-abstract class Parameter {
+/*
+ * Number of games means that average for that many past games is calculaed.
+ * If it is more than the number of games since the start of the season, the
+ * rule fails.
+ * If it is 0, it means only parameters of currnet game are processed (only
+ * the ones that can be acquired before the game; home/away, referee, odds)
+ * If it is -1, it means that the average of the last season is procesed,
+ * if it is -2, the average of last two seasons, and so on.
+ * If it exceedes the number of available seasons, the rule fails.
+ */
+class Parameter {
   string name;
   Team team;
-  this(string name, Team team) {
-    this.team = team;
-    this.name = name;
-  }
-}
-
-class ParameterWholeSeason : Parameter {
-  this(string name, Team team) {
-    super(name, team);
-  }
-  override string toString() {
-    return "(\"" ~ [name, to!string(team)].join("\", \"") ~ "\")";
-  }
-}
-
-class ParameterForLastGames : Parameter {
   int numberOfGames;
   this(string name, Team team, int numberOfGames) {
-    super(name, team);
+    this.team = team;
+    this.name = name;
     this.numberOfGames = numberOfGames;
   }
+  override bool opEquals(Object o) {
+    if (o is null) {
+      return false;
+    }
+    if (typeid(o) != typeid(Parameter)) {
+      return false;
+    }
+    Parameter other = cast(Parameter) o;
+    return other.team == this.team && other.team == this.team
+           && other.numberOfGames == this.numberOfGames;
+  }
   override string toString() {
-    //return "(" ~ [name, to!string(team), to!string(numberOfGames)].join(", ") ~ ")";
     return  "(" ~ ["\""~name~"\"", to!string(team), to!string(numberOfGames)].join(", ") ~ ")";
   }
 }
+

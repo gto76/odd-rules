@@ -32,7 +32,7 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
       continue;
     }
     foreach (game; season.games) {
-      if (ruleAplies(game, season.games, rule)) {
+      if (ruleAplies(game, season, rule)) {
         pao.occurances++;
         Res res = getResult(game);
         double profit = getProfit(game);
@@ -43,12 +43,12 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
   return pao;
 }
 
-private bool ruleAplies(string[string] game, string[string][] games, Rule rule) {
+private bool ruleAplies(string[string] game, Season season, Rule rule) {
   bool result = false;
   foreach (val; zip(LogicOperator.OR ~ rule.logicOperators, rule.teamRules)) {
     auto operator = val[0];
     auto teamRule = val[1];
-    bool teamRuleEval = evalTeamRule(teamRule, game, games);
+    bool teamRuleEval = evalTeamRule(teamRule, game, season);
     if (operator == LogicOperator.OR) {
       result = result || teamRuleEval;
     } else if (operator == LogicOperator.AND) {
@@ -60,11 +60,32 @@ private bool ruleAplies(string[string] game, string[string][] games, Rule rule) 
   return result;
 }
 
-private bool evalTeamRule(TeamRule teamRule, string[string] game, string[string][] games) {
-// TODO
-//  if (typeid(teamRule) == typeid(TeamRuleWithConstant)) {
-//  }
-  return true;
+private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season) {
+  double parameterValue = getParameterValue(teamRule.parameter, game, season);
+  if (parameterValue == -1) {
+    return false;
+  }
+  double otherParameterValue = getParameterValue(teamRule.otherParameter, game, season);
+  if (otherParameterValue == -1) {
+    return false;
+  }
+  if (teamRule.numericOperator == NumericOperator.lt) {
+    return parameterValue < otherParameterValue + teamRule.constant;
+  } else {
+    return parameterValue >= otherParameterValue + teamRule.constant;
+  }
+}
+
+/*
+ * Return value -1 means that parameter doesn't exist, so the rule does not apply.
+ * If parameter is null, it return 0, so that a team rule without a parameter on the right side
+ * of expresion can be defined.
+ */
+private double getParameterValue(Parameter parameter, string[string] game, Season season) {
+  if (parameter is null) {
+    return 0;
+  }
+  return -1;
 }
 
 public Res getResult(string[string] game) {

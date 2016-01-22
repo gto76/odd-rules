@@ -24,7 +24,7 @@ class Season {
   string[string] features;
   string[] header;
   string[string][] games;
-  double[string] averages;
+  double[][string] averages;
   this(string[string] features, string[] header, string[string][] games) {
     this.features = features;
     this.header = header;
