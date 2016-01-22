@@ -97,36 +97,28 @@ class DiscreteRule : GeneralRule {
 // TEAM RULE //
 ///////////////
 
-abstract class TeamRule {
+class TeamRule {
   Parameter parameter;
   NumericOperator numericOperator;
-  this(Parameter parameter, NumericOperator numericOperator) {
+  Parameter otherParameter;
+  double constant;
+  this(Parameter parameter, NumericOperator numericOperator, Parameter otherParameter, double constant) {
     this.parameter = parameter;
     this.numericOperator = numericOperator;
-  }
-}
-
-class TeamRuleWithOtherParameter : TeamRule {
-  Parameter otherParameter;
-  this(Parameter parameter, NumericOperator numericOperator,
-       Parameter otherParameter) {
-    super(parameter, numericOperator);
     this.otherParameter = otherParameter;
-  }
-  override string toString() {
-    return [parameter.toString(), numericOperator, otherParameter.toString()].join(" ");
-  }
-}
-
-class TeamRuleWithConstant : TeamRule {
-  double constant;
-  this(Parameter parameter, NumericOperator numericOperator,
-       double constant) {
-    super(parameter, numericOperator);
     this.constant = constant;
   }
   override string toString() {
-    return [parameter.toString(), numericOperator, to!string(constant)].join(" ");
+    string[] res;
+    res ~= parameter.toString();
+    res ~= numericOperator;
+    if (otherParameter !is null) {
+      res ~= otherParameter.toString();
+    }
+    if (constant != 0) {
+      res ~= to!string(constant);
+    }
+    return res.join(" ");
   }
 }
 

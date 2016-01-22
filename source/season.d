@@ -10,10 +10,21 @@ import std.conv;
 
 import rule;
 
+/*
+ * Coluld read the csv file like this, if we wanted a right types.
+ * foreach(record; file.byLine.joiner("\n").csvReader!(Tuple!(string, string, string, string,
+ * int, int , string, int , int, string, string, int, int, int, int, int, int , int, int, int,
+ * int, int, int, double, double, int, double, double, double, double, double, double, double,
+ * int, double, double, int, double, double, double, double, double, double, double, int , double,
+ * double, double, double, double, int, double, double, double, double, double, double, int,
+ * double, double, double, double, int, double, double, double, double, double)))
+ */
+
 class Season {
   string[string] features;
   string[] header;
   string[string][] games;
+  double[string] averages;
   this(string[string] features, string[] header, string[string][] games) {
     this.features = features;
     this.header = header;

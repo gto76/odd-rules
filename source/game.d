@@ -68,3 +68,31 @@ public Res getResult(string[string] game) {
   string sResult = game["FTR"];
   return to!Res(sResult);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
