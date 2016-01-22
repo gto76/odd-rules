@@ -25,6 +25,9 @@ public static const string BETBRAIN_MAX = "BbMx";
 public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
   auto pao = new ProfitAndOccurances();
   foreach (season; seasons) {
+    if (season.averages is null) {
+      continue;
+    }
     if (!seasonFitsTheRule(season, rule)) {
       continue;
     }
@@ -68,6 +71,16 @@ public Res getResult(string[string] game) {
   string sResult = game["FTR"];
   return to!Res(sResult);
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
