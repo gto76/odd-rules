@@ -27,7 +27,7 @@ void main(string[] args) {
        new TeamRule(new Parameter("fouls", Team.H, 2), NumericOperator.mt, null, 0.5)],
       [LogicOperator.AND]);
   Season[] seasons = loadSeasonsFromDir("csv");
-  setAverages(seasons);
+  linkSeasons(seasons);
   writeln("Analizing rule: \n"~to!string(rule));
   ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
   writeln(profitAndOccurances);

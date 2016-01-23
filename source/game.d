@@ -25,7 +25,7 @@ public static const string BETBRAIN_MAX = "BbMx";
 public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
   auto pao = new ProfitAndOccurances();
   foreach (season; seasons) {
-    if (season.averages is null) {
+    if (season.lastSeason is null) {
       continue;
     }
     if (!seasonFitsTheRule(season, rule)) {
@@ -78,7 +78,7 @@ private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season)
 
 /*
  * Return value -1 means that parameter doesn't exist, so the rule does not apply.
- * If parameter is null, it return 0, so that a team rule without a parameter on the right side
+ * If parameter is null, it returns 0, so that a team rule without a parameter on the right side
  * of expresion can be defined.
  */
 private double getParameterValue(Parameter parameter, string[string] game, Season season) {

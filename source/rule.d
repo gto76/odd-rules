@@ -18,6 +18,7 @@ enum Res { H, D, A }
 enum NumericOperator { lt = "<", mt = ">" }
 enum LogicOperator { AND, OR }
 
+
 //////////
 // RULE //
 //////////
@@ -161,4 +162,3 @@ class Parameter {
     return  "(" ~ ["\""~name~"\"", to!string(team), to!string(numberOfGames)].join(", ") ~ ")";
   }
 }
-
