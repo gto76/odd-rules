@@ -16,14 +16,28 @@ import game;
 class ProfitAndOccurances {
   double[Res] profit;
   int occurances = 0;
+
   this() {
     profit[Res.H] = 0;
     profit[Res.D] = 0;
     profit[Res.A] = 0;
   }
+
   public double getAvgProfit(Res res) {
     return profit[res] / occurances;
   }
+
+  public double getMaxProfit() {
+    double max = double.min_normal;
+    foreach (res; [Res.H, Res.D, Res.A]) {
+      double val = getAvgProfit(res);
+      if (val > max) {
+        max = val;
+      }
+    }
+    return max;
+  }
+
   override public string toString() {
     auto w = appender!string();
     auto spec = singleSpec("%.2f");
@@ -37,6 +51,7 @@ class ProfitAndOccurances {
     w.put(to!string(occurances));
     return w.data;
   }
+
   private void append(Appender!string w, FormatSpec!char spec, Res res) {
     formatElement(w, getAvgProfit(res), spec);
   }

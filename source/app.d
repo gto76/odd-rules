@@ -18,10 +18,11 @@ import averages;
 // MAIN //
 //////////
 
-int NUM_OF_RUNS = 10;
+int NUM_OF_RUNS = 100;
 string[] ATTRIBUTES = ["FTHG", "FTAG", "HTHG", "HTAG", "HS", "AS", "HST", "AST", "HF", "AF", "HC",
                        "AC", "HY", "AY", "HR", "AR"];
 int WIDEST_WINDOW = 10;
+int OCCURANCE_TRESHOLD = 50;
 
 void main(string[] args) {
   // Team rule needs to be updated. In case of specifiying for how many seasons in past we want to
@@ -35,12 +36,24 @@ void main(string[] args) {
   Season[] seasons = loadSeasonsFromDir("csv");
   linkSeasons(seasons);
 
-  foreach (i; 0..NUM_OF_RUNS) {
+  foreach (i; 1..NUM_OF_RUNS) {
+    write("#");
+    stdout.flush();
+    if (i % 80 == 0) {
+      writeln();
+    }
     Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);
     ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
-    writeln("Rule: \n"~to!string(rule));
+    if (profitAndOccurances.occurances < OCCURANCE_TRESHOLD) {
+      continue;
+    }
+    double profit = profitAndOccurances.getMaxProfit();
+    if (profit < 0.2) {
+      continue;
+    }
+    writeln("\nRule: \n"~to!string(rule));
     writeln(profitAndOccurances);
   }
 
-  writeln("The End");
+  writeln("\nThe End");
 }
