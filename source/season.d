@@ -1,5 +1,7 @@
 module season;
 
+import std.array;
+import std.c.stdlib;
 import std.algorithm;
 import std.csv;
 import std.file;
@@ -8,6 +10,7 @@ import std.string;
 import std.regex;
 import std.conv;
 
+import game;
 import rule;
 
 /*
@@ -21,27 +24,29 @@ import rule;
  */
 
 string[] SEASON_FEATURES = ["sport", "country", "league", "season"];
-bool USE_DISTRIBUTIONS_CACHE = false;
+bool USE_DISTRIBUTIONS_CACHE = true;
 
 class Season {
   string[string] features;
   string[] header;
-  string[string][] games;
+//  string[string][] games;
+  Game[] games;
   Season lastSeason;
   // Cached values:
   private int seasonLength = -1;
   private string[] teams;
-  private string[string][][string] teamsGames;
+//  private string[string][][string] teamsGames;
+  private Game[][string] teamsGames;
   private double[][DistributionId] distributions;
 
-  this(string[string] features, string[] header, string[string][] games) {
+  this(string[string] features, string[] header, Game[] games) { // string[string][] games) {
     this.features = features;
     this.header = header;
     this.games = games;
   }
 
   public double[] getDistribution(Parameter param) {
-    int noOfGames =  param.numberOfGames;
+    int noOfGames = param.numberOfGames;
     if (noOfGames > getSeasonLength()) {
       return null;
     }
@@ -61,37 +66,49 @@ class Season {
   }
 
   private double[] generateDistribution(DistributionId distId) {
-    double[] res;
+//    double[] res;
+    auto res = appender!(double[])();
     foreach (team; getTeams()) {
        double[] teamsDistribution = generateTeamsDistribution(team, distId);
        if (teamsDistribution == null) {
          return null;
        }
-       res ~= teamsDistribution;
+//       res ~= teamsDistribution;
+       res.put(teamsDistribution);
     }
-    sort(res);
-    return res;
+    double[] resArray = res.data;
+//    sort(res);
+    sort(resArray);
+    return resArray;
   }
 
   private double[] generateTeamsDistribution(string team, DistributionId distId) {
-    double[] res;
-    string[string][] teamGames = getTeamsGames(team);
+    //double[] res;
+    auto res = appender!(double[])();
+    /+string[string][]+/ Game[] teamGames = getTeamsGames(team);
       // TODO check range
-    foreach (i; 0 .. getSeasonLength() - distId.numOfGames+1) {
+    foreach (i; 0 .. teamGames.length - distId.numOfGames-1) {
       double sum = 0;
       // TODO check range
       foreach (j; i .. i + distId.numOfGames) {
-        string[string] game = teamGames[j];
+        if (j >= teamGames.length) {
+          writeln("$$$ core.exception.RangeError team "~team);
+          writeln("$$$ j "~to!string(j)~" teamGames.length "~to!string(teamGames.length));
+          exit(1);
+        }
+        /+string[string]+/ Game game = teamGames[j];
         string attribute = getTeamsAttribute(team, game, distId.name);
         // writeln("attribute "~attribute~" team "~team);
-        if (attribute !in game) {
+        if (attribute !in game.dAttrs /+|| game[attribute] == ""+/) {
           return null;
         }
-        sum += to!double(game[attribute]);
+//        sum += to!double(game[attribute]);
+        sum += game.dAttrs[attribute];
       }
-      res ~= sum;
+      res.put(sum);
+//      res ~= sum;
     }
-    return res;
+    return res.data;
   }
 
   private int getSeasonLength() {
@@ -108,8 +125,8 @@ class Season {
       return teams;
     }
     foreach (game; games) {
-      string homeTeam = game["HomeTeam"];
-      string awayTeam = game["AwayTeam"];
+      string homeTeam = game.sAttrs["HomeTeam"];
+      string awayTeam = game.sAttrs["AwayTeam"];
       if (!teams.canFind(homeTeam)) {
         teams ~= homeTeam;
       }
@@ -120,13 +137,13 @@ class Season {
     return teams;
   }
 
-  private string[string][] getTeamsGames(string team) {
+  private Game[]/+string[string][]+/ getTeamsGames(string team) {
     if (team in teamsGames) {
       return teamsGames[team];
     }
     foreach (game; games) {
-      string homeTeam = game["HomeTeam"];
-      string awayTeam = game["AwayTeam"];
+      string homeTeam = game.sAttrs["HomeTeam"];
+      string awayTeam = game.sAttrs["AwayTeam"];
       if (team == homeTeam || team == awayTeam) {
         teamsGames[team] ~= game;
       }
@@ -141,6 +158,20 @@ class Season {
       this.name = name;
       this.numOfGames = numOfGames;
     }
+    override size_t toHash() {
+      return name.length + numOfGames*20;
+    }
+    override bool opEquals(Object o) {
+      if (o is null) {
+        return false;
+      }
+      if (typeid(o) != typeid(DistributionId)) {
+        return false;
+      }
+      DistributionId other = cast(DistributionId) o;
+      return other.name == this.name
+             && other.numOfGames == this.numOfGames;
+    }
   }
 }
 
@@ -154,9 +185,10 @@ public Season[] loadSeasonsFromDir(string dir) {
     writeln("$$$ Loading season file: "~fileName);
     auto file = File(fileName, "r");
     auto records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
-    string[string][] games;
+//    string[string][] games;
+    Game[] games;
     foreach(record; records) {
-      games ~= record;
+      games ~= new Game(record);//record;
     }
     auto features = getSeasonsFeatures(fileName);
     auto season = new Season(features, records.header, games);
@@ -227,9 +259,9 @@ double[] getDistribution(Season season, Parameter param) {
 /*
  * Retrurns right attribute name, depending od wether the passed team plays at home or away.
  */
-public string getTeamsAttribute(string teamName, string[string] game, string origAtribute) {
-  string homeTeam = game["HomeTeam"];
-  string awayTeam = game["AwayTeam"];
+public string getTeamsAttribute(string teamName, /+string[string]+/ Game game, string origAtribute) {
+  string homeTeam = game.sAttrs["HomeTeam"];
+  string awayTeam = game.sAttrs["AwayTeam"];
   Team team = ATTRIBUTES_TEAM[origAtribute];
   if (teamName == homeTeam && team == Team.A ||
       teamName == awayTeam && team == Team.H) {

@@ -60,7 +60,7 @@ class ProfitAndOccurances {
 /*
  * Returns profit of winning option.
  */
-public double getProfit(string[string] game) {
+public double getProfit(/+string[string]+/ Game game) {
   Res result = getResult(game);
   string columnBase = "";
   if (USE_AVERAGE_ODDS) {
@@ -69,8 +69,12 @@ public double getProfit(string[string] game) {
     columnBase = BETBRAIN_MAX;
   }
   string column = columnBase ~ to!string(result);
-  string sProfit = game[column];
-  return to!double(sProfit);
+  return game.dAttrs[column];
+//  string sProfit = game.dAttrs[column];
+//  if (sProfit == "") {
+//    return double.nan;
+//  }
+//  return to!double(sProfit);
 }
 
 /*

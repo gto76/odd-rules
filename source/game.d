@@ -20,6 +20,25 @@ public static const bool USE_AVERAGE_ODDS = true;
 public static const string BETBRAIN_AVERAGE = "BbAv";
 public static const string BETBRAIN_MAX = "BbMx";
 
+public static const string[] STRING_ATTRIBUTES = [ "Div", "Date", "HomeTeam", "AwayTeam", "FTR", "HTR", "Referee" ];
+
+class Game {
+  string[string] sAttrs;
+  double[string] dAttrs;
+  this(string[string] attrs) {
+    foreach (key, value; attrs) {
+      if (STRING_ATTRIBUTES.canFind(key)) {
+        sAttrs[key] = value;
+      } else {
+        if (value == "") {
+          continue;
+        }
+        dAttrs[key] = to!double(value);
+      }
+    }
+  }
+}
+
 /*
  * Returns profit and occurances for all games of passed seasons, that apply to
  * the rule.
@@ -38,6 +57,9 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
         pao.occurances++;
         Res res = getResult(game);
         double profit = getProfit(game);
+        if (profit == double.nan) {
+          return null;
+        }
         setProfit(pao, res, profit);
       }
     }
@@ -45,7 +67,7 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
   return pao;
 }
 
-private bool ruleAplies(string[string] game, Season season, Rule rule) {
+private bool ruleAplies(/+string[string]+/ Game game, Season season, Rule rule) {
   bool result = false;
   foreach (val; zip(LogicOperator.OR ~ rule.logicOperators, rule.teamRules)) {
     auto operator = val[0];
@@ -62,7 +84,7 @@ private bool ruleAplies(string[string] game, Season season, Rule rule) {
   return result;
 }
 
-private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season) {
+private bool evalTeamRule(TeamRule teamRule, /+string[string]+/ Game game, Season season) {
   double[] parameterBounds = getParametersBounds(teamRule.parameter, game, season);
   if (parameterBounds is null) {
     return false;
@@ -83,7 +105,7 @@ private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season)
  * If parameter is null, it returns 0, so that a team rule without a parameter on the right side
  * of expresion can be defined.
  */
-private double[] getParametersBounds(Parameter param, string[string] game, Season season) {
+private double[] getParametersBounds(Parameter param, /+string[string]+/ Game game, Season season) {
   if (param is null) {
     return [0, 0];
   }
@@ -105,7 +127,7 @@ private double[] getParametersBounds(Parameter param, string[string] game, Seaso
 }
 
 // TODO for whole seasons (param)
-private double getValue(Parameter param, string[string] game, Season season) {
+private double getValue(Parameter param, /+string[string]+/ Game game, Season season) {
   Team team = ATTRIBUTES_TEAM[param.name];
   string teamName = getTeamName(game, team);
   int position = countUntil(season.games, game);
@@ -116,13 +138,13 @@ private double getValue(Parameter param, string[string] game, Season season) {
   double sum = 0;
   // TODO for current game
   foreach_reverse (i; 0 .. position+1) {
-    string[string] pastGame = season.games[i];
+    /+string[string]+/ Game pastGame = season.games[i];
     if (teamInGame(pastGame, teamName)) {
       string attribute = getTeamsAttribute(teamName, pastGame, param.name);
-      if (attribute !in pastGame || pastGame[attribute] == "") {
+      if (attribute !in pastGame.dAttrs /+|| pastGame.dAttrs[attribute] == ""+/) {
         return double.nan;
       }
-      sum += to!double(pastGame[attribute]);
+      sum += to!double(pastGame.dAttrs[attribute]);
       if (--counter == 0) {
         break;
       }
@@ -135,15 +157,15 @@ private double getValue(Parameter param, string[string] game, Season season) {
   return sum;
 }
 
-private bool teamInGame(string[string] game, string teamName) {
-  return game["HomeTeam"] == teamName || game["AwayTeam"] == teamName;
+private bool teamInGame(/+string[string]+/ Game game, string teamName) {
+  return game.sAttrs["HomeTeam"] == teamName || game.sAttrs["AwayTeam"] == teamName;
 }
 
-private string getTeamName(string[string] game, Team team) {
+private string getTeamName(/+string[string]+/ Game game, Team team) {
   if (team == Team.H) {
-    return game["HomeTeam"];
+    return game.sAttrs["HomeTeam"];
   } else {
-    return game["AwayTeam"];
+    return game.sAttrs["AwayTeam"];
   }
 }
 
@@ -181,8 +203,8 @@ private int[] getAbsoluteBounds(double[] distribution, double val) {
   return [min, max];
 }
 
-public Res getResult(string[string] game) {
-  string sResult = game["FTR"];
+public Res getResult(/+string[string]+/ Game game) {
+  string sResult = game.sAttrs["FTR"];
   return to!Res(sResult);
 }
 

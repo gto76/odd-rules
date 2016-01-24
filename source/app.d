@@ -33,6 +33,7 @@ void main(string[] args) {
 //      [new TeamRule(new Parameter("AC", /+Team.A,+/ 3), NumericOperator.lt, null, 0.7), // corners
 //       new TeamRule(new Parameter("HF", /+Team.H,+/ 5), NumericOperator.mt, null, 0.3)], // fouls
 //      [LogicOperator.AND]);
+
   Season[] seasons = loadSeasonsFromDir("csv");
   linkSeasons(seasons);
 
@@ -44,15 +45,19 @@ void main(string[] args) {
     }
     Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);
     ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
-//    if (profitAndOccurances.occurances < OCCURANCE_TRESHOLD) {
-//      continue;
-//    }
-    double profit = profitAndOccurances.getMaxProfit();
-    if (profit < 0.2) {
+    if (profitAndOccurances is null) {
       continue;
     }
+    if (profitAndOccurances.occurances < OCCURANCE_TRESHOLD) {
+      continue;
+    }
+    double profit = profitAndOccurances.getMaxProfit();
+//    if (profit < 0.2) {
+//      continue;
+//    }
     writeln("\nRule: \n"~to!string(rule));
     writeln(profitAndOccurances);
+    break;
   }
 
   writeln("\nThe End");

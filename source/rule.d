@@ -167,12 +167,12 @@ class Parameter {
   }
 }
 
-Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
 //  Rule rule = new Rule(
 //      [new DiscreteRule("country", ["germany", "england"])],
 //      [new TeamRule(new Parameter("AC", /+Team.A,+/ 3), NumericOperator.lt, null, 0.7), // corners
 //       new TeamRule(new Parameter("HF", /+Team.H,+/ 5), NumericOperator.mt, null, 0.3)], // fouls
 //      [LogicOperator.AND]);
+Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
 
   TeamRule[] teamRules;
   LogicOperator[] operators;
@@ -197,8 +197,16 @@ Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
 
 Parameter getRandomParameter(string[] attributes, int widestWindow) {
   string attribute = attributes[uniform(0, attributes.length)];
-  int windowSize = uniform(1, widestWindow+1);
+  int windowSize = getWindowSize(widestWindow);
   return new Parameter(attribute, windowSize);
+}
+
+int getWindowSize(int widestWindow) {
+  if (uniform(0,2) == 0) {
+    return 1;
+  } else {
+    return uniform(2, widestWindow+1);
+  }
 }
 
 NumericOperator getRandomNumericOperator() {
