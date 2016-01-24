@@ -65,13 +65,13 @@ class Season {
 
   private double[] generateTeamsDistribution(string team, DistributionId distId) {
     double[] res;
-    string[string][] games = getTeamsGames(team);
+    string[string][] teamGames = getTeamsGames(team);
       // TODO check range
-    foreach (i; 0..getSeasonLength()-distId.numOfGames) {
+    foreach (i; 0 .. getSeasonLength() - distId.numOfGames+1) {
       double sum = 0;
       // TODO check range
-      foreach (j; i..i+distId.numOfGames) {
-        string[string] game = games[j];
+      foreach (j; i .. i + distId.numOfGames) {
+        string[string] game = teamGames[j];
         string attribute = getTeamsAttribute(team, game, distId.name);
         sum += to!double(game[attribute]);
       }
@@ -197,10 +197,10 @@ double[] getDistribution(Season season, Parameter param) {
   }
   double[] res;
   // TODO check range
-  foreach (i; param.numberOfGames*-1-1..0) {
+  foreach_reverse (i; 1 .. -param.numberOfGames+1) {
     Season curSeason = season;
   // TODO check range
-    foreach (j; 0..i) {
+    foreach (j; 0 .. i) {
       curSeason = curSeason.lastSeason;
       if (curSeason is null) {
         return null;
@@ -214,7 +214,7 @@ double[] getDistribution(Season season, Parameter param) {
 /*
  * Retrurns right attribute name, depending od wether the passed team plays at home or away.
  */
-private string getTeamsAttribute(string teamName, string[string] game, string origAtribute) {
+public string getTeamsAttribute(string teamName, string[string] game, string origAtribute) {
   string homeTeam = game["HomeTeam"];
   string awayTeam = game["AwayTeam"];
   Team team = ATTRIBUTES_TEAM[origAtribute];
