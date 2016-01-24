@@ -23,8 +23,8 @@ void main(string[] args) {
   // go.
   Rule rule = new Rule(
       [new DiscreteRule("country", ["germany", "england"])],
-      [new TeamRule(new Parameter("corners", Team.A, 1), NumericOperator.lt, null, 0.5),
-       new TeamRule(new Parameter("fouls", Team.H, 2), NumericOperator.mt, null, 0.5)],
+      [new TeamRule(new Parameter("AC", Team.A, 1), NumericOperator.lt, null, 0.5), // corners
+       new TeamRule(new Parameter("HF", Team.H, 1), NumericOperator.mt, null, 0.5)], // fouls
       [LogicOperator.AND]);
   Season[] seasons = loadSeasonsFromDir("csv");
   linkSeasons(seasons);

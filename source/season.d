@@ -37,7 +37,7 @@ class Season {
     this.games = games;
   }
 
-  double[] getDistribution(Parameter param) {
+  public double[] getDistribution(Parameter param) {
     int noOfGames =  param.numberOfGames;
     if (noOfGames > getSeasonLength()) {
       return null;
@@ -48,7 +48,7 @@ class Season {
       noOfGames = getSeasonLength();
     }
     auto distId = new DistributionId(param.name, noOfGames);
-    if (distributions[distId] is null) {
+    if (distId !in distributions) {
       distributions[distId] = generateDistribution(distId);
     }
     return distributions[distId];
@@ -80,7 +80,7 @@ class Season {
     return res;
   }
 
-  int getSeasonLength() {
+  private int getSeasonLength() {
     if (seasonLength != -1) {
       return seasonLength;
     }
@@ -107,7 +107,7 @@ class Season {
   }
 
   private string[string][] getTeamsGames(string team) {
-    if (teamsGames[team] !is null) {
+    if (team in teamsGames) {
       return teamsGames[team];
     }
     foreach (game; games) {
@@ -248,7 +248,6 @@ static this() {
     "HR" : Team.H,
     "AR" : Team.A
   ];
-
 
   OTHER_TEAM_ATTRIBUTE = [
     "FTHG" : "FTAG",

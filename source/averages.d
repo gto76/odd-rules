@@ -43,7 +43,7 @@ private bool sameLeague(string[string] fThis, string[string] fOther) {
          fThis["country"] == fOther["country"] &&
          fThis["league"] == fOther["league"];
 }
-//
+
 //private double[][string] getAverages(Season season) {
 //  double[][string] averages;
 //  foreach (atribute; season.header) {

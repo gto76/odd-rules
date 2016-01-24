@@ -61,18 +61,18 @@ private bool ruleAplies(string[string] game, Season season, Rule rule) {
 }
 
 private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season) {
-  double parameterValue = getParameterValue(teamRule.parameter, game, season);
-  if (parameterValue == -1) {
+  double[] parameterBounds = getParametersBounds(teamRule.parameter, game, season);
+  if (parameterBounds[0] == -1) {
     return false;
   }
-  double otherParameterValue = getParameterValue(teamRule.otherParameter, game, season);
-  if (otherParameterValue == -1) {
+  double[] otherParameterBounds = getParametersBounds(teamRule.otherParameter, game, season);
+  if (otherParameterBounds[0] == -1) {
     return false;
   }
   if (teamRule.numericOperator == NumericOperator.lt) {
-    return parameterValue < otherParameterValue + teamRule.constant;
+    return parameterBounds[0] < otherParameterBounds[1] + teamRule.constant;
   } else {
-    return parameterValue >= otherParameterValue + teamRule.constant;
+    return parameterBounds[1] >= otherParameterBounds[0] + teamRule.constant;
   }
 }
 
@@ -81,11 +81,41 @@ private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season)
  * If parameter is null, it returns 0, so that a team rule without a parameter on the right side
  * of expresion can be defined.
  */
-private double getParameterValue(Parameter parameter, string[string] game, Season season) {
-  if (parameter is null) {
-    return 0;
+private double[] getParametersBounds(Parameter param, string[string] game, Season season) {
+  if (param is null) {
+    return [0, 0];
   }
-  return -1;
+  writeln("$$$ season "~to!string(season.features));
+  writeln("$$$ param "~to!string(param));
+  double[] distribution = getDistribution(season, param);
+  writeln("$$$ distribution len "~to!string(distribution.length));
+  double val = to!double(game[param.name]);
+  writeln("$$$ val "~to!string(val));
+  int[] absBounds = getAbsoluteBounds(distribution, val);
+  writeln("$$$ min abs bound "~to!string(absBounds[0]));
+  writeln("$$$ max abs bound "~to!string(absBounds[1]));
+  writeln();
+  return [cast(double) absBounds[0] / distribution.length,
+          cast(double) absBounds[1] / distribution.length];
+}
+
+private int[] getAbsoluteBounds(double[] distribution, double val) {
+  int min = -1;
+  int max = -1;
+  for (int i = 0; i < distribution.length; i++) {
+    double curVal = distribution[i];
+    if (curVal > val) {
+      if (min == -1) {
+        min = i;
+      }
+      max = i;
+      break;
+    }
+    if (curVal == val && min == -1) {
+      min = i;
+    }
+  }
+  return [min, max];
 }
 
 public Res getResult(string[string] game) {
