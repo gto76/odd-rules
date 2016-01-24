@@ -14,6 +14,8 @@ import profit;
 import rule;
 import season;
 
+bool DEBUG = false;
+
 public static const bool USE_AVERAGE_ODDS = true;
 public static const string BETBRAIN_AVERAGE = "BbAv";
 public static const string BETBRAIN_MAX = "BbMx";
@@ -69,14 +71,12 @@ private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season)
   if (otherParameterBounds[0] == -1) {
     return false;
   }
-  if (teamRule.numericOperator == NumericOperator.lt) {
+  if (teamRule.numericOperator == NumericOperator.LT) {
     return parameterBounds[0] < otherParameterBounds[1] + teamRule.constant;
   } else {
     return parameterBounds[1] >= otherParameterBounds[0] + teamRule.constant;
   }
 }
-
-bool DEBUG = true;
 
 /*
  * Return value -1 means that parameter doesn't exist, so the rule does not apply.
@@ -103,7 +103,8 @@ private double[] getParametersBounds(Parameter param, string[string] game, Seaso
 
 // TODO for whole seasons (param)
 private double getValue(Parameter param, string[string] game, Season season) {
-  string teamName = getTeamName(game, param.team);
+  Team team = ATTRIBUTES_TEAM[param.name];
+  string teamName = getTeamName(game, team);
   int position = countUntil(season.games, game);
   int counter = param.numberOfGames;
   if (param.numberOfGames == 0) {
@@ -147,7 +148,11 @@ private void printData(Season season, Parameter param, double[] distribution, do
   writeln("$$$ distribution len "~to!string(distribution.length));
   writeln("$$$ val "~to!string(val));
   writeln("$$$ abs bounds "~to!string(absBounds));
-  writeln("$$$ rel bounds "~to!string(relBounds));
+  write("$$$ rel bounds [ ");
+  foreach (bound; relBounds) {
+    writef("%.2f ", bound);
+  }
+  writeln("]");
   writeln();
 }
 

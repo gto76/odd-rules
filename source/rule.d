@@ -3,11 +3,14 @@ module rule;
 import std.stdio;
 import std.string;
 import std.array;
+import std.random;
 import std.range;
 import std.conv;
 import std.csv;
 import std.algorithm;
 import std.typecons;
+
+import season;
 
 ///////////
 // ENUMS //
@@ -15,7 +18,7 @@ import std.typecons;
 
 enum Team { H, A }
 enum Res { H, D, A }
-enum NumericOperator { lt = "<", mt = ">" }
+enum NumericOperator { LT = "<", MT = ">" }
 enum LogicOperator { AND, OR }
 
 
@@ -140,10 +143,10 @@ class TeamRule {
  */
 class Parameter {
   string name;
-  Team team;
+//  Team team;
   int numberOfGames;
-  this(string name, Team team, int numberOfGames) {
-    this.team = team;
+  this(string name, /+Team team,+/ int numberOfGames) {
+//    this.team = team;
     this.name = name;
     this.numberOfGames = numberOfGames;
   }
@@ -155,10 +158,69 @@ class Parameter {
       return false;
     }
     Parameter other = cast(Parameter) o;
-    return other.team == this.team && other.team == this.team
+    return other.name == this.name /+&& other.team == this.team+/
            && other.numberOfGames == this.numberOfGames;
   }
   override string toString() {
-    return  "(" ~ ["\""~name~"\"", to!string(team), to!string(numberOfGames)].join(", ") ~ ")";
+    return  "(" ~ ["\""~name~"\"", /+to!string(team),+/ to!string(numberOfGames)].join(", ") ~ ")";
+  }
+}
+
+
+Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
+//  Rule rule = new Rule(
+//      [new DiscreteRule("country", ["germany", "england"])],
+//      [new TeamRule(new Parameter("AC", /+Team.A,+/ 3), NumericOperator.lt, null, 0.7), // corners
+//       new TeamRule(new Parameter("HF", /+Team.H,+/ 5), NumericOperator.mt, null, 0.3)], // fouls
+//      [LogicOperator.AND]);
+
+  TeamRule[] teamRules;
+  LogicOperator[] operators;
+  int noOfTeamRules = uniform(1, 4);
+
+  foreach (i; 0 .. noOfTeamRules) {
+    auto firstParameter = getRandomParameter(attributes, widestWindow);
+    auto operator = getRandomNumericOperator();
+    Parameter secondParameter = getRandomOptionalParameter(attributes, widestWindow);
+    double constant = cast(double) uniform(0, 101) / 100;
+    teamRules ~= new TeamRule(firstParameter, operator, secondParameter, constant);
+  }
+
+  foreach (i; 0 .. noOfTeamRules-1) {
+    operators ~= getRandomOperator();
+  }
+
+  return new Rule([new DiscreteRule("sport", ["football"]),
+                   new DiscreteRule("country", ["germany", "england"])],
+                   teamRules, operators);
+}
+
+Parameter getRandomParameter(string[] attributes, int widestWindow) {
+  string attribute = attributes[uniform(0, attributes.length)];
+  int windowSize = uniform(1, widestWindow+1);
+  return new Parameter(attribute, windowSize);
+}
+
+NumericOperator getRandomNumericOperator() {
+  if (uniform(0,2) == 0) {
+    return NumericOperator.MT;
+  } else {
+    return NumericOperator.LT;
+  }
+}
+
+Parameter getRandomOptionalParameter(string[] attributes, int widestWindow) {
+  if (uniform(0,2) == 0) {
+    return null;
+  } else {
+    return getRandomParameter(attributes, widestWindow);
+  }
+}
+
+LogicOperator getRandomOperator() {
+  if (uniform(0,2) == 0) {
+    return LogicOperator.AND;
+  } else {
+    return LogicOperator.OR;
   }
 }

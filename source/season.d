@@ -20,6 +20,8 @@ import rule;
  * double, double, double, double, int, double, double, double, double, double)))
  */
 
+string[] SEASON_FEATURES = ["sport", "country", "league", "season"];
+
 class Season {
   string[string] features;
   string[] header;
@@ -153,13 +155,12 @@ public Season[] loadSeasonsFromDir(string dir) {
 }
 
 private string[string] getSeasonsFeatures(string fileName) {
-  string[] header = ["sport", "country", "league", "season"];
   int i = 0;
   string[string] features;
   string fileNameNoExtension = split(fileName, ".")[0];
   fileNameNoExtension = split(fileNameNoExtension, "\\")[1];
   foreach(feature; split(fileNameNoExtension, "-")) {
-    features[header[i++]] = to!string(feature);
+    features[SEASON_FEATURES[i++]] = to!string(feature);
   }
   return features;
 }
@@ -179,7 +180,7 @@ public bool seasonFitsTheRule(Season season, Rule rule) {
 private bool ruleApplies(GeneralRule rule, string parameterValue) {
   if (typeid(rule) == typeid(DigitRule)) {
     DigitRule digitRule = cast(DigitRule) rule;
-    if (digitRule.numericOperator == NumericOperator.lt) {
+    if (digitRule.numericOperator == NumericOperator.LT) {
       return to!double(parameterValue) < digitRule.constant;
     } else {
       return to!double(parameterValue) >= digitRule.constant;
