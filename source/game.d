@@ -64,11 +64,11 @@ private bool ruleAplies(string[string] game, Season season, Rule rule) {
 
 private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season) {
   double[] parameterBounds = getParametersBounds(teamRule.parameter, game, season);
-  if (parameterBounds[0] == -1) {
+  if (parameterBounds is null) {
     return false;
   }
   double[] otherParameterBounds = getParametersBounds(teamRule.otherParameter, game, season);
-  if (otherParameterBounds[0] == -1) {
+  if (otherParameterBounds is null) {
     return false;
   }
   if (teamRule.numericOperator == NumericOperator.LT) {
@@ -79,7 +79,7 @@ private bool evalTeamRule(TeamRule teamRule, string[string] game, Season season)
 }
 
 /*
- * Return value -1 means that parameter doesn't exist, so the rule does not apply.
+ * Return value null means that parameter doesn't exist, so the rule does not apply.
  * If parameter is null, it returns 0, so that a team rule without a parameter on the right side
  * of expresion can be defined.
  */
@@ -88,9 +88,12 @@ private double[] getParametersBounds(Parameter param, string[string] game, Seaso
     return [0, 0];
   }
   double[] distribution = getDistribution(season, param);
+  if (distribution is null) {
+    return null;
+  }
   double val = getValue(param, game, season); //to!double(game[param.name]);
   if (val == double.nan) {
-    return [-1];
+    return null;
   }
   int[] absBounds = getAbsoluteBounds(distribution, val);
   double[] relBounds = [cast(double) absBounds[0] / distribution.length,
@@ -116,6 +119,9 @@ private double getValue(Parameter param, string[string] game, Season season) {
     string[string] pastGame = season.games[i];
     if (teamInGame(pastGame, teamName)) {
       string attribute = getTeamsAttribute(teamName, pastGame, param.name);
+      if (attribute !in pastGame || pastGame[attribute] == "") {
+        return double.nan;
+      }
       sum += to!double(pastGame[attribute]);
       if (--counter == 0) {
         break;

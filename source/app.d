@@ -44,9 +44,9 @@ void main(string[] args) {
     }
     Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);
     ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
-    if (profitAndOccurances.occurances < OCCURANCE_TRESHOLD) {
-      continue;
-    }
+//    if (profitAndOccurances.occurances < OCCURANCE_TRESHOLD) {
+//      continue;
+//    }
     double profit = profitAndOccurances.getMaxProfit();
     if (profit < 0.2) {
       continue;

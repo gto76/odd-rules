@@ -119,6 +119,7 @@ class TeamRule {
     res ~= numericOperator;
     if (otherParameter !is null) {
       res ~= otherParameter.toString();
+      res ~= "+";
     }
     if (constant != 0) {
       res ~= to!string(constant);
@@ -166,7 +167,6 @@ class Parameter {
   }
 }
 
-
 Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
 //  Rule rule = new Rule(
 //      [new DiscreteRule("country", ["germany", "england"])],
@@ -190,8 +190,8 @@ Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
     operators ~= getRandomOperator();
   }
 
-  return new Rule([new DiscreteRule("sport", ["football"]),
-                   new DiscreteRule("country", ["germany", "england"])],
+  return new Rule([new DiscreteRule("sport", ["football"])/+,
+                   new DiscreteRule("country", ["germany", "england"])+/],
                    teamRules, operators);
 }
 

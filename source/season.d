@@ -21,6 +21,7 @@ import rule;
  */
 
 string[] SEASON_FEATURES = ["sport", "country", "league", "season"];
+bool USE_DISTRIBUTIONS_CACHE = false;
 
 class Season {
   string[string] features;
@@ -50,6 +51,9 @@ class Season {
       noOfGames = getSeasonLength();
     }
     auto distId = new DistributionId(param.name, noOfGames);
+    if (!USE_DISTRIBUTIONS_CACHE) {
+      return generateDistribution(distId);
+    }
     if (distId !in distributions) {
       distributions[distId] = generateDistribution(distId);
     }
@@ -59,7 +63,11 @@ class Season {
   private double[] generateDistribution(DistributionId distId) {
     double[] res;
     foreach (team; getTeams()) {
-      res ~= generateTeamsDistribution(team, distId);
+       double[] teamsDistribution = generateTeamsDistribution(team, distId);
+       if (teamsDistribution == null) {
+         return null;
+       }
+       res ~= teamsDistribution;
     }
     sort(res);
     return res;
@@ -75,6 +83,10 @@ class Season {
       foreach (j; i .. i + distId.numOfGames) {
         string[string] game = teamGames[j];
         string attribute = getTeamsAttribute(team, game, distId.name);
+        // writeln("attribute "~attribute~" team "~team);
+        if (attribute !in game) {
+          return null;
+        }
         sum += to!double(game[attribute]);
       }
       res ~= sum;
