@@ -57,7 +57,7 @@ void main(string[] args) {
 //    }
     writeln("\nRule: \n"~to!string(rule));
     writeln(profitAndOccurances);
-    break;
+//    break;
   }
 
   writeln("\nThe End");

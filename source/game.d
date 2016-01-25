@@ -1,5 +1,6 @@
 module game;
 
+import core.exception;
 import std.algorithm;
 import std.array;
 import std.conv;
@@ -54,12 +55,17 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
     }
     foreach (game; season.games) {
       if (ruleAplies(game, season, rule)) {
-        pao.occurances++;
-        Res res = getResult(game);
+        Res res;
+        try {
+          res = getResult(game);
+        } catch (Exception e) {
+          continue;
+        }
         double profit = getProfit(game);
         if (profit == double.nan) {
-          return null;
+          continue;
         }
+        pao.occurances++;
         setProfit(pao, res, profit);
       }
     }
@@ -69,17 +75,24 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
 
 private bool ruleAplies(/+string[string]+/ Game game, Season season, Rule rule) {
   bool result = false;
-  foreach (val; zip(LogicOperator.OR ~ rule.logicOperators, rule.teamRules)) {
-    auto operator = val[0];
-    auto teamRule = val[1];
-    bool teamRuleEval = evalTeamRule(teamRule, game, season);
-    if (operator == LogicOperator.OR) {
-      result = result || teamRuleEval;
-    } else if (operator == LogicOperator.AND) {
-      if (!teamRuleEval) {
-        return false;
+  try {
+    foreach (val; zip(LogicOperator.OR ~ rule.logicOperators, rule.teamRules)) {
+      auto operator = val[0];
+      auto teamRule = val[1];
+      bool teamRuleEval = evalTeamRule(teamRule, game, season);
+      if (operator == LogicOperator.OR) {
+        result = result || teamRuleEval;
+      } else if (operator == LogicOperator.AND) {
+        if (!teamRuleEval) {
+          return false;
+        }
       }
     }
+  } catch(RangeError e) {
+    writeln("$$$ Range error");
+    writeln("Game "~to!string(game));
+    writeln("Season "~to!string(season));
+    writeln("Rule "~to!string(rule));
   }
   return result;
 }
@@ -205,6 +218,10 @@ private int[] getAbsoluteBounds(double[] distribution, double val) {
 
 public Res getResult(/+string[string]+/ Game game) {
   string sResult = game.sAttrs["FTR"];
+  if (sResult == "") {
+    throw new Exception("Result not present in game "~to!string(game.sAttrs));
+    // writeln("Game doesent have a result "~to!string(game.sAttrs));
+  }
   return to!Res(sResult);
 }
 

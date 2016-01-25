@@ -38,16 +38,55 @@ class ProfitAndOccurances {
     return max;
   }
 
+  class ProfitPerResult {
+    Res result;
+    double profit;
+    this(Res result, double profit) {
+      this.result = result;
+      this.profit = profit;
+    }
+    override bool opEquals(Object o) {
+      if (o is null) {
+        return false;
+      }
+      if (typeid(o) != typeid(ProfitPerResult)) {
+        return false;
+      }
+      ProfitPerResult other = cast(ProfitPerResult) o;
+      return other.profit == this.profit;
+    }
+    override int opCmp(Object o) {
+      ProfitPerResult other = cast(ProfitPerResult) o;
+      if (this.profit < other.profit) {
+        return -1;
+      }
+      if (this.profit > other.profit) {
+        return 1;
+      }
+      return 0;
+    }
+    override string toString() {
+      auto w = appender!string();
+      auto spec = singleSpec("%.2f");
+      w.put(to!string(result));
+      w.put(": ");
+      formatElement(w, profit, spec);
+      return w.data;
+    }
+  }
+
   override public string toString() {
+    ProfitPerResult[] profits = [ new ProfitPerResult(Res.H, getAvgProfit(Res.H)),
+                                  new ProfitPerResult(Res.D, getAvgProfit(Res.D)),
+                                  new ProfitPerResult(Res.A, getAvgProfit(Res.A))];
+    sort(profits);
+    reverse(profits);
     auto w = appender!string();
-    auto spec = singleSpec("%.2f");
-    w.put("H: ");
-    append(w, spec, Res.H);
-    w.put(" D: ");
-    append(w, spec, Res.D);
-    w.put(" A: ");
-    append(w, spec, Res.A);
-    w.put(" occ: ");
+    foreach (profit; profits) {
+      w.put(to!string(profit));
+      w.put(" ");
+    }
+    w.put("occ: ");
     w.put(to!string(occurances));
     return w.data;
   }
@@ -69,6 +108,13 @@ public double getProfit(/+string[string]+/ Game game) {
     columnBase = BETBRAIN_MAX;
   }
   string column = columnBase ~ to!string(result);
+  if (column !in game.dAttrs) {
+    // No Betbrain attribute.
+    return double.nan;
+//    writeln("$$$ No wining odd");
+//    writeln("$$$ Game sAttrs "~to!string(game.sAttrs));
+//    writeln("$$$ Game dAttrs "~to!string(game.dAttrs));
+  }
   return game.dAttrs[column];
 //  string sProfit = game.dAttrs[column];
 //  if (sProfit == "") {
