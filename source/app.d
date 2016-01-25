@@ -18,7 +18,7 @@ import averages;
 // MAIN //
 //////////
 
-int NUM_OF_RUNS = 100;
+int NUM_OF_RUNS = 100000;
 string[] ATTRIBUTES = ["FTHG", "FTAG", "HTHG", "HTAG", "HS", "AS", "HST", "AST", "HF", "AF", "HC",
                        "AC", "HY", "AY", "HR", "AR"];
 int WIDEST_WINDOW = 10;
@@ -28,6 +28,8 @@ void main(string[] args) {
 
   Season[] seasons = loadSeasonsFromDir("csv");
   linkSeasons(seasons);
+
+  RuleAndProfit[] bestResults;
 
   foreach (i; 1 .. NUM_OF_RUNS) {
     write("#");
@@ -44,14 +46,51 @@ void main(string[] args) {
       continue;
     }
     double profit = profitAndOccurances.getMaxProfit();
-//    if (profit < 0.2) {
-//      continue;
-//    }
-    writeln("\nRule: \n"~to!string(rule));
-    writeln(profitAndOccurances);
+    if (profit < 0.4) {
+      continue;
+    }
+    RuleAndProfit rap = new RuleAndProfit(rule, profitAndOccurances);
+    bestResults ~= rap;
+    sort(bestResults);
+    writeln();
+    writeln(to!string(bestResults));
+    writeln();
+
 //    break;
   }
   writeln("\nThe End");
+}
+
+class RuleAndProfit {
+  Rule rule;
+  ProfitAndOccurances pao;
+  this (Rule rule, ProfitAndOccurances pao) {
+    this.rule = rule;
+    this.pao = pao;
+  }
+  override bool opEquals(Object o) {
+    if (o is null) {
+      return false;
+    }
+    if (typeid(o) != typeid(RuleAndProfit)) {
+      return false;
+    }
+    RuleAndProfit other = cast(RuleAndProfit) o;
+    return other.pao.getMaxProfit() == this.pao.getMaxProfit();
+  }
+  override int opCmp(Object o) {
+    RuleAndProfit other = cast(RuleAndProfit) o;
+    if (this.pao.getMaxProfit() < other.pao.getMaxProfit()) {
+      return -1;
+    }
+    if (this.pao.getMaxProfit() > other.pao.getMaxProfit()) {
+      return 1;
+    }
+    return 0;
+  }
+  override string toString() {
+    return "\n" ~ to!string(rule) ~ "\n" ~ to!string(pao);
+  }
 }
 
 
