@@ -5,6 +5,7 @@ import std.algorithm;
 import std.array;
 import std.conv;
 import std.format;
+import std.math;
 import std.range;
 import std.regex;
 import std.stdio;
@@ -62,7 +63,7 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
           continue;
         }
         double profit = getProfit(game);
-        if (profit == double.nan) {
+        if (isNaN(profit)) {
           continue;
         }
         pao.occurances++;
@@ -127,7 +128,7 @@ private double[] getParametersBounds(Parameter param, /+string[string]+/ Game ga
     return null;
   }
   double val = getValue(param, game, season); //to!double(game[param.name]);
-  if (val == double.nan) {
+  if (isNaN(val)) {
     return null;
   }
   int[] absBounds = getAbsoluteBounds(distribution, val);

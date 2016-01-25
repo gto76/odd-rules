@@ -25,19 +25,11 @@ int WIDEST_WINDOW = 10;
 int OCCURANCE_TRESHOLD = 50;
 
 void main(string[] args) {
-  // Team rule needs to be updated. In case of specifiying for how many seasons in past we want to
-  // go.
-  // 0..2 = [0, 1]
-//  Rule rule = new Rule(
-//      [new DiscreteRule("country", ["germany", "england"])],
-//      [new TeamRule(new Parameter("AC", /+Team.A,+/ 3), NumericOperator.lt, null, 0.7), // corners
-//       new TeamRule(new Parameter("HF", /+Team.H,+/ 5), NumericOperator.mt, null, 0.3)], // fouls
-//      [LogicOperator.AND]);
 
   Season[] seasons = loadSeasonsFromDir("csv");
   linkSeasons(seasons);
 
-  foreach (i; 1..NUM_OF_RUNS) {
+  foreach (i; 1 .. NUM_OF_RUNS) {
     write("#");
     stdout.flush();
     if (i % 80 == 0) {
@@ -59,6 +51,15 @@ void main(string[] args) {
     writeln(profitAndOccurances);
 //    break;
   }
-
   writeln("\nThe End");
 }
+
+
+// Team rule needs to be updated. In case of specifiying for how many seasons in past we want to
+// go.
+// 0..2 = [0, 1]
+//  Rule rule = new Rule(
+//      [new DiscreteRule("country", ["germany", "england"])],
+//      [new TeamRule(new Parameter("AC", /+Team.A,+/ 3), NumericOperator.lt, null, 0.7), // corners
+//       new TeamRule(new Parameter("HF", /+Team.H,+/ 5), NumericOperator.mt, null, 0.3)], // fouls
+//      [LogicOperator.AND]);

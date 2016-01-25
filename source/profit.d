@@ -28,7 +28,7 @@ class ProfitAndOccurances {
   }
 
   public double getMaxProfit() {
-    double max = double.min_normal;
+    double max = -1000000;
     foreach (res; [Res.H, Res.D, Res.A]) {
       double val = getAvgProfit(res);
       if (val > max) {
