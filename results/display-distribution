@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Usage: display-distribution [FILE WITH RULES]
+# Draws a plot of rules profit and occurances.
+
+# Stops execution if any command fails.
+set -eo pipefail
+
+main() {
+  filename=$(mktemp)
+  cat "$1" \
+    | grep -v "sport" \
+    | sed 's/^.: //' \
+    | sed 's/ .*occ: /,/' \
+    | tr -d ']' \
+    | sed 's/,[^0-9]//' > "$filename"
+  ./display-graph.py "$filename"
+}
+
+main "$@"
