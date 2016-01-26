@@ -12,9 +12,8 @@ import std.conv;
 
 import game;
 import rule;
+import conf;
 
-string[] SEASON_FEATURES = ["sport", "country", "league", "season"];
-bool USE_DISTRIBUTIONS_CACHE = true;
 
 class Season {
   string[string] features;
@@ -248,48 +247,4 @@ public string getTeamsAttribute(string teamName, Game game, string origAtribute)
     return OTHER_TEAM_ATTRIBUTE[origAtribute];
   }
   return origAtribute;
-}
-
-const (Team[string]) ATTRIBUTES_TEAM;
-const (string[string]) OTHER_TEAM_ATTRIBUTE;
-
-static this() {
-  // TODO + result, reasult half time, odds
-  ATTRIBUTES_TEAM = [
-    "FTHG" : Team.H,
-    "FTAG" : Team.A,
-    "HTHG" : Team.H,
-    "HTAG" : Team.A,
-    "HS" : Team.H,
-    "AS" : Team.A,
-    "HST" : Team.H,
-    "AST" : Team.A,
-    "HF" : Team.H,
-    "AF" : Team.A,
-    "HC" : Team.H,
-    "AC" : Team.A,
-    "HY" : Team.H,
-    "AY" : Team.A,
-    "HR" : Team.H,
-    "AR" : Team.A
-  ];
-
-  OTHER_TEAM_ATTRIBUTE = [
-    "FTHG" : "FTAG",
-    "FTAG" : "FTHG",
-    "HTHG" : "HTAG",
-    "HTAG" : "HTHG",
-    "HS" : "AS",
-    "AS" : "HS",
-    "HST" : "AST",
-    "AST" : "HST",
-    "HF" : "AF",
-    "AF" : "HF",
-    "HC" : "AC",
-    "AC" : "HC",
-    "HY" : "AY",
-    "AY" : "HY",
-    "HR" : "AR",
-    "AR" : "HR"
-  ];
 }

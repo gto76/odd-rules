@@ -15,15 +15,7 @@ import std.typecons;
 import profit;
 import rule;
 import season;
-
-bool DEBUG = false;
-
-public static const bool USE_AVERAGE_ODDS = true;
-public static const string BETBRAIN_AVERAGE = "BbAv";
-public static const string BETBRAIN_MAX = "BbMx";
-
-public static const string[] STRING_ATTRIBUTES = [ "Div", "Date", "HomeTeam", "AwayTeam", "FTR",
-                                                   "HTR", "Referee" ];
+import conf;
 
 class Game {
   string[string] sAttrs;
@@ -225,20 +217,6 @@ public Res getResult(Game game) {
   }
   return to!Res(sResult);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -13,16 +13,11 @@ import profit;
 import rule;
 import season;
 import averages;
+import conf;
 
 //////////
 // MAIN //
 //////////
-
-int NUM_OF_RUNS = 100000;
-string[] ATTRIBUTES = ["FTHG", "FTAG", "HTHG", "HTAG", "HS", "AS", "HST", "AST", "HF", "AF", "HC",
-                       "AC", "HY", "AY", "HR", "AR"];
-int WIDEST_WINDOW = 10;
-int OCCURANCE_TRESHOLD = 50;
 
 void main(string[] args) {
 
@@ -93,7 +88,6 @@ class RuleAndProfit {
     return "\n" ~ to!string(rule) ~ "\n" ~ to!string(pao);
   }
 }
-
 
 // Team rule needs to be updated. In case of specifiying for how many seasons in past we want to
 // go.

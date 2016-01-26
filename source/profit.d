@@ -12,6 +12,7 @@ import std.typecons;
 
 import rule;
 import game;
+import conf;
 
 class ProfitAndOccurances {
   double[Res] profit;
