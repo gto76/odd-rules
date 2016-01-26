@@ -122,7 +122,7 @@ private bool evalTeamRule(TeamRule teamRule, /+string[string]+/ Game game, Seaso
  */
 private double[] getParametersBounds(Parameter param, /+string[string]+/ Game game, Season season) {
   if (param is null) {
-    return [0, 0];
+    return [0, 0]; // suspicious todo
   }
   double[] distribution = getDistribution(season, param);
   if (distribution is null) {
@@ -152,8 +152,9 @@ private double getValue(Parameter param, /+string[string]+/ Game game, Season se
   }
   double sum = 0;
   // TODO for current game
-  foreach_reverse (i; 0 .. position+1) {
-    /+string[string]+/ Game pastGame = season.games[i];
+  foreach_reverse (i; 0 .. position) { //+1 current game was included !!!!!!! TODO
+    /+string[string]+/
+    Game pastGame = season.games[i];
     if (teamInGame(pastGame, teamName)) {
       string attribute = getTeamsAttribute(teamName, pastGame, param.name);
       if (attribute !in pastGame.dAttrs /+|| pastGame.dAttrs[attribute] == ""+/) {

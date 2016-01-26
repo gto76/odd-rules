@@ -31,10 +31,11 @@ void main(string[] args) {
 
   RuleAndProfit[] bestResults;
 
+  int counter = 1;
   foreach (i; 1 .. NUM_OF_RUNS) {
     write("#");
     stdout.flush();
-    if (i % 80 == 0) {
+    if (counter++ % 80 == 0) {
       writeln();
     }
     Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);
@@ -46,7 +47,7 @@ void main(string[] args) {
       continue;
     }
     double profit = profitAndOccurances.getMaxProfit();
-    if (profit < 0.4) {
+    if (profit < 0.2) {
       continue;
     }
     RuleAndProfit rap = new RuleAndProfit(rule, profitAndOccurances);
@@ -55,7 +56,7 @@ void main(string[] args) {
     writeln();
     writeln(to!string(bestResults));
     writeln();
-
+    counter = 1;
 //    break;
   }
   writeln("\nThe End");
