@@ -75,7 +75,7 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
   return pao;
 }
 
-private bool ruleAplies(/+string[string]+/ Game game, Season season, Rule rule) {
+private bool ruleAplies(Game game, Season season, Rule rule) {
   bool result = false;
   try {
     foreach (val; zip(LogicOperator.OR ~ rule.logicOperators, rule.teamRules)) {
@@ -99,7 +99,7 @@ private bool ruleAplies(/+string[string]+/ Game game, Season season, Rule rule) 
   return result;
 }
 
-private bool evalTeamRule(TeamRule teamRule, /+string[string]+/ Game game, Season season) {
+private bool evalTeamRule(TeamRule teamRule, Game game, Season season) {
   double[] parameterBounds = getParametersBounds(teamRule.parameter, game, season);
   if (parameterBounds is null) {
     return false;
@@ -120,7 +120,7 @@ private bool evalTeamRule(TeamRule teamRule, /+string[string]+/ Game game, Seaso
  * If parameter is null, it returns 0, so that a team rule without a parameter on the right side
  * of expresion can be defined.
  */
-private double[] getParametersBounds(Parameter param, /+string[string]+/ Game game, Season season) {
+private double[] getParametersBounds(Parameter param, Game game, Season season) {
   if (param is null) {
     return [0, 0]; // suspicious todo
   }
@@ -128,7 +128,7 @@ private double[] getParametersBounds(Parameter param, /+string[string]+/ Game ga
   if (distribution is null) {
     return null;
   }
-  double val = getValue(param, game, season); //to!double(game[param.name]);
+  double val = getValue(param, game, season);
   if (isNaN(val)) {
     return null;
   }
@@ -142,7 +142,7 @@ private double[] getParametersBounds(Parameter param, /+string[string]+/ Game ga
 }
 
 // TODO for whole seasons (param)
-private double getValue(Parameter param, /+string[string]+/ Game game, Season season) {
+private double getValue(Parameter param, Game game, Season season) {
   Team team = ATTRIBUTES_TEAM[param.name];
   string teamName = getTeamName(game, team);
   int position = countUntil(season.games, game);
@@ -152,12 +152,11 @@ private double getValue(Parameter param, /+string[string]+/ Game game, Season se
   }
   double sum = 0;
   // TODO for current game
-  foreach_reverse (i; 0 .. position) { //+1 current game was included !!!!!!! TODO
-    /+string[string]+/
+  foreach_reverse (i; 0 .. position) {
     Game pastGame = season.games[i];
     if (teamInGame(pastGame, teamName)) {
       string attribute = getTeamsAttribute(teamName, pastGame, param.name);
-      if (attribute !in pastGame.dAttrs /+|| pastGame.dAttrs[attribute] == ""+/) {
+      if (attribute !in pastGame.dAttrs) {
         return double.nan;
       }
       sum += to!double(pastGame.dAttrs[attribute]);
@@ -173,11 +172,11 @@ private double getValue(Parameter param, /+string[string]+/ Game game, Season se
   return sum;
 }
 
-private bool teamInGame(/+string[string]+/ Game game, string teamName) {
+private bool teamInGame(Game game, string teamName) {
   return game.sAttrs["HomeTeam"] == teamName || game.sAttrs["AwayTeam"] == teamName;
 }
 
-private string getTeamName(/+string[string]+/ Game game, Team team) {
+private string getTeamName(Game game, Team team) {
   if (team == Team.H) {
     return game.sAttrs["HomeTeam"];
   } else {
@@ -219,11 +218,10 @@ private int[] getAbsoluteBounds(double[] distribution, double val) {
   return [min, max];
 }
 
-public Res getResult(/+string[string]+/ Game game) {
+public Res getResult(Game game) {
   string sResult = game.sAttrs["FTR"];
   if (sResult == "") {
     throw new Exception("Result not present in game "~to!string(game.sAttrs));
-    // writeln("Game doesent have a result "~to!string(game.sAttrs));
   }
   return to!Res(sResult);
 }

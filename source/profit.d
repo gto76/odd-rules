@@ -99,7 +99,7 @@ class ProfitAndOccurances {
 /*
  * Returns profit of winning option.
  */
-public double getProfit(/+string[string]+/ Game game) {
+public double getProfit(Game game) {
   Res result = getResult(game);
   string columnBase = "";
   if (USE_AVERAGE_ODDS) {
@@ -111,16 +111,8 @@ public double getProfit(/+string[string]+/ Game game) {
   if (column !in game.dAttrs) {
     // No Betbrain attribute.
     return double.nan;
-//    writeln("$$$ No wining odd");
-//    writeln("$$$ Game sAttrs "~to!string(game.sAttrs));
-//    writeln("$$$ Game dAttrs "~to!string(game.dAttrs));
   }
   return game.dAttrs[column];
-//  string sProfit = game.dAttrs[column];
-//  if (sProfit == "") {
-//    return double.nan;
-//  }
-//  return to!double(sProfit);
 }
 
 /*

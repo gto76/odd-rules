@@ -13,33 +13,21 @@ import std.conv;
 import game;
 import rule;
 
-/*
- * Coluld read the csv file like this, if we wanted a right types.
- * foreach(record; file.byLine.joiner("\n").csvReader!(Tuple!(string, string, string, string,
- * int, int , string, int , int, string, string, int, int, int, int, int, int , int, int, int,
- * int, int, int, double, double, int, double, double, double, double, double, double, double,
- * int, double, double, int, double, double, double, double, double, double, double, int , double,
- * double, double, double, double, int, double, double, double, double, double, double, int,
- * double, double, double, double, int, double, double, double, double, double)))
- */
-
 string[] SEASON_FEATURES = ["sport", "country", "league", "season"];
 bool USE_DISTRIBUTIONS_CACHE = true;
 
 class Season {
   string[string] features;
   string[] header;
-//  string[string][] games;
   Game[] games;
   Season lastSeason;
   // Cached values:
   private int seasonLength = -1;
   private string[] teams;
-//  private string[string][][string] teamsGames;
   private Game[][string] teamsGames;
   private double[][DistributionId] distributions;
 
-  this(string[string] features, string[] header, Game[] games) { // string[string][] games) {
+  this(string[string] features, string[] header, Game[] games) {
     this.features = features;
     this.header = header;
     this.games = games;
@@ -66,27 +54,23 @@ class Season {
   }
 
   private double[] generateDistribution(DistributionId distId) {
-//    double[] res;
     auto res = appender!(double[])();
     foreach (team; getTeams()) {
        double[] teamsDistribution = generateTeamsDistribution(team, distId);
        if (teamsDistribution == null) {
          return null;
        }
-//       res ~= teamsDistribution;
        res.put(teamsDistribution);
     }
     double[] resArray = res.data;
-//    sort(res);
     sort(resArray);
     return resArray;
   }
 
   private double[] generateTeamsDistribution(string team, DistributionId distId) {
-    //double[] res;
     auto res = appender!(double[])();
-    /+string[string][]+/ Game[] teamGames = getTeamsGames(team);
-      // TODO check range
+    Game[] teamGames = getTeamsGames(team);
+    // TODO check range
     foreach (i; 0 .. teamGames.length - distId.numOfGames-1) {
       double sum = 0;
       // TODO check range
@@ -96,17 +80,14 @@ class Season {
           writeln("$$$ j "~to!string(j)~" teamGames.length "~to!string(teamGames.length));
           exit(1);
         }
-        /+string[string]+/ Game game = teamGames[j];
+        Game game = teamGames[j];
         string attribute = getTeamsAttribute(team, game, distId.name);
-        // writeln("attribute "~attribute~" team "~team);
-        if (attribute !in game.dAttrs /+|| game[attribute] == ""+/) {
+        if (attribute !in game.dAttrs) {
           return null;
         }
-//        sum += to!double(game[attribute]);
         sum += game.dAttrs[attribute];
       }
       res.put(sum);
-//      res ~= sum;
     }
     return res.data;
   }
@@ -137,7 +118,7 @@ class Season {
     return teams;
   }
 
-  private Game[]/+string[string][]+/ getTeamsGames(string team) {
+  private Game[] getTeamsGames(string team) {
     if (team in teamsGames) {
       return teamsGames[team];
     }
@@ -185,10 +166,9 @@ public Season[] loadSeasonsFromDir(string dir) {
     writeln("$$$ Loading season file: "~fileName);
     auto file = File(fileName, "r");
     auto records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
-//    string[string][] games;
     Game[] games;
     foreach(record; records) {
-      games ~= new Game(record);//record;
+      games ~= new Game(record);
     }
     auto features = getSeasonsFeatures(fileName);
     auto season = new Season(features, records.header, games);
@@ -244,7 +224,7 @@ double[] getDistribution(Season season, Parameter param) {
   // TODO check range
   foreach_reverse (i; 1 .. -param.numberOfGames+1) {
     Season curSeason = season;
-  // TODO check range
+    // TODO check range
     foreach (j; 0 .. i) {
       curSeason = curSeason.lastSeason;
       if (curSeason is null) {
@@ -259,7 +239,7 @@ double[] getDistribution(Season season, Parameter param) {
 /*
  * Retrurns right attribute name, depending od wether the passed team plays at home or away.
  */
-public string getTeamsAttribute(string teamName, /+string[string]+/ Game game, string origAtribute) {
+public string getTeamsAttribute(string teamName, Game game, string origAtribute) {
   string homeTeam = game.sAttrs["HomeTeam"];
   string awayTeam = game.sAttrs["AwayTeam"];
   Team team = ATTRIBUTES_TEAM[origAtribute];
@@ -274,7 +254,7 @@ const (Team[string]) ATTRIBUTES_TEAM;
 const (string[string]) OTHER_TEAM_ATTRIBUTE;
 
 static this() {
-  // TODO + referee, result, reasult half time, odds
+  // TODO + result, reasult half time, odds
   ATTRIBUTES_TEAM = [
     "FTHG" : Team.H,
     "FTAG" : Team.A,

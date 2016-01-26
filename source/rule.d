@@ -21,7 +21,6 @@ enum Res { H, D, A }
 enum NumericOperator { LT = "<", MT = ">" }
 enum LogicOperator { AND, OR }
 
-
 //////////
 // RULE //
 //////////
@@ -36,9 +35,10 @@ class Rule {
     this.teamRules = teamRules;
     this.logicOperators = logicOperators;
   }
-  /**
-  * ("country" = ["germany", "england"]) AND (A, "corners", 0) < 0.5 AND (H, "fouls", 1) > 0.5
-  */
+  /*
+   * EXAMPLE:
+   * ("country" = ["germany", "england"]) AND (A, "corners", 0) < 0.5 AND (H, "fouls", 1) > 0.5
+   */
   override string toString() {
     string[] ret;
     foreach (val; generalRules) {
@@ -167,6 +167,7 @@ class Parameter {
   }
 }
 
+// EXAMPLE RULE:
 //  Rule rule = new Rule(
 //      [new DiscreteRule("country", ["germany", "england"])],
 //      [new TeamRule(new Parameter("AC", /+Team.A,+/ 3), NumericOperator.lt, null, 0.7), // corners
