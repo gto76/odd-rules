@@ -1,7 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="" />
+    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-belgium-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-belgium-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-belgium-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-belgium-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-belgium-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-belgium-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-belgium-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-belgium-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-england-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-england-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-england-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-1-2012.csv" afterPath="$PROJECT_DIR$/csv/football-england-1-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-1-2013.csv" afterPath="$PROJECT_DIR$/csv/football-england-1-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-1-2014.csv" afterPath="$PROJECT_DIR$/csv/football-england-1-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-2-1014.csv" afterPath="$PROJECT_DIR$/csv/football-england-2-1014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-2-2012.csv" afterPath="$PROJECT_DIR$/csv/football-england-2-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-2-2013.csv" afterPath="$PROJECT_DIR$/csv/football-england-2-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-2-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-2-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-3-2012.csv" afterPath="$PROJECT_DIR$/csv/football-england-3-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-3-2013.csv" afterPath="$PROJECT_DIR$/csv/football-england-3-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-3-2014.csv" afterPath="$PROJECT_DIR$/csv/football-england-3-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-3-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-3-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-4-2012.csv" afterPath="$PROJECT_DIR$/csv/football-england-4-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-4-2013.csv" afterPath="$PROJECT_DIR$/csv/football-england-4-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-4-2014.csv" afterPath="$PROJECT_DIR$/csv/football-england-4-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-4-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-4-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-france-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-france-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-france-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-france-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-1-2012.csv" afterPath="$PROJECT_DIR$/csv/football-france-1-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-1-2013.csv" afterPath="$PROJECT_DIR$/csv/football-france-1-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-1-2014.csv" afterPath="$PROJECT_DIR$/csv/football-france-1-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-france-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-germany-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-germany-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-germany-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-germany-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-1-2012.csv" afterPath="$PROJECT_DIR$/csv/football-germany-1-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-1-2013.csv" afterPath="$PROJECT_DIR$/csv/football-germany-1-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-1-2014.csv" afterPath="$PROJECT_DIR$/csv/football-germany-1-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-germany-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-greece-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-greece-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-greece-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-greece-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-greece-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-greece-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-greece-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-greece-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-italy-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-italy-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-italy-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-italy-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-1-2012.csv" afterPath="$PROJECT_DIR$/csv/football-italy-1-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-1-2013.csv" afterPath="$PROJECT_DIR$/csv/football-italy-1-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-1-2014.csv" afterPath="$PROJECT_DIR$/csv/football-italy-1-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-italy-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-netherland-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-netherland-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-netherland-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-netherland-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-netherland-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-netherland-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-netherland-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-netherland-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-portugal-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-portugal-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-portugal-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-portugal-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-portugal-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-portugal-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-portugal-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-portugal-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-1-2012.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-1-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-1-2013.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-1-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-1-2014.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-1-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-2-2012.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-2-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-2-2013.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-2-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-2-2014.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-2-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-2-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-2-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-3-2012.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-3-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-3-2013.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-3-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-3-2014.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-3-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-3-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-3-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-spain-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-spain-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-spain-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-spain-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-spain-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-spain-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-spain-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-spain-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-turkey-0-2012.csv" afterPath="$PROJECT_DIR$/csv/football-turkey-0-2012.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-turkey-0-2013.csv" afterPath="$PROJECT_DIR$/csv/football-turkey-0-2013.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-turkey-0-2014.csv" afterPath="$PROJECT_DIR$/csv/football-turkey-0-2014.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-turkey-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-turkey-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/odd-rules-4.iml" afterPath="$PROJECT_DIR$/odd-rules-4.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/game.d" afterPath="$PROJECT_DIR$/source/game.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/season.d" afterPath="$PROJECT_DIR$/source/season.d" />
+    </list>
     <ignored path="odd-rules-4.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,11 +113,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.d" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.1984536">
+              <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -42,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="averages.d" pinned="false" current-in-tab="true">
+      <file leaf-file-name="averages.d" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/averages.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14971977">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -66,7 +157,7 @@
         <entry file="file://$PROJECT_DIR$/source/season.d">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <caret line="167" column="16" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -76,7 +167,7 @@
         <entry file="file://$PROJECT_DIR$/source/game.d">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+              <caret line="139" column="6" selection-start-line="139" selection-start-column="6" selection-end-line="139" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -106,19 +197,18 @@
         <option value="$PROJECT_DIR$/source/averages.d" />
         <option value="$PROJECT_DIR$/source/rule.d" />
         <option value="$PROJECT_DIR$/source/const.d" />
-        <option value="$PROJECT_DIR$/source/app.d" />
-        <option value="$PROJECT_DIR$/source/season.d" />
-        <option value="$PROJECT_DIR$/source/game.d" />
         <option value="$PROJECT_DIR$/source/conf.d" />
         <option value="$PROJECT_DIR$/source/profit.d" />
+        <option value="$PROJECT_DIR$/source/game.d" />
+        <option value="$PROJECT_DIR$/source/season.d" />
+        <option value="$PROJECT_DIR$/source/app.d" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="47" />
-    <option name="y" value="48" />
-    <option name="width" value="1133" />
-    <option name="height" value="1409" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -207,7 +297,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -216,39 +305,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odd-rules-4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odd-rules-4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odd-rules-4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="odd-rules-4" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
-    <property name="dubPath" value="C:\Program Files (x86)\dub\dub.exe" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="dubPath" value="$USER_HOME$/Downloads/dub" />
     <property name="dubFlags" value="" />
     <property name="dscannerPath" value="" />
     <property name="dscannerFlags" value="" />
@@ -261,8 +327,17 @@
     <property name="dfixPath" value="" />
     <property name="dfixFlags" value="" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Build with DUB.Run DUB">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -414,6 +489,18 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -509,11 +596,11 @@
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Build with DUB.Run DUB" />
     </list>
-    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="" />
@@ -524,29 +611,31 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="47" y="48" width="1133" height="1409" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <editor active="false" />
     <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42235124" sideWeight="0.50714964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.64134693" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20130475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20069444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50870645" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280116" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -569,6 +658,150 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/source/app.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/rule.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/averages.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/profit.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/season.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="171" column="42" selection-start-line="171" selection-start-column="42" selection-end-line="171" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/game.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="139" column="6" selection-start-line="139" selection-start-column="6" selection-end-line="139" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/rule.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/averages.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/profit.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/season.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/game.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/rule.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/averages.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/profit.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/season.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/game.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/app.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -625,18 +858,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/season.d">
+    <entry file="file://$PROJECT_DIR$/source/conf.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding />
+        <state vertical-scroll-proportion="0.55804646">
+          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/game.d">
+    <entry file="file://$PROJECT_DIR$/source/app.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.1984536">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -649,6 +881,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/averages.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/profit.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -657,26 +897,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/conf.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55804646">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/app.d">
+    <entry file="file://$PROJECT_DIR$/source/season.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <caret line="167" column="16" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/averages.d">
+    <entry file="file://$PROJECT_DIR$/source/game.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14971977">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="139" column="6" selection-start-line="139" selection-start-column="6" selection-end-line="139" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -684,6 +916,64 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>odd-rules-4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ScopeChooserConfigurable.UI">
         <settings>
           <splitter-proportions>

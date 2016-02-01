@@ -42,9 +42,9 @@ void main(string[] args) {
       continue;
     }
     double profit = profitAndOccurances.getMaxProfit();
-    if (profit < 0.2) {
-      continue;
-    }
+//    if (profit < 0.2) {
+//      continue;
+//    }
     RuleAndProfit rap = new RuleAndProfit(rule, profitAndOccurances);
     bestResults ~= rap;
     sort(bestResults);

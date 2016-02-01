@@ -17,7 +17,7 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="DMD v2.069 SDK" project-jdk-type="DMD2 SDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="DMD v2.070 SDK" project-jdk-type="DMD2 SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

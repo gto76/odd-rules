@@ -21,7 +21,7 @@ class Season {
   Game[] games;
   Season lastSeason;
   // Cached values:
-  private int seasonLength = -1;
+  private ulong seasonLength = -1;
   private string[] teams;
   private Game[][string] teamsGames;
   private double[][DistributionId] distributions;
@@ -33,7 +33,7 @@ class Season {
   }
 
   public double[] getDistribution(Parameter param) {
-    int noOfGames = param.numberOfGames;
+    ulong noOfGames = param.numberOfGames;
     if (noOfGames > getSeasonLength()) {
       return null;
     }
@@ -91,7 +91,7 @@ class Season {
     return res.data;
   }
 
-  private int getSeasonLength() {
+  private ulong getSeasonLength() {
     if (seasonLength != -1) {
       return seasonLength;
     }
@@ -133,8 +133,8 @@ class Season {
 
   private class DistributionId {
     string name;
-    int numOfGames;
-    this(string name, int numOfGames) {
+    ulong numOfGames;
+    this(string name, ulong numOfGames) {
       this.name = name;
       this.numOfGames = numOfGames;
     }
@@ -181,7 +181,8 @@ private string[string] getSeasonsFeatures(string fileName) {
   int i = 0;
   string[string] features;
   string fileNameNoExtension = split(fileName, ".")[0];
-  fileNameNoExtension = split(fileNameNoExtension, "\\")[1];
+//  writeln("file "~fileNameNoExtension);
+  fileNameNoExtension = split(fileNameNoExtension, "/")[1];
   foreach(feature; split(fileNameNoExtension, "-")) {
     features[SEASON_FEATURES[i++]] = to!string(feature);
   }
