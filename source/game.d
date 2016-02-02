@@ -103,10 +103,6 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
   return pao;
 }
 
-///////////////
-// FUNCTIONS //
-///////////////
-
 private bool ruleAplies(Game game, Season season, Rule rule) {
   bool result = false;
   try {

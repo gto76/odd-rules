@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/source/profit.d" afterPath="$PROJECT_DIR$/source/profitAndOccurances.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/game.d" afterPath="$PROJECT_DIR$/source/game.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/profit.d" afterPath="$PROJECT_DIR$/source/profit.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/rule.d" afterPath="$PROJECT_DIR$/source/rule.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/season.d" afterPath="$PROJECT_DIR$/source/season.d" />
     </list>
     <ignored path="odd-rules-4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,31 +27,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.d" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.40199336">
+              <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rule.d" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rule.d" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/rule.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3820598">
-              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+            <state vertical-scroll-proportion="-10.814815">
+              <caret line="63" column="14" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profit.d" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/profit.d">
+      <file leaf-file-name="profitAndOccurances.d" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
+            <state vertical-scroll-proportion="-10.814815">
+              <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -72,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/source/game.d">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+              <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,16 +101,17 @@
         <option value="$PROJECT_DIR$/source/const.d" />
         <option value="$PROJECT_DIR$/source/conf.d" />
         <option value="$PROJECT_DIR$/source/averages.d" />
-        <option value="$PROJECT_DIR$/source/app.d" />
         <option value="$PROJECT_DIR$/source/season.d" />
-        <option value="$PROJECT_DIR$/source/game.d" />
         <option value="$PROJECT_DIR$/source/rule.d" />
         <option value="$PROJECT_DIR$/source/profit.d" />
+        <option value="$PROJECT_DIR$/source/game.d" />
+        <option value="$PROJECT_DIR$/source/profitAndOccurances.d" />
+        <option value="$PROJECT_DIR$/source/app.d" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1585" />
+    <option name="x" value="1588" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="1023" />
@@ -127,34 +127,37 @@
             <id>Code style issuesJava</id>
           </State>
           <State>
-            <id>Control FlowGroovy</id>
-          </State>
-          <State>
-            <id>Control flow issuesJava</id>
+            <id>Concurrency annotation issuesJava</id>
           </State>
           <State>
             <id>General</id>
           </State>
           <State>
-            <id>Groovy</id>
+            <id>ImportsJava</id>
           </State>
           <State>
             <id>Inheritance issuesJava</id>
           </State>
           <State>
+            <id>Internationalization issuesJava</id>
+          </State>
+          <State>
+            <id>JUnit issuesJava</id>
+          </State>
+          <State>
             <id>Java</id>
           </State>
           <State>
-            <id>Java language level issuesJava</id>
+            <id>Javadoc issuesJava</id>
           </State>
           <State>
-            <id>Java language level migration aidsJava</id>
+            <id>Logging issuesJava</id>
           </State>
           <State>
-            <id>Naming conventionsJava</id>
+            <id>Numeric issuesJava</id>
           </State>
           <State>
-            <id>Performance issuesJava</id>
+            <id>Portability issuesJava</id>
           </State>
           <State>
             <id>Probable bugsJava</id>
@@ -163,13 +166,19 @@
             <id>Properties Files</id>
           </State>
           <State>
-            <id>Threading issuesGroovy</id>
+            <id>RELAX NG</id>
+          </State>
+          <State>
+            <id>Resource management issuesJava</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
           </State>
           <State>
             <id>Threading issuesJava</id>
           </State>
           <State>
-            <id>Visibility issuesJava</id>
+            <id>XPath</id>
           </State>
           <State>
             <id>XSLT</id>
@@ -243,7 +252,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Other File Types" />
     <property name="dubPath" value="$USER_HOME$/Downloads/dub" />
     <property name="dubFlags" value="" />
     <property name="dscannerPath" value="" />
@@ -544,11 +553,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454372843014</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Comments">
+      <created>1454423312546</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1454423312546</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1585" y="23" width="1440" height="1023" extended-state="0" />
+    <frame x="1588" y="23" width="1440" height="1023" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -558,10 +573,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42235124" sideWeight="0.50714964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41485274" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60902256" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2067239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280116" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -572,7 +588,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280116" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -588,7 +603,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refacture" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refacture" />
+    <MESSAGE value="Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -615,7 +631,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/profit.d">
+    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
@@ -655,7 +671,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/profit.d">
+    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
@@ -695,7 +711,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/profit.d">
+    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
@@ -735,7 +751,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/profit.d">
+    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
@@ -775,7 +791,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/profit.d">
+    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
@@ -815,14 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/app.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/season.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -834,23 +842,31 @@
     <entry file="file://$PROJECT_DIR$/source/game.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/profit.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
+          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/rule.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3820598">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state vertical-scroll-proportion="-10.814815">
+          <caret line="63" column="14" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.814815">
+          <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40199336">
+          <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
           <folding />
         </state>
       </provider>

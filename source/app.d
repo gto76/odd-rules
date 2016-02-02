@@ -41,11 +41,12 @@ void main(string[] args) {
       continue;
     }
     double profit = profitAndOccurances.getMaxProfit();
-//    if (profit < 0.2) {
-//      continue;
-//    }
+    if (profit < 0.0) {
+      continue;
+    }
     RuleAndProfit rap = new RuleAndProfit(rule, profitAndOccurances);
     bestResults ~= rap;
+    bestResults = getNondominatedSolutions(bestResults);
     sort(bestResults);
     writeln();
     writeln(to!string(bestResults));
@@ -55,6 +56,24 @@ void main(string[] args) {
   }
   writeln("\nThe End");
 }
+
+RuleAndProfit[] getNondominatedSolutions(RuleAndProfit[] results) {
+  sort(results);
+  reverse(results);
+  auto ret = appender!(RuleAndProfit[])();
+  int maxOcc = int.min;
+  foreach (rap; results) {
+    if (rap.pao.occurances > maxOcc) {
+      maxOcc = rap.pao.occurances;
+      ret.put(rap);
+    }
+  }
+  return ret.data;
+}
+
+/////////////////////
+// RULE AND PROFIT //
+/////////////////////
 
 class RuleAndProfit {
   Rule rule;
