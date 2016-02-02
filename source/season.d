@@ -14,6 +14,9 @@ import game;
 import rule;
 import conf;
 
+////////////
+// SEASON //
+////////////
 
 class Season {
   string[string] features;
@@ -154,6 +157,10 @@ class Season {
     }
   }
 }
+
+///////////////
+// FUNCTIONS //
+///////////////
 
 /*
  * Reads all csv files in directory, and creates a Season object

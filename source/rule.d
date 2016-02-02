@@ -60,9 +60,9 @@ class Rule {
   }
 }
 
-//////////////////
-// GENERAL RULE //
-//////////////////
+/////////////////
+// LEAGUE RULE //
+/////////////////
 
 abstract class GeneralRule {
   string parameter;

@@ -17,6 +17,10 @@ import rule;
 import season;
 import conf;
 
+//////////
+// GAME //
+//////////
+
 class Game {
   string[string] sAttrs;
   double[string] dAttrs;
@@ -61,6 +65,10 @@ class Game {
     return dAttrs[column];
   }
 }
+
+///////////////
+// FUNCTIONS //
+///////////////
 
 /*
  * Returns profit and occurances for all games of passed seasons, that apply to

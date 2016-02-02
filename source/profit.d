@@ -14,6 +14,10 @@ import rule;
 import game;
 import conf;
 
+///////////////////////////
+// PROFIT AND OCCURANCES //
+///////////////////////////
+
 class ProfitAndOccurances {
   double[Res] profit;
   int occurances = 0;
@@ -78,7 +82,9 @@ class ProfitAndOccurances {
     return w.data;
   }
 
-  // Private utility class for nicer prnting.
+  /*
+   * Private utility class for nicer prnting.
+   */
   private class ProfitPerResult {
     Res result;
     double profit;
