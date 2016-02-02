@@ -20,6 +20,7 @@ import conf;
 class Game {
   string[string] sAttrs;
   double[string] dAttrs;
+
   this(string[string] attrs) {
     foreach (key, value; attrs) {
       if (STRING_ATTRIBUTES.canFind(key)) {
@@ -31,6 +32,33 @@ class Game {
         dAttrs[key] = to!double(value);
       }
     }
+  }
+
+  public Res getResult() {
+    string sResult = sAttrs["FTR"];
+    if (sResult == "") {
+      throw new Exception("Result not present in game "~to!string(sAttrs));
+    }
+    return to!Res(sResult);
+  }
+
+  /*
+   * Returns profit of winning option.
+   */
+  public double getProfit() {
+    Res result = getResult();
+    string columnBase = "";
+    if (USE_AVERAGE_ODDS) {
+      columnBase = BETBRAIN_AVERAGE;
+    } else {
+      columnBase = BETBRAIN_MAX;
+    }
+    string column = columnBase ~ to!string(result);
+    if (column !in dAttrs) {
+      // No Betbrain attribute.
+      return double.nan;
+    }
+    return dAttrs[column];
   }
 }
 
@@ -51,21 +79,25 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
       if (ruleAplies(game, season, rule)) {
         Res res;
         try {
-          res = getResult(game);
+          res = game.getResult();
         } catch (Exception e) {
           continue;
         }
-        double profit = getProfit(game);
+        double profit = game.getProfit();
         if (isNaN(profit)) {
           continue;
         }
         pao.occurances++;
-        setProfit(pao, res, profit);
+        pao.setProfit(res, profit);
       }
     }
   }
   return pao;
 }
+
+///////////////
+// FUNCTIONS //
+///////////////
 
 private bool ruleAplies(Game game, Season season, Rule rule) {
   bool result = false;
@@ -210,13 +242,6 @@ private int[] getAbsoluteBounds(double[] distribution, double val) {
   return [min, max];
 }
 
-public Res getResult(Game game) {
-  string sResult = game.sAttrs["FTR"];
-  if (sResult == "") {
-    throw new Exception("Result not present in game "~to!string(game.sAttrs));
-  }
-  return to!Res(sResult);
-}
 
 
 

@@ -12,7 +12,6 @@ import game;
 import profit;
 import rule;
 import season;
-import averages;
 import conf;
 
 //////////

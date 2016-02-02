@@ -167,6 +167,10 @@ class Parameter {
   }
 }
 
+///////////////////////////
+// RANDOM RULE GENERATOR //
+///////////////////////////
+
 // EXAMPLE RULE:
 //  Rule rule = new Rule(
 //      [new DiscreteRule("country", ["germany", "england"])],
@@ -174,11 +178,9 @@ class Parameter {
 //       new TeamRule(new Parameter("HF", /+Team.H,+/ 5), NumericOperator.mt, null, 0.3)], // fouls
 //      [LogicOperator.AND]);
 Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
-
   TeamRule[] teamRules;
   LogicOperator[] operators;
   int noOfTeamRules = uniform(1, 4);
-
   foreach (i; 0 .. noOfTeamRules) {
     auto firstParameter = getRandomParameter(attributes, widestWindow);
     auto operator = getRandomNumericOperator();
@@ -186,11 +188,9 @@ Rule getRandomRule(Season[] seasons, string[] attributes, int widestWindow) {
     double constant = cast(double) uniform(0, 101) / 100;
     teamRules ~= new TeamRule(firstParameter, operator, secondParameter, constant);
   }
-
   foreach (i; 0 .. noOfTeamRules-1) {
     operators ~= getRandomOperator();
   }
-
   return new Rule([new DiscreteRule("sport", ["football"])/+,
                    new DiscreteRule("country", ["germany", "england"])+/],
                    teamRules, operators);

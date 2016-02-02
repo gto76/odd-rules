@@ -24,6 +24,25 @@ class ProfitAndOccurances {
     profit[Res.A] = 0;
   }
 
+  /*
+   * Updates profit for all outcomes.
+   */
+  public void setProfit(Res res, double profitIn) {
+    if (res == Res.H) {
+      profit[Res.H] += profitIn-1;
+      profit[Res.D] -= 1;
+      profit[Res.A] -= 1;
+    } else if (res == Res.D) {
+      profit[Res.H] -= 1;
+      profit[Res.D] += profitIn-1;
+      profit[Res.A] -= 1;
+    } else if (res == Res.A) {
+      profit[Res.H] -= 1;
+      profit[Res.D] -= 1;
+      profit[Res.A] += profitIn-1;
+    }
+  }
+
   public double getAvgProfit(Res res) {
     return profit[res] / occurances;
   }
@@ -39,7 +58,28 @@ class ProfitAndOccurances {
     return max;
   }
 
-  class ProfitPerResult {
+  private void append(Appender!string w, FormatSpec!char spec, Res res) {
+    formatElement(w, getAvgProfit(res), spec);
+  }
+
+  override public string toString() {
+    ProfitPerResult[] profits = [ new ProfitPerResult(Res.H, getAvgProfit(Res.H)),
+                                  new ProfitPerResult(Res.D, getAvgProfit(Res.D)),
+                                  new ProfitPerResult(Res.A, getAvgProfit(Res.A))];
+    sort(profits);
+    reverse(profits);
+    auto w = appender!string();
+    foreach (profit; profits) {
+      w.put(to!string(profit));
+      w.put(" ");
+    }
+    w.put("occ: ");
+    w.put(to!string(occurances));
+    return w.data;
+  }
+
+  // Private utility class for nicer prnting.
+  private class ProfitPerResult {
     Res result;
     double profit;
     this(Res result, double profit) {
@@ -75,62 +115,6 @@ class ProfitAndOccurances {
       return w.data;
     }
   }
-
-  override public string toString() {
-    ProfitPerResult[] profits = [ new ProfitPerResult(Res.H, getAvgProfit(Res.H)),
-                                  new ProfitPerResult(Res.D, getAvgProfit(Res.D)),
-                                  new ProfitPerResult(Res.A, getAvgProfit(Res.A))];
-    sort(profits);
-    reverse(profits);
-    auto w = appender!string();
-    foreach (profit; profits) {
-      w.put(to!string(profit));
-      w.put(" ");
-    }
-    w.put("occ: ");
-    w.put(to!string(occurances));
-    return w.data;
-  }
-
-  private void append(Appender!string w, FormatSpec!char spec, Res res) {
-    formatElement(w, getAvgProfit(res), spec);
-  }
 }
 
-/*
- * Returns profit of winning option.
- */
-public double getProfit(Game game) {
-  Res result = getResult(game);
-  string columnBase = "";
-  if (USE_AVERAGE_ODDS) {
-    columnBase = BETBRAIN_AVERAGE;
-  } else {
-    columnBase = BETBRAIN_MAX;
-  }
-  string column = columnBase ~ to!string(result);
-  if (column !in game.dAttrs) {
-    // No Betbrain attribute.
-    return double.nan;
-  }
-  return game.dAttrs[column];
-}
 
-/*
- * Updated profits for all outcomes.
- */
-public void setProfit(ProfitAndOccurances pao, Res res, double profit) {
-  if (res == Res.H) {
-    pao.profit[Res.H] += profit-1;
-    pao.profit[Res.D] -= 1;
-    pao.profit[Res.A] -= 1;
-  } else if (res == Res.D) {
-    pao.profit[Res.H] -= 1;
-    pao.profit[Res.D] += profit-1;
-    pao.profit[Res.A] -= 1;
-  } else if (res == Res.A) {
-    pao.profit[Res.H] -= 1;
-    pao.profit[Res.D] -= 1;
-    pao.profit[Res.A] += profit-1;
-  }
-}
