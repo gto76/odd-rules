@@ -12,7 +12,7 @@ import std.stdio;
 import std.string;
 import std.typecons;
 
-import profit;
+import profitAndOccurances;
 import rule;
 import season;
 import conf;

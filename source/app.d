@@ -10,10 +10,11 @@ import std.string;
 import std.typecons;
 
 import game;
-import profit;
+import profitAndOccurances;
 import rule;
 import season;
 import conf;
+import ruleAndProfit;
 
 //////////
 // MAIN //
@@ -33,20 +34,14 @@ void main(string[] args) {
     if (counter++ % 80 == 0) {
       writeln();
     }
-    Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);
-    ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
-    if (profitAndOccurances is null) {
+    RuleAndProfit rap = getRandomRap(seasons);
+    if (rap is null ||
+        rap.pao.occurances < OCCURANCE_TRESHOLD ||
+        rap.pao.getMaxProfit() < 0.0) {
       continue;
     }
-    if (profitAndOccurances.occurances < OCCURANCE_TRESHOLD) {
-      continue;
-    }
-    double profit = profitAndOccurances.getMaxProfit();
-    if (profit < 0.0) {
-      continue;
-    }
-    RuleAndProfit rap = new RuleAndProfit(rule, profitAndOccurances);
     bestResults ~= rap;
+
 //    bestResults = getNondominatedSolutions(bestResults);
 //    sort(bestResults);
 //    writeln();
@@ -71,6 +66,90 @@ void main(string[] args) {
 ///////////////
 // FUNCTIONS //
 ///////////////
+
+//RuleAndProfit findLocalMinimum(RuleAndProfit[] nondominatedResults, RuleAndProfit result) {
+//  double min = getDistanceFromNondominatedLine(nondominatedResults, result);
+//
+//  // foreach teamRule in rule:
+//    // foreach parameter.numOfGames, otherParam.numOfGames, constant:
+//      Rule newRule = rule
+//      newRule.teamRules[i].parameter.numOfGames ++
+//      double distance = getDistanceFromNondominatedLine(nondominatedResults, result)...
+//      newRule.teamRules[i].parameter.numOfGames --
+//}
+
+//
+//private Problem<S> problem;
+//
+//public static final int TOURNAMENTS_ROUNDS = 1;
+//
+//private List<List<Double>> indicatorValues;
+//private double maxIndicatorValue;
+//
+//private int populationSize;
+//private int archiveSize;
+//private int maxEvaluations;
+//
+//private List<S> archive;
+//
+//private CrossoverOperator<S> crossoverOperator;
+//private MutationOperator<S> mutationOperator;
+//private SelectionOperator<List<S>, S> selectionOperator;
+//
+//private Fitness<S> solutionFitness = new Fitness<S>();
+//
+//public void run(int populationSize, Season[] seasons) {
+//  RuleAndProfit[] solutionSet;
+//  RuleAndProfit[] archive;
+//  int evaluations = 0;
+//
+//  // Creates the initial solutionSet.
+//  while (evaluations < populationSize) {
+//    Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);
+//    ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
+//    if (profitAndOccurances is null) {
+//      continue;
+//    }
+//    RuleAndProfit rap = new RuleAndProfit(rule, profitAndOccurances);
+//    solutionSet ~= rap;
+//    evaluations++;
+//  }
+//
+//  // ITERATION CONDITION:
+//  while (evaluations < maxEvaluations) {
+//    archive.addAll(solutionSet);
+//
+//    calculateFitness(archive);
+//    while (archive.size() > populationSize) {
+//      removeWorst(archive);
+//    }
+//    solutionSet.clear();
+//    while (solutionSet.size() < populationSize) {
+//      // SELECTION:
+//      S parent1 = selectionOperator.execute(archive);
+//      S parent2 = selectionOperator.execute(archive);
+//      List<S> parents = Arrays.asList(parent1, parent2);
+//      // CROSSOVER: p1 + p2 => c
+//      S child = crossoverOperator.execute(parents).get(0);
+//      // MUTATION: c => c`
+//      mutationOperator.execute(child);
+//      // EVALUATION:
+//      problem.evaluate(child);
+//      solutionSet.add(child);
+//      evaluations++;
+//    }
+//
+//  }
+//}
+
+RuleAndProfit getRandomRap(Season[] seasons) {
+  Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);
+  ProfitAndOccurances profitAndOccurances = getProfitAndOccurances(seasons, rule);
+  if (profitAndOccurances is null) {
+    return null;
+  }
+  return new RuleAndProfit(rule, profitAndOccurances);
+}
 
 RuleAndProfit[] getNondominatedSolutions(RuleAndProfit[] results) {
   sort(results);
@@ -126,20 +205,6 @@ double[][] getNondominatedPoints(RuleAndProfit[] nondominatedResults) {
   return points.data;
 }
 
-//RuleAndProfit getClosestPoint(RuleAndProfit[] nondominatedResults, RuleAndProfit result) {
-//  RuleAndProfit closestPoint;
-//  double minDistance = double.max;
-//  foreach (point; nondominatedResults) {
-//    double distance = (point.pao.getMaxProfit() - result.pao.getMaxProfit()) ^^ 2 +
-//                      ((point.pao.occurances - result.pao.occurances)/Y_AXIS_DIVIDER) ^^ 2;
-//    if (distance < minDistance) {
-//      minDistance = distance;
-//      closestPoint = point;
-//    }
-//  }
-//  return closestPoint;
-//}
-
 /*
  * Distance to segment.
  */
@@ -166,46 +231,11 @@ double dist2(double[] v, double[] w) {
   return (v[0] - w[0]) ^^ 2 + (v[1] - w[1]) ^^ 2;
 }
 
-/////////////////////
-// RULE AND PROFIT //
-/////////////////////
-
-class RuleAndProfit {
-  Rule rule;
-  ProfitAndOccurances pao;
-  this (Rule rule, ProfitAndOccurances pao) {
-    this.rule = rule;
-    this.pao = pao;
-  }
-//  override bool opEquals(Object o) {
-//    if (o is null) {
-//      return false;
-//    }
-//    if (typeid(o) != typeid(RuleAndProfit)) {
-//      return false;
-//    }
-//    RuleAndProfit other = cast(RuleAndProfit) o;
-//    return other.pao.getMaxProfit() == this.pao.getMaxProfit() &&
-//           other.pao.occuran
-//  }
-  override int opCmp(Object o) {
-    RuleAndProfit other = cast(RuleAndProfit) o;
-    if (this.pao.getMaxProfit() < other.pao.getMaxProfit()) {
-      return -1;
-    }
-    if (this.pao.getMaxProfit() > other.pao.getMaxProfit()) {
-      return 1;
-    }
-    return 0;
-  }
-  override string toString() {
-    return "\n" ~ to!string(rule) ~ "\n" ~ to!string(pao);
-  }
-}
-
-// Team rule needs to be updated. In case of specifiying for how many seasons in past we want to
+// todo: Team rule needs to be updated. In case of specifiying for how many seasons in past we want to
 // go.
-// 0..2 = [0, 1]
+
+// 0..2 = [0, 1] !
+
 //  Rule rule = new Rule(
 //      [new DiscreteRule("country", ["germany", "england"])],
 //      [new TeamRule(new Parameter("AC", /+Team.A,+/ 3), NumericOperator.lt, null, 0.7), // corners

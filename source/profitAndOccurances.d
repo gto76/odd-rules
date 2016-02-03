@@ -1,4 +1,4 @@
-module profit;
+module profitAndOccurances;
 
 import std.algorithm;
 import std.array;
