@@ -87,7 +87,7 @@ RuleAndProfit[] getNondominatedSolutions(RuleAndProfit[] results) {
 }
 
 double getDistanceFromNondominatedLine(RuleAndProfit[] nondominatedResults, RuleAndProfit result) {
-  double[][] points = getNondominatedPoints(nondominatedResults, result);
+  double[][] points = getNondominatedPoints(nondominatedResults);
   double[2] point = [result.pao.getMaxProfit(), result.pao.occurances/Y_AXIS_DIVIDER];
   double minDistance = double.max;
   for (int i = 0; i < points.length-1; i++) {
@@ -96,10 +96,23 @@ double getDistanceFromNondominatedLine(RuleAndProfit[] nondominatedResults, Rule
       minDistance = distance;
     }
   }
+  if (isNondominated(nondominatedResults, result) && minDistance != 0) {
+    return -minDistance;
+  }
   return minDistance;
 }
 
-double[][] getNondominatedPoints(RuleAndProfit[] nondominatedResults, RuleAndProfit result) {
+/*
+ * Checks if the passed RuleAndProfit is nodndominated by the array of RulesAndProfits.
+ */
+bool isNondominated(RuleAndProfit[] nondominatedResults, RuleAndProfit result) {
+  auto combinedResults = getNondominatedSolutions(nondominatedResults ~ result);
+  double[][] points = getNondominatedPoints(combinedResults);
+  double[2] point = [result.pao.getMaxProfit(), result.pao.occurances/Y_AXIS_DIVIDER];
+  return points.canFind(point);
+}
+
+double[][] getNondominatedPoints(RuleAndProfit[] nondominatedResults) {
   bool first = true;
   auto points = appender!(double[][])();
   foreach (point; nondominatedResults) {

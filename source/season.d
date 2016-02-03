@@ -1,7 +1,8 @@
 module season;
 
 import std.array;
-import std.c.stdlib;
+//import std.c.stdlib;
+import core.stdc.stdlib;
 import std.algorithm;
 import std.csv;
 import std.file;
