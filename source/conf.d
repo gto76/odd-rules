@@ -11,6 +11,8 @@ string[] ATTRIBUTES = ["FTHG", "FTAG", "HTHG", "HTAG", "HS", "AS", "HST", "AST",
 int WIDEST_WINDOW = 10;
 int OCCURANCE_TRESHOLD = 50;
 
+double Y_AXIS_DIVIDER = 10000;
+
 /*
  * From season.d
  */

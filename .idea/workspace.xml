@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/source/profit.d" afterPath="$PROJECT_DIR$/source/profitAndOccurances.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/game.d" afterPath="$PROJECT_DIR$/source/game.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/conf.d" afterPath="$PROJECT_DIR$/source/conf.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/profitAndOccurances.d" afterPath="$PROJECT_DIR$/source/profitAndOccurances.d" />
     </list>
     <ignored path="odd-rules-4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +31,18 @@
       <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40199336">
-              <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.57768923">
+              <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="conf.d" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/conf.d">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -40,8 +51,8 @@
       <file leaf-file-name="rule.d" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/rule.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.814815">
-              <caret line="63" column="14" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -50,8 +61,8 @@
       <file leaf-file-name="profitAndOccurances.d" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.814815">
-              <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="31" />
+            <state vertical-scroll-proportion="-21.666666">
+              <caret line="82" column="33" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -99,22 +110,28 @@
       <list>
         <option value="$PROJECT_DIR$/source/load_seasons.d" />
         <option value="$PROJECT_DIR$/source/const.d" />
-        <option value="$PROJECT_DIR$/source/conf.d" />
         <option value="$PROJECT_DIR$/source/averages.d" />
         <option value="$PROJECT_DIR$/source/season.d" />
         <option value="$PROJECT_DIR$/source/rule.d" />
         <option value="$PROJECT_DIR$/source/profit.d" />
         <option value="$PROJECT_DIR$/source/game.d" />
+        <option value="$PROJECT_DIR$/source/conf.d" />
         <option value="$PROJECT_DIR$/source/profitAndOccurances.d" />
         <option value="$PROJECT_DIR$/source/app.d" />
       </list>
     </option>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1588" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="1023" />
+    <option name="height" value="873" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -559,11 +576,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454423312546</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Prints only nondominated solutions">
+      <created>1454427233419</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1454427233419</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1588" y="23" width="1440" height="1023" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -573,7 +596,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42235124" sideWeight="0.50714964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60902256" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7951344" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2067239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -604,7 +627,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refacture" />
     <MESSAGE value="Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments" />
+    <MESSAGE value="Prints only nondominated solutions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prints only nondominated solutions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -823,14 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/conf.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79252577">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/season.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -849,24 +865,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/rule.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.814815">
-          <caret line="63" column="14" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/conf.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.814815">
-          <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="31" />
+        <state vertical-scroll-proportion="-21.666666">
+          <caret line="82" column="33" selection-start-line="82" selection-start-column="33" selection-end-line="82" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/app.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40199336">
-          <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.57768923">
+          <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
           <folding />
         </state>
       </provider>

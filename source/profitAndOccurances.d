@@ -29,22 +29,6 @@ class ProfitAndOccurances {
   }
 
   /*
-   * For sorting by maximum profit.
-   */
-//  override int opCmp(Object o) {
-//    ProfitAndOccurances other = cast(ProfitAndOccurances) o;
-//    double thisProfit = getMaxProfit(this);
-//    double otherProfit = getMaxProfit(other);
-//    if (thisProfit < otherProfit) {
-//      return -1;
-//    }
-//    if (thisProfit > otherProfit) {
-//      return 1;
-//    }
-//    return 0;
-//  }
-
-  /*
    * Returns string with average profit for every result and number of occurances.
    * Profits are ordered from the bigest to smallest.
    */
@@ -96,7 +80,7 @@ class ProfitAndOccurances {
     }
     override string toString() {
       auto w = appender!string();
-      auto spec = singleSpec("%.2f");
+      auto spec = singleSpec("%.4f");
       w.put(to!string(result));
       w.put(": ");
       formatElement(w, profit, spec);
