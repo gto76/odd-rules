@@ -22,13 +22,31 @@ import ruleAndProfit;
 
 void main(string[] args) {
   writeln("Start");
-  string[] lines = loadRules("results/random-rules");
-  for (int i = 0; i < lines.length; i += 2) {
-//    writeln(lines[i]);
-    auto rule = new Rule(lines[i]);
+  RuleAndProfit[] rules = loadRules("results/random-rules");
+  foreach (rule; rules) {
+    writeln(rule);
   }
-
   writeln("\nThe End");
+}
+
+RuleAndProfit[] loadRules(string fileName) {
+  RuleAndProfit[] rules;
+  string[] lines = readFile(fileName);
+  for (int i = 0; i < lines.length; i += 2) {
+    auto rule = new Rule(lines[i]);
+    auto poc = new ProfitAndOccurances(lines[i+1]);
+    rules ~= new RuleAndProfit(rule, poc);
+  }
+  return rules;
+}
+
+string[] readFile(string fileName) {
+  auto file = File(fileName, "r");
+  string[] lines;
+  foreach (line; file.byLine) {  // records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
+    lines ~= to!string(line);
+  }
+  return lines;
 }
 
 void randomRuleSearch() {
@@ -76,14 +94,6 @@ void randomRuleSearch() {
 // FUNCTIONS //
 ///////////////
 
-string[] loadRules(string fileName) {
-  auto file = File(fileName, "r");
-  string[] lines;
-  foreach (line; file.byLine) {  // records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
-    lines ~= to!string(line);
-  }
-  return lines;
-}
 
 //RuleAndProfit findLocalMinimum(RuleAndProfit[] nondominatedResults, RuleAndProfit result) {
 //  double min = getDistanceFromNondominatedLine(nondominatedResults, result);

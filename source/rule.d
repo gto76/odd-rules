@@ -30,12 +30,14 @@ class Rule {
   GeneralRule[] generalRules;
   TeamRule[] teamRules;
   LogicOperator[] logicOperators;
+
   this(GeneralRule[] generalRules, TeamRule[] teamRules,
        LogicOperator[] logicOperators) {
     this.generalRules = generalRules;
     this.teamRules = teamRules;
     this.logicOperators = logicOperators;
   }
+
   this(string line) {
     auto tokens = line.split("AND ( ");
     auto generalRulesString = tokens[0];
@@ -132,8 +134,11 @@ class DiscreteRule : GeneralRule {
     auto tokens = line.split('=');
     auto parameter = tokens[0].strip();
     super(parameter);
-    auto values = removeParenthesis(tokens[1]);
-    this.values = values.split(",");
+    auto valuesStr = removeParenthesis(tokens[1].strip());
+    auto values = valuesStr.split(",");
+    foreach (value; values) {
+      this.values ~= removeDoubleQuotes(value.strip());
+    }
   }
   override string toString() {
     return parameter ~ " = (\"" ~ values.join("\", \"") ~ "\")";

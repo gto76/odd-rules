@@ -28,6 +28,31 @@ class ProfitAndOccurances {
     profit[Res.A] = 0;
   }
 
+  this(string line) {
+    // 'A: 0.42 H: 0.01 D: -0.42 occ: 76,'
+    line = line.strip();
+    line = chomp(line, ",");
+    // 'A: 0.42 H: 0.01 D: -0.42 occ: 76'
+    auto tokens = line.split();
+    // [ 'A:', '0.42', 'H:', '0.01', 'D:', '-0.42', 'occ:', '76' ]
+    for (int i = 0; i < tokens.length; i += 2) {
+      auto key = chomp(tokens[i], ":");
+      auto value = tokens[i+1];
+      if (key == "H") {
+        profit[Res.H] = to!double(value);
+      } else if (key == "D") {
+        profit[Res.D] = to!double(value);
+      } else if (key == "A") {
+        profit[Res.A] = to!double(value);
+      } else if (key == "occ") {
+        occurances = to!int(value);
+      }
+    }
+    profit[Res.H] *= occurances;
+    profit[Res.D] *= occurances;
+    profit[Res.A] *= occurances;
+  }
+
   /*
    * Returns string with average profit for every result and number of occurances.
    * Profits are ordered from the bigest to smallest.

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
+    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="Now also l">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/results/random-rules" afterPath="$PROJECT_DIR$/results/random-rules" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/profitAndOccurances.d" afterPath="$PROJECT_DIR$/source/profitAndOccurances.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/rule.d" afterPath="$PROJECT_DIR$/source/rule.d" />
     </list>
     <ignored path="odd-rules-4.iws" />
@@ -27,24 +27,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.d" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-130.55556">
-              <caret line="255" column="53" selection-start-line="255" selection-start-column="51" selection-end-line="255" selection-end-column="53" />
+            <state vertical-scroll-proportion="2.3062098">
+              <caret line="85" column="11" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rule.d" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rule.d" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/rule.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42895088">
-              <caret line="248" column="42" selection-start-line="248" selection-start-column="42" selection-end-line="248" selection-end-column="42" />
+            <state vertical-scroll-proportion="-5.4074073">
+              <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
               <folding>
-                <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+                <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profitAndOccurances.d" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,10 +85,10 @@
         <option value="$PROJECT_DIR$/source/profit.d" />
         <option value="$PROJECT_DIR$/source/conf.d" />
         <option value="$PROJECT_DIR$/source/season.d" />
-        <option value="$PROJECT_DIR$/source/profitAndOccurances.d" />
         <option value="$PROJECT_DIR$/source/game.d" />
         <option value="$PROJECT_DIR$/source/ruleAndProfit.d" />
         <option value="$PROJECT_DIR$/source/app.d" />
+        <option value="$PROJECT_DIR$/source/profitAndOccurances.d" />
         <option value="$PROJECT_DIR$/source/rule.d" />
       </list>
     </option>
@@ -562,7 +572,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454537516654</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Can load rules from file">
+      <created>1455678733935</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1455678733935</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -576,7 +592,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42235124" sideWeight="0.50714964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36619717" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36619717" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2067239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -611,7 +627,8 @@
     <MESSAGE value="Calculates distance to line connecting nondominated solutions" />
     <MESSAGE value="Enabled negative distance" />
     <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
+    <MESSAGE value="Can load rules from file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can load rules from file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -651,7 +668,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="117" column="32" selection-start-line="117" selection-start-column="32" selection-end-line="117" selection-end-column="32" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -709,7 +726,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="117" column="32" selection-start-line="117" selection-start-column="32" selection-end-line="117" selection-end-column="32" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -751,7 +768,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -793,7 +810,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -835,7 +852,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -877,7 +894,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -919,7 +936,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="151" column="3" selection-start-line="151" selection-start-column="3" selection-end-line="151" selection-end-column="3" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -980,14 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="103" column="28" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/ruleAndProfit.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -996,21 +1005,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/app.d">
+    <entry file="file://$PROJECT_DIR$/source/profitAndOccurances.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-130.55556">
-          <caret line="255" column="53" selection-start-line="255" selection-start-column="51" selection-end-line="255" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/rule.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42895088">
-          <caret line="248" column="42" selection-start-line="248" selection-start-column="42" selection-end-line="248" selection-end-column="42" />
+        <state vertical-scroll-proportion="-5.4074073">
+          <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
           <folding>
-            <marker date="1455677995000" expanded="true" signature="781:1167" placeholder="..." />
+            <marker date="1455683382000" expanded="true" signature="783:1169" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3062098">
+          <caret line="85" column="11" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
