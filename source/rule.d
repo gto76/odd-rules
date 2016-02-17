@@ -4,6 +4,7 @@ import std.stdio;
 import std.string;
 import std.array;
 import std.random;
+import std.regex;
 import std.range;
 import std.conv;
 import std.csv;
@@ -18,7 +19,7 @@ import season;
 
 enum Team { H, A }
 enum Res { H, D, A }
-enum NumericOperator { LT = "<", MT = ">" }
+enum NumericOperator { LT = "<", MT = ">=" }
 enum LogicOperator { AND, OR }
 
 //////////
@@ -35,6 +36,41 @@ class Rule {
     this.teamRules = teamRules;
     this.logicOperators = logicOperators;
   }
+  this(string line) {
+    auto tokens = line.split("AND ( ");
+    auto generalRulesString = tokens[0];
+    auto teamRulesString = tokens[1];
+    teamRulesString = replaceFirst!(cap => "")
+        (teamRulesString, regex(` \)`));
+
+    generalRules = [ new DiscreteRule(generalRulesString) ];
+    setLogicOperators(teamRulesString);
+    setTeamRules(teamRulesString);
+
+    writeln(generalRules);
+    writeln(logicOperators);
+    writeln(teamRules);
+  }
+
+  private void setLogicOperators(string teamRulesString) {
+    auto operators = matchAll(teamRulesString, regex(`AND|OR`));
+    foreach (op; operators) {
+      string desc = op.hit;
+      if (desc == "AND") {
+        logicOperators ~= LogicOperator.AND;
+      } else {
+        logicOperators ~= LogicOperator.OR;
+      }
+    }
+  }
+
+  private void setTeamRules(string teamRulesString) {
+    auto tokens = split(teamRulesString, regex("AND|OR"));
+    foreach (ruleString; tokens) {
+      teamRules ~= new TeamRule(ruleString.strip());
+    }
+  }
+
   /*
    * EXAMPLE:
    * ("country" = ["germany", "england"]) AND (A, "corners", 0) < 0.5 AND (H, "fouls", 1) > 0.5
@@ -92,9 +128,28 @@ class DiscreteRule : GeneralRule {
     super(parameter);
     this.values = values;
   }
+  this(string line) {
+    auto tokens = line.split('=');
+    auto parameter = tokens[0].strip();
+    super(parameter);
+    auto values = removeParenthesis(tokens[1]);
+    this.values = values.split(",");
+  }
   override string toString() {
     return parameter ~ " = (\"" ~ values.join("\", \"") ~ "\")";
   }
+}
+
+string removeParenthesis(string line) {
+  line.strip();
+  line = chomp(line, ")");
+  return chompPrefix(line, "(");
+}
+
+string removeDoubleQuotes(string line) {
+  line.strip();
+  line = chomp(line, "\"");
+  return chompPrefix(line, "\"");
 }
 
 ///////////////
@@ -106,6 +161,7 @@ class TeamRule {
   NumericOperator numericOperator;
   Parameter otherParameter;
   double constant;
+
   this(Parameter parameter, NumericOperator numericOperator, Parameter otherParameter,
        double constant) {
     this.parameter = parameter;
@@ -113,6 +169,38 @@ class TeamRule {
     this.otherParameter = otherParameter;
     this.constant = constant;
   }
+
+  this(string line) {
+    setOperator(line);
+    // '("HST", 1) > ("HY", 1) + 0.77'
+    auto tokens = split(line, regex("<|>")); // TODO, change > to >= in future versions.
+    // [ '("HST", 1) ', ' ("HY", 1) + 0.77' ]
+    parameter = new Parameter(tokens[0].strip());
+    setRightHand(tokens[1].strip());
+  }
+
+  private void setRightHand(string line) {
+    // ' ("HY", 1) + 0.77'
+    auto tokens = split(line, "+");
+    // [ ' ("HY", 1) ', ' 0.77' ]
+    if (tokens.length > 1) {
+      otherParameter = new Parameter(tokens[0].strip());
+      constant = to!double(tokens[1].strip());
+    } else {
+      constant = to!double(line);
+    }
+  }
+
+  private void setOperator(string line) {
+    auto operators = matchFirst(line, regex("<|>")); // TODO, change > to >= in future versions.
+    auto operatorString = operators.hit;
+    if (operatorString == "<") {
+      numericOperator = NumericOperator.LT;
+    } else {
+      numericOperator = NumericOperator.MT;
+    }
+  }
+
   override string toString() {
     string[] res;
     res ~= parameter.toString();
@@ -150,6 +238,16 @@ class Parameter {
 //    this.team = team;
     this.name = name;
     this.numberOfGames = numberOfGames;
+  }
+  this(string line) {
+    // ' ("HST", 1) '
+    line = removeParenthesis(line);
+    // '"HST", 1'
+    auto tokens = line.split(',');
+    // [ '"HST"', ' 1' ]
+    name = removeDoubleQuotes(tokens[0]);
+//    writeln("num of games: "~tokens[1]);
+    numberOfGames = to!int(tokens[1].strip());
   }
   override bool opEquals(Object o) {
     if (o is null) {

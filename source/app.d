@@ -21,7 +21,17 @@ import ruleAndProfit;
 //////////
 
 void main(string[] args) {
+  writeln("Start");
+  string[] lines = loadRules("results/random-rules");
+  for (int i = 0; i < lines.length; i += 2) {
+//    writeln(lines[i]);
+    auto rule = new Rule(lines[i]);
+  }
 
+  writeln("\nThe End");
+}
+
+void randomRuleSearch() {
   Season[] seasons = loadSeasonsFromDir("csv");
   linkSeasons(seasons);
 
@@ -60,12 +70,20 @@ void main(string[] args) {
     counter = 1;
 //    break;
   }
-  writeln("\nThe End");
 }
 
 ///////////////
 // FUNCTIONS //
 ///////////////
+
+string[] loadRules(string fileName) {
+  auto file = File(fileName, "r");
+  string[] lines;
+  foreach (line; file.byLine) {  // records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
+    lines ~= to!string(line);
+  }
+  return lines;
+}
 
 //RuleAndProfit findLocalMinimum(RuleAndProfit[] nondominatedResults, RuleAndProfit result) {
 //  double min = getDistanceFromNondominatedLine(nondominatedResults, result);
@@ -78,7 +96,7 @@ void main(string[] args) {
 //      newRule.teamRules[i].parameter.numOfGames --
 //}
 
-//
+
 //private Problem<S> problem;
 //
 //public static final int TOURNAMENTS_ROUNDS = 1;
@@ -141,6 +159,10 @@ void main(string[] args) {
 //
 //  }
 //}
+
+void mutate(Rule rule) {
+
+}
 
 RuleAndProfit getRandomRap(Season[] seasons) {
   Rule rule = getRandomRule(seasons, ATTRIBUTES, WIDEST_WINDOW);

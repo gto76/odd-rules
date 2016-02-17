@@ -20,8 +20,6 @@ sport = ("football") AND ( ("AST", 1) > ("HY", 1) + 0.93 AND ("AC", 1) > ("AR", 
 H: 0.20 A: 0.16 D: -0.37 occ: 52, 
 sport = ("football") AND ( ("AST", 1) > ("AC", 3) + 0.89 AND ("HS", 1) < ("HTAG", 5) + 0.95 )
 H: 0.20 A: -0.12 D: -0.34 occ: 82, 
-sport = ("football") AND ( ("AY", 9) > 0.18 AND ("AST", 4) < )
-A: 0.20 H: -0.23 D: -0.39 occ: 68, 
 sport = ("football") AND ( ("HC", 6) > ("HC", 1) + 0.73 AND ("HTHG", 10) > ("AS", 9) + 0.17 )
 A: 0.20 D: -0.16 H: -0.17 occ: 98, 
 sport = ("football") AND ( ("AC", 2) > ("FTAG", 1) + 0.93 AND ("HS", 1) > 0.35 AND ("AF", 1) > ("FTAG", 1) + 0.62 )
@@ -58,8 +56,6 @@ sport = ("football") AND ( ("HST", 8) > ("AY", 1) + 0.41 AND ("AS", 1) > ("AC", 
 A: 0.21 H: 0.02 D: -0.30 occ: 128, 
 sport = ("football") AND ( ("FTHG", 1) > ("HTHG", 1) + 0.15 AND ("HY", 6) > 0.91 AND ("HY", 1) > ("AS", 10) + 0.76 )
 D: 0.21 A: -0.14 H: -0.15 occ: 89, 
-sport = ("football") AND ( ("FTHG", 1) < ("HTAG", 1) + AND ("FTAG", 2) > ("HY", 10) + 0.37 AND ("HC", 10) > ("AS", 5) + 0.64 )
-H: 0.21 D: -0.45 A: -0.45 occ: 128, 
 sport = ("football") AND ( ("AR", 8) > ("AST", 1) + 0.86 )
 A: 0.21 D: -0.07 H: -0.20 occ: 243, 
 sport = ("football") AND ( ("AC", 1) > ("AR", 4) + 0.98 AND ("FTAG", 7) > ("HST", 1) + 0.33 )
@@ -146,8 +142,6 @@ sport = ("football") AND ( ("AR", 2) > 0.34 AND ("AST", 1) > ("FTAG", 7) + 0.86 
 A: 0.23 D: -0.11 H: -0.29 occ: 166, 
 sport = ("football") AND ( ("HS", 5) > 0.99 )
 A: 0.23 D: 0.16 H: -0.16 occ: 62, 
-sport = ("football") AND ( ("AST", 2) < )
-A: 0.23 H: -0.13 D: -0.29 occ: 66, 
 sport = ("football") AND ( ("HC", 9) > ("AC", 2) + 0.9 )
 D: 0.23 H: -0.08 A: -0.52 occ: 74, 
 sport = ("football") AND ( ("FTHG", 1) > 0.16 OR ("HC", 2) > ("HC", 1) + 0.42 AND ("FTAG", 4) > ("HY", 8) + 0.85 )
@@ -174,10 +168,6 @@ sport = ("football") AND ( ("AY", 1) > ("AST", 2) + 0.93 )
 D: 0.24 H: -0.11 A: -0.41 occ: 70, 
 sport = ("football") AND ( ("FTAG", 8) > 0.33 AND ("HF", 7) < ("AST", 10) + 0.89 AND ("FTHG", 1) > 0.99 )
 D: 0.24 H: -0.20 A: -0.24 occ: 83, 
-sport = ("football") AND ( ("HST", 4) < )
-A: 0.24 H: 0.02 D: -0.39 occ: 102, 
-sport = ("football") AND ( ("HST", 4) < )
-A: 0.24 H: 0.02 D: -0.39 occ: 102, 
 sport = ("football") AND ( ("HF", 1) > 0.76 AND ("AC", 8) > ("HS", 1) + 0.84 )
 H: 0.24 D: -0.08 A: -0.15 occ: 90, 
 sport = ("football") AND ( ("AF", 1) > ("HST", 8) + 0.3 OR ("HTHG", 5) > 0.73 AND ("HS", 1) > 0.98 )
@@ -192,8 +182,6 @@ sport = ("football") AND ( ("HY", 1) > ("FTAG", 1) + 0.66 AND ("AR", 1) < ("HST"
 D: 0.25 A: 0.03 H: -0.28 occ: 66, 
 sport = ("football") AND ( ("HY", 10) > ("AST", 1) + 0.89 )
 A: 0.25 H: -0.10 D: -0.25 occ: 67, 
-sport = ("football") AND ( ("AC", 6) < OR ("AS", 5) > 0.94 AND ("AC", 6) > ("HY", 8) + 0.82 )
-H: 0.25 A: 0.19 D: -0.52 occ: 52, 
 sport = ("football") AND ( ("AST", 3) > 0.17 AND ("FTAG", 1) > ("AST", 1) + 0.78 )
 H: 0.25 A: -0.05 D: -0.32 occ: 53, 
 sport = ("football") AND ( ("AS", 1) < 0.6 AND ("AR", 1) > ("HTHG", 9) + 0.93 )
@@ -232,10 +220,6 @@ sport = ("football") AND ( ("HST", 1) < 0.06 AND ("FTHG", 9) > ("HST", 1) + 0.86
 A: 0.26 D: -0.19 H: -0.21 occ: 61, 
 sport = ("football") AND ( ("AC", 1) > ("HST", 1) + 0.98 OR ("HR", 8) > ("FTAG", 7) + 0.9 )
 A: 0.26 D: -0.18 H: -0.21 occ: 194, 
-sport = ("football") AND ( ("AF", 1) < ("AS", 1) + 0.98 AND ("FTAG", 8) < )
-A: 0.26 H: -0.43 D: -0.47 occ: 81, 
-sport = ("football") AND ( ("FTAG", 3) < ("HF", 1) + 0.97 AND ("AC", 7) > ("HTAG", 5) + 0.94 OR ("HF", 1) > ("HC", 1) + )
-D: 0.26 A: -0.09 H: -0.38 occ: 58, 
 sport = ("football") AND ( ("AY", 3) > ("FTHG", 6) + 0.9 )
 D: 0.27 H: -0.01 A: -0.44 occ: 97, 
 sport = ("football") AND ( ("FTHG", 1) > ("HST", 7) + 0.66 AND ("HY", 1) > ("AC", 3) + 0.61 )
@@ -266,8 +250,6 @@ sport = ("football") AND ( ("HY", 1) > ("HS", 1) + 0.9 AND ("AR", 1) < ("AS", 1)
 A: 0.28 H: 0.01 D: -0.42 occ: 61, 
 sport = ("football") AND ( ("AC", 1) < 0.28 AND ("HS", 3) < 0.01 )
 A: 0.28 H: -0.10 D: -0.27 occ: 64, 
-sport = ("football") AND ( ("AF", 6) < )
-D: 0.28 H: 0.01 A: -0.25 occ: 59, 
 sport = ("football") AND ( ("AC", 2) > 0.79 AND ("AST", 2) < 0.05 )
 A: 0.28 H: -0.01 D: -0.19 occ: 129, 
 sport = ("football") AND ( ("HTAG", 10) > ("AC", 10) + 0.75 AND ("HST", 6) > 0.53 AND ("HR", 7) < 0.14 )
@@ -290,8 +272,6 @@ sport = ("football") AND ( ("HST", 3) > ("HR", 1) + 0.29 AND ("HS", 1) > ("HST",
 H: 0.29 A: -0.21 D: -0.59 occ: 78, 
 sport = ("football") AND ( ("AST", 1) > ("HST", 1) + 0.83 AND ("HY", 9) < 0.16 AND ("HST", 1) < 0.85 )
 H: 0.29 A: -0.01 D: -0.34 occ: 81, 
-sport = ("football") AND ( ("HF", 6) > ("AR", 1) + 0.02 OR ("FTHG", 4) < 0.69 AND ("HF", 6) < )
-H: 0.29 D: -0.13 A: -0.46 occ: 56, 
 sport = ("football") AND ( ("HTHG", 10) < ("AF", 7) + 0.77 AND ("AY", 1) < ("AC", 1) + 0.87 AND ("FTAG", 6) < 0.02 )
 A: 0.29 D: -0.10 H: -0.21 occ: 377, 
 sport = ("football") AND ( ("AC", 4) > 0.8 AND ("AY", 10) > ("FTHG", 6) + 0.74 OR ("HY", 1) > ("AF", 5) + 0.86 )
@@ -424,16 +404,12 @@ sport = ("football") AND ( ("AY", 1) > 0.08 AND ("HST", 8) > ("FTHG", 6) + 0.88 
 A: 0.42 D: -0.04 H: -0.11 occ: 71, 
 sport = ("football") AND ( ("FTAG", 1) > ("FTAG", 8) + 0.84 AND ("AC", 6) > 0.54 AND ("AS", 1) < ("HY", 5) + 0.83 )
 A: 0.42 H: -0.33 D: -0.45 occ: 65, 
-sport = ("football") AND ( ("HY", 10) < )
-A: 0.42 D: -0.21 H: -0.25 occ: 53, 
 sport = ("football") AND ( ("AC", 2) < ("AR", 1) + 0.27 AND ("AF", 9) > ("AC", 6) + 0.89 )
 D: 0.42 H: -0.14 A: -0.62 occ: 70, 
 sport = ("football") AND ( ("HST", 4) < ("HC", 4) + 0.11 AND ("HST", 7) > ("HS", 5) + 0.72 )
 D: 0.42 A: -0.02 H: -0.23 occ: 87, 
 sport = ("football") AND ( ("HY", 8) > ("AR", 10) + 0.69 OR ("HY", 4) > 0.47 AND ("HST", 1) > ("HST", 9) + 0.92 )
 A: 0.42 H: 0.01 D: -0.42 occ: 76, 
-sport = ("football") AND ( ("AF", 8) < )
-D: 0.43 H: -0.09 A: -0.45 occ: 64, 
 sport = ("football") AND ( ("HC", 10) > 0.31 OR ("HR", 1) > 0.08 AND ("AST", 6) > ("AST", 1) + 0.88 )
 H: 0.45 A: -0.09 D: -0.45 occ: 51, 
 sport = ("football") AND ( ("HY", 2) > ("AY", 1) + 0.55 AND ("FTHG", 10) > ("AY", 1) + 0.92 AND ("FTAG", 7) > 0.19 )
@@ -456,8 +432,6 @@ sport = ("football") AND ( ("AC", 1) < ("HTHG", 1) + 0.95 AND ("HTHG", 7) > ("AC
 A: 0.50 H: -0.07 D: -0.49 occ: 60, 
 sport = ("football") AND ( ("AF", 6) < 0.78 AND ("AC", 5) > ("AC", 1) + 0.82 )
 H: 0.50 D: -0.00 A: -0.62 occ: 52, 
-sport = ("football") AND ( ("HF", 8) < AND ("AY", 4) > 0.1 )
-H: 0.50 A: -0.37 D: -0.41 occ: 58, 
 sport = ("football") AND ( ("FTAG", 8) > ("HST", 1) + 0.82 AND ("AF", 1) > 0.8 AND ("HST", 1) < 0.77 )
 H: 0.52 A: -0.14 D: -0.18 occ: 56, 
 sport = ("football") AND ( ("AC", 2) > ("FTHG", 1) + 0.74 AND ("HTAG", 2) > 0.98 OR ("HST", 1) > ("HY", 1) + 0.77 )
@@ -471,4 +445,4 @@ A: 0.65 H: -0.29 D: -0.32 occ: 92,
 sport = ("football") AND ( ("HTAG", 7) > ("AS", 9) + 0.89 )
 A: 0.67 H: -0.30 D: -0.49 occ: 53, 
 sport = ("football") AND ( ("HR", 5) > ("HY", 7) + 0.93 AND ("AS", 1) < ("HY", 1) + 0.44 )
-A: 1.00 H: -0.19 D: -0.59 occ: 54]
+A: 1.00 H: -0.19 D: -0.59 occ: 54
