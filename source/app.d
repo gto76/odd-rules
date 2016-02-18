@@ -8,6 +8,7 @@ import std.regex;
 import std.stdio;
 import std.string;
 import std.typecons;
+import core.thread;
 
 import game;
 import profitAndOccurances;
@@ -22,21 +23,88 @@ import ruleAndProfit;
 
 void main(string[] args) {
   writeln("Start");
+
   RuleAndProfit[] rules = loadRules("results/random-rules");
-  foreach (rule; rules) {
-    writeln(rule);
-  }
+
+//  foreach (rule; rules) {
+//    writeln("----------");
+//    writeln(rule.distanceFromFront);
+//    writeln(rule);
+//  }
+  writeln("Loading season");
+
+  Season season = loadSeason("csv/football-belgium-0-2012.csv");
+  writeln("Loaed season");
+  Thread.sleep(dur!("seconds")(2));
+  double profit = getProfitForSeason(season, rules, 0.01);
+  writeln("==============");
+//  writeln("Profit for season: "~to!string(profit));
+
   writeln("\nThe End");
 }
 
+double getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold) {
+  writeln("Getting profit for season");
+  double profitSum = 0;
+  orderByScore(rules);
+  writeln("Starting loop");
+  foreach (game; season.games) {
+    foreach (rule; rules) {
+      if (rule.distanceFromFront > threshold) {
+        break;
+      }
+      // TODO, here last season should probably be passed, as a reference season.
+      if (ruleAplies(game, season, rule.rule)) {
+        Res result = rule.pao.getBestResult();
+        Res actualResult = game.getResult();
+        double profit;
+        if (actualResult == result) {
+          profit = game.getProfit();
+        } else {
+          profit = -1;
+        }
+        profitSum += profit;
+        // CHECK THE RESULT !!!
+        writeln("-----------");
+        writeln("Betting on game: ");
+        writeln(game);
+        writeln("Rule: ");
+        writeln(rule);
+        writeln("Profit: ");
+        writeln(profit);
+      }
+    }
+  }
+  return profitSum;
+}
+
+// Orders list of rules by score - distance to the front of nondominated solutions.
+void orderByScore(RuleAndProfit[] rules) {
+  auto nondominatedSolutions = getNondominatedSolutions(rules);
+  foreach (rule; rules) {
+    rule.distanceFromFront = getDistanceFromNondominatedLine(nondominatedSolutions, rule);
+  }
+  sort!("a.distanceFromFront < b.distanceFromFront", SwapStrategy.stable)(rules);
+}
+
+
 RuleAndProfit[] loadRules(string fileName) {
+    writeln("Loading rules");
+
   RuleAndProfit[] rules;
   string[] lines = readFile(fileName);
+      writeln("Loading rules 2");
+
   for (int i = 0; i < lines.length; i += 2) {
+        writeln("Loading rule " ~ to!string(i));
+
     auto rule = new Rule(lines[i]);
+        writeln("Loading profit " ~ to!string(i+1));
     auto poc = new ProfitAndOccurances(lines[i+1]);
     rules ~= new RuleAndProfit(rule, poc);
   }
+      writeln("Loading rules 3");
+
   return rules;
 }
 

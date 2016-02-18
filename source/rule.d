@@ -39,6 +39,7 @@ class Rule {
   }
 
   this(string line) {
+    writeln("Creating rule :"~line);
     auto tokens = line.split("AND ( ");
     auto generalRulesString = tokens[0];
     auto teamRulesString = tokens[1];
@@ -46,7 +47,9 @@ class Rule {
         (teamRulesString, regex(` \)`));
 
     generalRules = [ new DiscreteRule(generalRulesString) ];
+    writeln("Setting logic ops");
     setLogicOperators(teamRulesString);
+    writeln("Setting team rules");
     setTeamRules(teamRulesString);
 
     writeln(generalRules);

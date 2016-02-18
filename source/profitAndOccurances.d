@@ -144,6 +144,18 @@ public double getAvgProfit(ProfitAndOccurances poc, Res res) {
   return poc.profit[res] / poc.occurances;
 }
 
+public Res getBestResult(ProfitAndOccurances poc) {
+  Res bestResult;
+  double max = -1000000;
+  foreach (res; [Res.H, Res.D, Res.A]) {
+    if (poc.profit[res] > max) {
+      max = poc.profit[res];
+      bestResult = res;
+    }
+  }
+  return bestResult;
+}
+
 /*
  * Finds which result has the highest average profit, and returns it.
  */

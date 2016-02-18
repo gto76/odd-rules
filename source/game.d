@@ -84,7 +84,7 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
       continue;
     }
     foreach (game; season.games) {
-      if (ruleAplies(game, season, rule)) {
+      if (ruleAplies(game, season, rule)) { // Shouldn't last season be passed here!!! TODO
         Res res;
         try {
           res = game.getResult();
@@ -103,7 +103,7 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
   return pao;
 }
 
-private bool ruleAplies(Game game, Season season, Rule rule) {
+public bool ruleAplies(Game game, Season season, Rule rule) {
   bool result = false;
   try {
     foreach (val; zip(LogicOperator.OR ~ rule.logicOperators, rule.teamRules)) {

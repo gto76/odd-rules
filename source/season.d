@@ -171,18 +171,22 @@ public Season[] loadSeasonsFromDir(string dir) {
   Season[] seasons;
   foreach(fileName; dirEntries(dir, "*.csv", SpanMode.shallow)) {
     writeln("$$$ Loading season file: "~fileName);
-    auto file = File(fileName, "r");
-    auto records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
-    Game[] games;
-    foreach(record; records) {
-      games ~= new Game(record);
-    }
-    auto features = getSeasonsFeatures(fileName);
-    auto season = new Season(features, records.header, games);
-    seasons ~= season;
-    file.close();
+    seasons ~= loadSeason(fileName);
   }
   return seasons;
+}
+
+public Season loadSeason(string fileName) {
+  auto file = File(fileName, "r");
+  auto records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
+  Game[] games;
+  foreach(record; records) {
+    games ~= new Game(record);
+  }
+  auto features = getSeasonsFeatures(fileName);
+  auto season = new Season(features, records.header, games);
+  file.close();
+  return season;
 }
 
 private string[string] getSeasonsFeatures(string fileName) {
