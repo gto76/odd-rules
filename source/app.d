@@ -26,22 +26,28 @@ void main(string[] args) {
   RuleAndProfit[] rules = loadRules("results/random-rules");
   writeln("Loading season");
 
-  string[] seasonsStr = [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-england-4-2011" ];
-  string[] lastSeasonsStr = [ "football-england-0-2010", "football-england-1-2010", "football-england-2-2010", "football-england-3-2010", "football-england-4-2010" ];
+  string[] seasonsStr =     [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-scotland-0-2011", "football-scotland-1-2011", "football-scotland-2-2011", "football-scotland-3-2011", "football-germany-0-2011", "football-germany-1-2011" ];
+  string[] lastSeasonsStr = [ "football-england-0-2010", "football-england-1-2010", "football-england-2-2010", "football-england-3-2010", "football-scotland-0-2010", "football-scotland-1-2010", "football-scotland-2-2010", "football-scotland-3-2010", "football-germany-0-2010", "football-germany-1-2010"];
 
   Season[] seasons = loadAll(seasonsStr);
   Season[] lastSeasons = loadAll(lastSeasonsStr);
 
-//  Season season = loadSeason("csv/football-belgium-0-2012.csv");
-//  Season lastSeason = loadSeason("csv/football-belgium-0-2011.csv");
   linkSeasons(seasons ~ lastSeasons);
   writeln("Linked seasons");
-  double profit = 0; 
+  double profitSum = 0;
+  double bets = 0;
+  double allBets = 0;
   foreach (season; seasons) {
-    profit += getProfitForSeason(season, rules, 0.01);
+    double[] profit = getProfitForSeason(season, rules, 0.01);
+    if (!isNaN(profit[0])) {
+      profitSum += profit[0];
+      bets += profit[1];
+      allBets += profit[2];
+    }
   }
   writeln("==============");
-  writeln("Profit for season: "~to!string(profit));
+  writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
+  writeln("Average profit: "~to!string(profitSum/bets));
   writeln("\nThe End");
 }
 
@@ -53,7 +59,8 @@ Season[] loadAll(string[] seasonsStr) {
   return res;
 }
 
-double getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold) {
+double[] getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold) {
+  int bets = 0;
   writeln("Getting profit for season");
   double profitSum = 0;
   orderByScore(rules);
@@ -82,10 +89,15 @@ double getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold
         writeln(rule);
         writeln("Profit: ");
         writeln(profit);
+        writeln("BetNo: "~to!string(bets++)~"/"~to!string(season.games.length));
+        writeln("Profit so far");
+        writeln(profitSum);
+        writeln("Avg profit so far");
+        writeln(profitSum/bets);
       }
     }
   }
-  return profitSum;
+  return [ profitSum, bets, season.games.length ];
 }
 
 // Orders list of rules by score - distance to the front of nondominated solutions.
