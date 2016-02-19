@@ -25,7 +25,7 @@ class Season {
   Game[] games;
   Season lastSeason;
   // Cached values:
-  private ulong seasonLength = -1;
+  private uint seasonLength = -1;
   private string[] teams;
   private Game[][string] teamsGames;
   private double[][DistributionId] distributions;
@@ -37,7 +37,7 @@ class Season {
   }
 
   public double[] getDistribution(Parameter param) {
-    ulong noOfGames = param.numberOfGames;
+    uint noOfGames = param.numberOfGames;
     if (noOfGames > getSeasonLength()) {
       return null;
     }
@@ -95,7 +95,7 @@ class Season {
     return res.data;
   }
 
-  private ulong getSeasonLength() {
+  private uint getSeasonLength() {
     if (seasonLength != -1) {
       return seasonLength;
     }
@@ -137,14 +137,27 @@ class Season {
 
   private class DistributionId {
     string name;
-    ulong numOfGames;
-    this(string name, ulong numOfGames) {
+    uint numOfGames;
+
+    this(string name, uint numOfGames) {
       this.name = name;
       this.numOfGames = numOfGames;
     }
+
     override size_t toHash() {
-      return name.length + numOfGames*20;
+      return name.length + to!size_t(numOfGames*20);
     }
+
+    // This has no purpouse other than gcc throws an error if it is not present.
+    override int opCmp(Object o) { 
+      DistributionId other = cast(DistributionId) o;
+      if (other.numOfGames < this.numOfGames) {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+
     override bool opEquals(Object o) {
       if (o is null) {
         return false;
@@ -156,6 +169,7 @@ class Season {
       return other.name == this.name
              && other.numOfGames == this.numOfGames;
     }
+
   }
 }
 
@@ -228,7 +242,7 @@ private bool ruleApplies(GeneralRule rule, string parameterValue) {
   return false;
 }
 
-double[] getDistribution(Season season, Parameter param) {
+double[] getSeasonsDistribution(Season season, Parameter param) {
   if (param.numberOfGames >= 0) {
     return season.lastSeason.getDistribution(param);
   }
@@ -276,11 +290,14 @@ public void linkSeasons(Season[] seasons) {
 }
 
 private Season getSeasonBefore(Season[] seasons, Season seasonThis) {
+  writeln("Getting season before");
   string[string] fThis = seasonThis.features;
   foreach (seasonOther; seasons) {
     string[string] fOther = seasonOther.features;
     if (sameLeague(fThis, fOther)) {
-      if (to!int(fThis["season"]) == to!int(fOther["season"]) - 1) {
+      writeln("same league");
+      if (to!int(fThis["season"]) == to!int(fOther["season"]) + 1) { // Before it was wrongly -1 !!!, so last season was actually next one!!!
+        writeln("found season");
         return seasonOther;
       }
     }

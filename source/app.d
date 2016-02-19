@@ -34,11 +34,16 @@ void main(string[] args) {
   writeln("Loading season");
 
   Season season = loadSeason("csv/football-belgium-0-2012.csv");
-  writeln("Loaed season");
-  Thread.sleep(dur!("seconds")(2));
+  Season lastSeason = loadSeason("csv/football-belgium-0-2011.csv");
+  linkSeasons([lastSeason, season]);
+  writeln("Linked seasons");
+  writeln("last season");
+  writeln(season.lastSeason);
+  writeln("last last season");
+  writeln(lastSeason.lastSeason);
   double profit = getProfitForSeason(season, rules, 0.01);
   writeln("==============");
-//  writeln("Profit for season: "~to!string(profit));
+  writeln("Profit for season: "~to!string(profit));
 
   writeln("\nThe End");
 }

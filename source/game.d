@@ -152,7 +152,7 @@ private double[] getParametersBounds(Parameter param, Game game, Season season) 
   if (param is null) {
     return [0, 0]; // suspicious todo
   }
-  double[] distribution = getDistribution(season, param);
+  double[] distribution = getSeasonsDistribution(season, param);
   if (distribution is null) {
     return null;
   }
@@ -173,7 +173,7 @@ private double[] getParametersBounds(Parameter param, Game game, Season season) 
 private double getValue(Parameter param, Game game, Season season) {
   Team team = ATTRIBUTES_TEAM[param.name];
   string teamName = getTeamName(game, team);
-  long position = countUntil(season.games, game);
+  uint position = countUntil(season.games, game);
   int counter = param.numberOfGames;
   if (param.numberOfGames == 0) {
     counter = 1;
