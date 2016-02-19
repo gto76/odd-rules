@@ -23,29 +23,34 @@ import ruleAndProfit;
 
 void main(string[] args) {
   writeln("Start");
-
   RuleAndProfit[] rules = loadRules("results/random-rules");
-
-//  foreach (rule; rules) {
-//    writeln("----------");
-//    writeln(rule.distanceFromFront);
-//    writeln(rule);
-//  }
   writeln("Loading season");
 
-  Season season = loadSeason("csv/football-belgium-0-2012.csv");
-  Season lastSeason = loadSeason("csv/football-belgium-0-2011.csv");
-  linkSeasons([lastSeason, season]);
+  string[] seasonsStr = [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-england-4-2011" ];
+  string[] lastSeasonsStr = [ "football-england-0-2010", "football-england-1-2010", "football-england-2-2010", "football-england-3-2010", "football-england-4-2010" ];
+
+  Season[] seasons = loadAll(seasonsStr);
+  Season[] lastSeasons = loadAll(lastSeasonsStr);
+
+//  Season season = loadSeason("csv/football-belgium-0-2012.csv");
+//  Season lastSeason = loadSeason("csv/football-belgium-0-2011.csv");
+  linkSeasons(seasons ~ lastSeasons);
   writeln("Linked seasons");
-  writeln("last season");
-  writeln(season.lastSeason);
-  writeln("last last season");
-  writeln(lastSeason.lastSeason);
-  double profit = getProfitForSeason(season, rules, 0.01);
+  double profit = 0; 
+  foreach (season; seasons) {
+    profit += getProfitForSeason(season, rules, 0.01);
+  }
   writeln("==============");
   writeln("Profit for season: "~to!string(profit));
-
   writeln("\nThe End");
+}
+
+Season[] loadAll(string[] seasonsStr) {
+  Season[] res;
+  foreach (seasonStr; seasonsStr) {
+    res ~= loadSeason(to!string("csv/"~seasonStr~".csv"));
+  }
+  return res;
 }
 
 double getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold) {
