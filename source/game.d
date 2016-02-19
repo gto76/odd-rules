@@ -173,7 +173,7 @@ private double[] getParametersBounds(Parameter param, Game game, Season season) 
 private double getValue(Parameter param, Game game, Season season) {
   Team team = ATTRIBUTES_TEAM[param.name];
   string teamName = getTeamName(game, team);
-  uint position = countUntil(season.games, game);
+  auto position = countUntil(season.games, game);
   int counter = param.numberOfGames;
   if (param.numberOfGames == 0) {
     counter = 1;

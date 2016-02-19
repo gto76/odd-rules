@@ -25,7 +25,7 @@ class Season {
   Game[] games;
   Season lastSeason;
   // Cached values:
-  private uint seasonLength = -1;
+  private ulong seasonLength = -1;
   private string[] teams;
   private Game[][string] teamsGames;
   private double[][DistributionId] distributions;
@@ -37,7 +37,7 @@ class Season {
   }
 
   public double[] getDistribution(Parameter param) {
-    uint noOfGames = param.numberOfGames;
+    ulong noOfGames = param.numberOfGames;
     if (noOfGames > getSeasonLength()) {
       return null;
     }
@@ -95,7 +95,7 @@ class Season {
     return res.data;
   }
 
-  private uint getSeasonLength() {
+  private ulong getSeasonLength() {
     if (seasonLength != -1) {
       return seasonLength;
     }
@@ -137,9 +137,9 @@ class Season {
 
   private class DistributionId {
     string name;
-    uint numOfGames;
+    ulong numOfGames;
 
-    this(string name, uint numOfGames) {
+    this(string name, ulong numOfGames) {
       this.name = name;
       this.numOfGames = numOfGames;
     }
