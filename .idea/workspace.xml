@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-2-2015.csv" afterPath="" />
+    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="Test the rules from last season">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-germany-0-2010.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-germany-0-2011.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-germany-1-2010.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-germany-1-2011.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-0-2010.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-0-2011.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-1-2010.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-1-2011.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-2-2010.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-2-2011.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-3-2010.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/csv/football-scotland-3-2011.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/season.d" afterPath="$PROJECT_DIR$/source/season.d" />
     </list>
     <ignored path="odd-rules-4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,8 +81,8 @@
       <file leaf-file-name="season.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/season.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6846154">
-              <caret line="211" column="47" selection-start-line="211" selection-start-column="47" selection-end-line="211" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.5653924">
+              <caret line="206" column="74" selection-start-line="206" selection-start-column="74" selection-end-line="206" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -636,7 +645,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455868855895</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Test the rules from last season">
+      <created>1456000486139</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1456000486139</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -659,8 +674,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42235124" sideWeight="0.50714964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36363637" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29833546" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29833546" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2067239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -699,7 +714,8 @@
     <MESSAGE value="Should print seasons profit, but segfaults" />
     <MESSAGE value="Fixed ulong vs uint problems" />
     <MESSAGE value="Tests rules on few seasons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests rules on few seasons" />
+    <MESSAGE value="Test the rules from last season" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test the rules from last season" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1099,8 +1115,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/season.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6846154">
-          <caret line="211" column="47" selection-start-line="211" selection-start-column="47" selection-end-line="211" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.5653924">
+          <caret line="206" column="74" selection-start-line="206" selection-start-column="74" selection-end-line="206" selection-end-column="74" />
           <folding />
         </state>
       </provider>
