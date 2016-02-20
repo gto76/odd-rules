@@ -190,6 +190,18 @@ public Season[] loadSeasonsFromDir(string dir) {
   return seasons;
 }
 
+Season[] loadAll(string[] seasonsStr) {
+  Season[] res;
+  foreach (seasonStr; seasonsStr) {
+    string filename = to!string("csv/"~seasonStr~".csv");
+//    if (!exists(filename)) {
+//      continue;
+//    }
+    res ~= loadSeason(filename);
+  }
+  return res;
+}
+
 public Season loadSeason(string fileName) {
   auto file = File(fileName, "r");
   auto records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
