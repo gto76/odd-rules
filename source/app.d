@@ -26,13 +26,14 @@ import profitEstimator;
 
 void main(string[] args) {
 //  randomRuleSearch();
-   estimateProfit();
-  // printUpcomingGames();
+//  estimateProfit();
+  printUpcomingGames();
 }
 
 void printUpcomingGames() {
   writeln("Start");
   RuleAndProfit[] rules = loadRules("results/random-rules");
+  orderByScore(rules);
   writeln("Loading season");
   string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
   writeln("Seasons ### ");
@@ -149,10 +150,13 @@ Game getGame(string[] lines, string leagueAbv) {
 }
 
 void printGar(GameAndRule gar) {
+  if (gar.rule is null) {
+    return;
+  }
   writeln(gar.game.sAttrs["HomeTeam"]);
   writeln(gar.game.sAttrs["AwayTeam"]);
-//  writeln(gar.rule.pao.getBestResult());
-//  writeln(gar.rule.distanceFromFront);
+  writeln(gar.rule.pao.getBestResult());
+  writeln(gar.rule.distanceFromFront);
   writeln("-------------");
 }
 
@@ -172,6 +176,7 @@ GameAndRule[] getDistancesOfUpcomingGames(Season season, RuleAndProfit[] rules) 
       continue;
     }
     RuleAndProfit rule = getBestRuleThatAplies(season, game, rules);
+    writeln("### Rule and profit that applies: "~to!string(rule));
     res ~= new GameAndRule(game, rule);
   }
   writeln("### Distances: "~to!string(res));

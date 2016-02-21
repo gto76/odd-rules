@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/profitEstimator.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
     </list>
@@ -29,8 +28,8 @@
       <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1992032">
-              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.33015874">
+              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -40,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/source/profitEstimator.d">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+              <caret line="173" column="17" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -60,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/source/ruleAndProfit.d">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="11" />
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -148,8 +147,8 @@
         <option value="$PROJECT_DIR$/source/season.d" />
         <option value="$PROJECT_DIR$/source/ruleSearch.d" />
         <option value="$PROJECT_DIR$/source/estimateProfit.d" />
-        <option value="$PROJECT_DIR$/source/app.d" />
         <option value="$PROJECT_DIR$/source/profitEstimator.d" />
+        <option value="$PROJECT_DIR$/source/app.d" />
       </list>
     </option>
   </component>
@@ -699,7 +698,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456079327808</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Extracted profitEstimator module from app">
+      <created>1456079950743</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1456079950743</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView">
@@ -722,7 +727,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42235124" sideWeight="0.50714964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36235595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34955186" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.56081945" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23419774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -768,7 +773,8 @@
     <MESSAGE value="Segfaults" />
     <MESSAGE value="Changed ulongs to size_t, compiles on linux" />
     <MESSAGE value="Extracted ruleSearch module from app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extracted ruleSearch module from app" />
+    <MESSAGE value="Extracted profitEstimator module from app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extracted profitEstimator module from app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1131,14 +1137,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/ruleAndProfit.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/game.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1171,18 +1169,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source/ruleAndProfit.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/profitEstimator.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+          <caret line="173" column="17" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/app.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1992032">
-          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.33015874">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
           <folding />
         </state>
       </provider>
