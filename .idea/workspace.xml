@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/ruleSearch.d" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/source/profitEstimator.d" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
     </list>
@@ -26,21 +26,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.d" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.1992032">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ruleSearch.d" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profitEstimator.d" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/profitEstimator.d">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ruleSearch.d" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/ruleSearch.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43824703">
-              <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -136,8 +146,10 @@
         <option value="$PROJECT_DIR$/source/game.d" />
         <option value="$PROJECT_DIR$/source/conf.d" />
         <option value="$PROJECT_DIR$/source/season.d" />
-        <option value="$PROJECT_DIR$/source/app.d" />
         <option value="$PROJECT_DIR$/source/ruleSearch.d" />
+        <option value="$PROJECT_DIR$/source/estimateProfit.d" />
+        <option value="$PROJECT_DIR$/source/app.d" />
+        <option value="$PROJECT_DIR$/source/profitEstimator.d" />
       </list>
     </option>
   </component>
@@ -681,7 +693,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456032004660</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Extracted ruleSearch module from app">
+      <created>1456079327806</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1456079327808</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -749,7 +767,8 @@
     <MESSAGE value="Added a functionality for forecasting upcoming games" />
     <MESSAGE value="Segfaults" />
     <MESSAGE value="Changed ulongs to size_t, compiles on linux" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed ulongs to size_t, compiles on linux" />
+    <MESSAGE value="Extracted ruleSearch module from app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Extracted ruleSearch module from app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -760,14 +779,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/rule.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="194" column="56" selection-start-line="194" selection-start-column="56" selection-end-line="194" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/game.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1152,18 +1163,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/app.d">
+    <entry file="file://$PROJECT_DIR$/source/ruleSearch.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/ruleSearch.d">
+    <entry file="file://$PROJECT_DIR$/source/profitEstimator.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43824703">
-          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/app.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1992032">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
           <folding />
         </state>
       </provider>
