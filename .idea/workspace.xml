@@ -2,8 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-2-1014.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-4-2010.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-4-2011.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-4-2012.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-4-2013.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-4-2014.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/football-england-4-2015.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-belgium-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-belgium-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-england-3-2015.csv" afterPath="$PROJECT_DIR$/csv/football-england-3-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-france-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-france-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-france-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-germany-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-germany-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-germany-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-greece-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-greece-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-italy-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-italy-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-italy-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-netherland-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-netherland-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-portugal-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-portugal-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-1-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-1-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-2-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-2-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-scotland-3-2015.csv" afterPath="$PROJECT_DIR$/csv/football-scotland-3-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-spain-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-spain-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/football-turkey-0-2015.csv" afterPath="$PROJECT_DIR$/csv/football-turkey-0-2015.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/conf.d" afterPath="$PROJECT_DIR$/source/conf.d" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/season.d" afterPath="$PROJECT_DIR$/source/season.d" />
     </list>
     <ignored path="odd-rules-4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.d" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33015874">
-              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+            <state vertical-scroll-proportion="-5.2222223">
+              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -65,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conf.d" pinned="false" current-in-tab="false">
+      <file leaf-file-name="conf.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/conf.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="140" column="13" selection-start-line="140" selection-start-column="13" selection-end-line="140" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.7837838">
+              <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -109,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/source/season.d">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="142" column="28" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
+              <caret line="188" column="36" selection-start-line="188" selection-start-column="36" selection-end-line="188" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -143,12 +170,12 @@
         <option value="$PROJECT_DIR$/source/profitAndOccurances.d" />
         <option value="$PROJECT_DIR$/source/rule.d" />
         <option value="$PROJECT_DIR$/source/game.d" />
-        <option value="$PROJECT_DIR$/source/conf.d" />
-        <option value="$PROJECT_DIR$/source/season.d" />
         <option value="$PROJECT_DIR$/source/ruleSearch.d" />
         <option value="$PROJECT_DIR$/source/estimateProfit.d" />
         <option value="$PROJECT_DIR$/source/profitEstimator.d" />
         <option value="$PROJECT_DIR$/source/app.d" />
+        <option value="$PROJECT_DIR$/source/season.d" />
+        <option value="$PROJECT_DIR$/source/conf.d" />
       </list>
     </option>
   </component>
@@ -704,7 +731,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456079950743</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Prints distances of upcoming games">
+      <created>1456080835729</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1456080835729</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -727,7 +760,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42235124" sideWeight="0.50714964" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36235595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.56081945" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7746479" sideWeight="0.49285033" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277849" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23419774" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -774,7 +807,8 @@
     <MESSAGE value="Changed ulongs to size_t, compiles on linux" />
     <MESSAGE value="Extracted ruleSearch module from app" />
     <MESSAGE value="Extracted profitEstimator module from app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extracted profitEstimator module from app" />
+    <MESSAGE value="Prints distances of upcoming games" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prints distances of upcoming games" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1129,26 +1163,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/conf.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="13" selection-start-line="140" selection-start-column="13" selection-end-line="140" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/game.d">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="89" selection-start-line="86" selection-start-column="89" selection-end-line="86" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/season.d">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="142" column="28" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1187,8 +1205,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/app.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33015874">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        <state vertical-scroll-proportion="-5.2222223">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/season.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="188" column="36" selection-start-line="188" selection-start-column="36" selection-end-line="188" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/conf.d">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7837838">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
           <folding />
         </state>
       </provider>

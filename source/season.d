@@ -195,9 +195,11 @@ Season[] loadAll(string[] seasonsStr) {
   Season[] res;
   foreach (seasonStr; seasonsStr) {
     string filename = to!string("csv/"~seasonStr~".csv");
-//    if (!exists(filename)) {
-//      continue;
-//    }
+    if (!exists(filename)) {
+      writeln("### Season file does not exist. " ~ filename);
+      continue;
+    }
+    writeln("### Loading season from file. " ~ filename);
     res ~= loadSeason(filename);
   }
   return res;
