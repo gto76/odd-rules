@@ -10,6 +10,7 @@ import std.stdio;
 import std.string;
 import std.typecons;
 import core.thread;
+import std.typecons;
 
 import game;
 import profitAndOccurances;
@@ -56,6 +57,162 @@ void main(string[] args) {
   writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
   writeln("Average profit: "~to!string(profitSum/bets));
   writeln("\nThe End");
+}
+
+void printUpcomingGames() {
+  writeln("Start");
+  RuleAndProfit[] rules = loadRules("results/random-rules");
+  writeln("Loading season");
+  string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
+  writeln("Seasons ### ");
+  Season[] seasons = loadAll(seasonsStr);
+  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr));
+  linkSeasons(seasons ~ lastSeasons);
+  writeln("Linked seasons");
+
+  Game[] upcomingGames = readUpcomingGames();
+  addGamesToRightSeasons(upcomingGames, seasons);
+  GameAndRule[] gamesAndRules = getDistancesOfUpcomingGames(seasons, rules);
+  foreach (gar; gamesAndRules) {
+    printGar(gar);
+  }
+  writeln("\nThe End");
+}
+
+void addGamesToRightSeasons(Game[] upcomingGames, Season[] currentSeasons) {
+  foreach (game; upcomingGames) {
+    string leagueAbv = game.sAttrs["Div"];
+    if (season.features["sport"] == "football" &&
+        season.features["country"] == COUNTRY_OF_ABV[leagueAbv] &&
+        season.features["league"] == LEAGUE_LEVEL_OF_ABV[leagueAbv] &&
+        season.features["season"] == "2016") { // TODO current season begining year
+      season.games ~= game;
+    }
+  }
+}
+
+Game[] readUpcomingGames() {
+  string dir = "../odds-scraper/results/";
+  Game[] res;
+  foreach (filename; dirEntries(dir, "*.txt", SpanMode.shallow)) {
+    res ~= readUpcomingGamesFromFile(filename);
+  }
+  return res;
+}
+
+Game[] readUpcomingGamesFromFile(string filename) {
+  Game[] res;
+  // TODO get actual year.
+  string leagueName = filename.split("_2016")[0];
+  string leagueAbv = SHORTER_LEAGUE_NAMES[leagueName];
+  string[] lines = readFile(filename);
+  string[] buf;
+  foreach (line; lines) {
+    if (line == "") {
+      res ~= getGame(buf, leagueAbv);
+      buf.clear();
+      continue;
+    }
+    buf ~= line;
+  }
+  return res;
+}
+
+//  Game record looks like this:
+//    link;https://www.betbrain.com/football/france/ligue-2/olympique-nimes-v-fc-metz/
+//    time;22/02/16 19:30
+//    name;Nimes - Metz
+//    bet;1X2
+//    odds;2.55 3.30 3.18
+//    bet;Asian Handicap
+//    odds;1.77 0 2.26
+//    bet;Over Under
+//    odds;2.20 2.5 1.82
+Game getGame(string[] lines, string leagueAbv) {
+  string date;
+  string homeTeam;
+  string awayTeam;
+  foreach (line; lines) {
+    auto pairMatch = matchFirst(line, regex("^name;"));
+    if (!pairMatch.empty) {
+      // 'name;Nimes - Metz'
+      string pair = pairMatch.post;
+      // 'Nimes - Metz'
+      auto teams = pair.split(" - ");
+      // [ 'Nimes', 'Metz' ]
+      if (teams.length < 2) {
+        writeln("Error in reading teams from upcoming game file!");
+        return null;
+      }
+      homeTeam = teams[0];
+      awayTeam = teams[1];
+    }
+    auto timeMatch = matchFirst(line, regex("^name;"));
+    if (!timeMatch.empty) {
+      // 'time;22/02/16 19:30'
+      string time = timeMatch.post;
+      // '22/02/16 19:30'
+      string splitTime = time.split();
+      // [ '22/02/16', '19:30' ]
+      if (splitTime.length < 2) {
+        writeln("Error in reading time from upcoming game file!");
+        return null;
+      }
+      date = splitTime[1];
+    }
+  }
+  string[] atrs = [ "Div": leagueAbv, "Date": date, "HomeTeam": homeTeam, "AwayTeam": awayTeam ];
+  return newGame(atrs);
+}
+
+void printGar(GameAndRule gar) {
+  writeln(gar.game.sAttrs["HomeTeam"]);
+  writeln(gar.game.sAttrs["AwayTeam"]);
+  writeln(rule.pao.getBestResult());
+  writeln(rule.rule.distanceFromFront);
+  writeln("-------------");
+}
+
+GameAndRule[] getDistancesOfUpcomingGames(Season[] seasons, RuleAndProfit[] rules) {
+  GameAndRule[] res;
+  foreach (season; seasons) {
+    res ~= getDistancesOfUpcomingGames(season, rules);
+  }
+  return res;
+}
+
+GameAndRule[] getDistancesOfUpcomingGames(Season season, RuleAndProfit[] rules) {
+  GameAndRule[] res;
+  foreach (game; season.games) {
+    // If game has result, then continue;
+    if("FTR" in game) {
+      continue;
+    }
+    RuleAndProfit rule = getBestRuleThatAplies(season, game, rules);
+    res ~= new GameAndRule(game, rule);
+  }
+  return res;
+}
+
+class GameAndRule {
+  Game game;
+  RuleAndProfit rule;
+  this(Game game, RuleAndProfit rule) {
+    this.game = game;
+    this.rule = rule;
+  }
+}
+
+/*
+ * Returns result and distance, or null if no rule exists.
+ */
+RuleAndProfit getBestRuleThatAplies(Season season, Game game, RuleAndProfit[] rules) {
+  foreach (rule; rules) {
+    if (ruleAplies(game, season, rule.rule)) {
+      return rule;
+    }
+  }
+  return null;
 }
 
 public string[] getAllSeasonsOfYear(string dir, int year) {
