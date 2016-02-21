@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/app.d" afterPath="$PROJECT_DIR$/source/app.d" />
-    </list>
+    <list default="true" id="aacfa2f3-31b0-4074-81ce-8cd18cfcb27e" name="Default" comment="" />
     <ignored path="odd-rules-4.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,8 +25,8 @@
       <file leaf-file-name="app.d" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source/app.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.743215">
-              <caret line="96" column="3" selection-start-line="96" selection-start-column="3" selection-end-line="96" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.7118998">
+              <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -280,7 +277,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Other File Types" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="dubPath" value="$USER_HOME$/Downloads/dub" />
     <property name="dubFlags" value="" />
     <property name="dscannerPath" value="" />
@@ -566,7 +563,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -659,7 +656,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456020348698</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Segfaults">
+      <created>1456026670644</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1456026670644</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -725,7 +728,8 @@
     <MESSAGE value="Test the rules from last season" />
     <MESSAGE value="Added test cases" />
     <MESSAGE value="Added a functionality for forecasting upcoming games" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a functionality for forecasting upcoming games" />
+    <MESSAGE value="Segfaults" />
+    <option name="LAST_COMMIT_MESSAGE" value="Segfaults" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1122,8 +1126,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source/app.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.743215">
-          <caret line="96" column="3" selection-start-line="96" selection-start-column="3" selection-end-line="96" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.7118998">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
           <folding />
         </state>
       </provider>
