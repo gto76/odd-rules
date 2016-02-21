@@ -24,39 +24,41 @@ import ruleAndProfit;
 //////////
 
 void main(string[] args) {
-  writeln("Start");
-  RuleAndProfit[] rules = loadRules("results/random-rules");
-  writeln("Loading season");
+//  writeln("Start");
+//  RuleAndProfit[] rules = loadRules("results/random-rules");
+//  writeln("Loading season");
+//
+//  string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
+//  writeln("Seasons ### ");
+////  writeln(seasonsStr);
+//
+////  string[] seasonsStr =     [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-scotland-0-2011", "football-scotland-1-2011", "football-scotland-2-2011", "football-scotland-3-2011", "football-germany-0-2011", "football-germany-1-2011" ];
+////  string[] seasonsStr =     [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-scotland-0-2011", "football-scotland-1-2011", "football-scotland-2-2011", "football-scotland-3-2011", "football-germany-0-2011", "football-germany-1-2011" ];
+//  //string[] lastSeasonsStr = [ "football-england-0-2010", "football-england-1-2010", "football-england-2-2010", "football-england-3-2010", "football-scotland-0-2010", "football-scotland-1-2010", "football-scotland-2-2010", "football-scotland-3-2010", "football-germany-0-2010", "football-germany-1-2010"];
+//
+//  Season[] seasons = loadAll(seasonsStr);
+////  Season[] lastSeasons = loadAll(lastSeasonsStr);
+//  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr));
+//
+//  linkSeasons(seasons ~ lastSeasons);
+//  writeln("Linked seasons");
+//  double profitSum = 0;
+//  double bets = 0;
+//  double allBets = 0;
+//  foreach (season; seasons) {
+//    double[] profit = getProfitForSeason(season, rules, 0.01);
+//    if (!isNaN(profit[0])) {
+//      profitSum += profit[0];
+//      bets += profit[1];
+//      allBets += profit[2];
+//    }
+//  }
+//  writeln("==============");
+//  writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
+//  writeln("Average profit: "~to!string(profitSum/bets));
+//  writeln("\nThe End");
 
-  string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
-  writeln("Seasons ### ");
-//  writeln(seasonsStr);
-
-//  string[] seasonsStr =     [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-scotland-0-2011", "football-scotland-1-2011", "football-scotland-2-2011", "football-scotland-3-2011", "football-germany-0-2011", "football-germany-1-2011" ];
-//  string[] seasonsStr =     [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-scotland-0-2011", "football-scotland-1-2011", "football-scotland-2-2011", "football-scotland-3-2011", "football-germany-0-2011", "football-germany-1-2011" ];
-  //string[] lastSeasonsStr = [ "football-england-0-2010", "football-england-1-2010", "football-england-2-2010", "football-england-3-2010", "football-scotland-0-2010", "football-scotland-1-2010", "football-scotland-2-2010", "football-scotland-3-2010", "football-germany-0-2010", "football-germany-1-2010"];
-
-  Season[] seasons = loadAll(seasonsStr);
-//  Season[] lastSeasons = loadAll(lastSeasonsStr);
-  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr));
-
-  linkSeasons(seasons ~ lastSeasons);
-  writeln("Linked seasons");
-  double profitSum = 0;
-  double bets = 0;
-  double allBets = 0;
-  foreach (season; seasons) {
-    double[] profit = getProfitForSeason(season, rules, 0.01);
-    if (!isNaN(profit[0])) {
-      profitSum += profit[0];
-      bets += profit[1];
-      allBets += profit[2];
-    }
-  }
-  writeln("==============");
-  writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
-  writeln("Average profit: "~to!string(profitSum/bets));
-  writeln("\nThe End");
+  printUpcomingGames();
 }
 
 void printUpcomingGames() {
@@ -71,7 +73,7 @@ void printUpcomingGames() {
   writeln("Linked seasons");
 
   Game[] upcomingGames = readUpcomingGames();
-  addGamesToRightSeasons(upcomingGames, seasons);
+  addGamesToRightSeason(upcomingGames, seasons);
   GameAndRule[] gamesAndRules = getDistancesOfUpcomingGames(seasons, rules);
   foreach (gar; gamesAndRules) {
     printGar(gar);
@@ -79,14 +81,18 @@ void printUpcomingGames() {
   writeln("\nThe End");
 }
 
-void addGamesToRightSeasons(Game[] upcomingGames, Season[] currentSeasons) {
+void addGamesToRightSeason(Game[] upcomingGames, Season[] currentSeasons) {
   foreach (game; upcomingGames) {
     string leagueAbv = game.sAttrs["Div"];
-    if (season.features["sport"] == "football" &&
-        season.features["country"] == COUNTRY_OF_ABV[leagueAbv] &&
-        season.features["league"] == LEAGUE_LEVEL_OF_ABV[leagueAbv] &&
-        season.features["season"] == "2016") { // TODO current season begining year
-      season.games ~= game;
+    writeln("### League abv: "~leagueAbv);
+    foreach (season; currentSeasons) {
+      if (season.features["sport"] == "football" &&
+          season.features["country"] == COUNTRY_OF_ABV[leagueAbv] &&
+          season.features["league"] == LEAGUE_LEVEL_OF_ABV[leagueAbv] &&
+          season.features["season"] == "2015") { // TODO current season begining year
+        season.games ~= game;
+        break;
+      }
     }
   }
 }
@@ -101,20 +107,28 @@ Game[] readUpcomingGames() {
 }
 
 Game[] readUpcomingGamesFromFile(string filename) {
+  writeln("### Upcoming games filename: " ~filename);
   Game[] res;
   // TODO get actual year.
-  string leagueName = filename.split("_2016")[0];
+  // '../odds-scraper/results/football_belgium_jupiler-pro-league_2016-02-21_00-03-26.txt'
+  string leagueNameWithDir = filename.split("_2016")[0];
+  // '../odds-scraper/results/football_belgium_jupiler-pro-league'
+  writeln("### leagueNameWithDir: " ~leagueNameWithDir);
+  string leagueName = leagueNameWithDir.split('/')[$-1];
+  // 'football_belgium_jupiler-pro-league'
+  writeln("### LeagueName: " ~leagueName);
   string leagueAbv = SHORTER_LEAGUE_NAMES[leagueName];
   string[] lines = readFile(filename);
   string[] buf;
   foreach (line; lines) {
     if (line == "") {
       res ~= getGame(buf, leagueAbv);
-      buf.clear();
+      buf = [];
       continue;
     }
     buf ~= line;
   }
+  writeln("### Games: " ~ to!string(res));
   return res;
 }
 
@@ -152,7 +166,7 @@ Game getGame(string[] lines, string leagueAbv) {
       // 'time;22/02/16 19:30'
       string time = timeMatch.post;
       // '22/02/16 19:30'
-      string splitTime = time.split();
+      string[] splitTime = time.split();
       // [ '22/02/16', '19:30' ]
       if (splitTime.length < 2) {
         writeln("Error in reading time from upcoming game file!");
@@ -161,15 +175,15 @@ Game getGame(string[] lines, string leagueAbv) {
       date = splitTime[1];
     }
   }
-  string[] atrs = [ "Div": leagueAbv, "Date": date, "HomeTeam": homeTeam, "AwayTeam": awayTeam ];
-  return newGame(atrs);
+  string[string] atrs = [ "Div": leagueAbv, "Date": date, "HomeTeam": homeTeam, "AwayTeam": awayTeam ];
+  return new Game(atrs);
 }
 
 void printGar(GameAndRule gar) {
   writeln(gar.game.sAttrs["HomeTeam"]);
   writeln(gar.game.sAttrs["AwayTeam"]);
-  writeln(rule.pao.getBestResult());
-  writeln(rule.rule.distanceFromFront);
+  writeln(gar.rule.pao.getBestResult());
+  writeln(gar.rule.distanceFromFront);
   writeln("-------------");
 }
 
@@ -185,12 +199,13 @@ GameAndRule[] getDistancesOfUpcomingGames(Season season, RuleAndProfit[] rules) 
   GameAndRule[] res;
   foreach (game; season.games) {
     // If game has result, then continue;
-    if("FTR" in game) {
+    if("FTR" in game.sAttrs) {
       continue;
     }
     RuleAndProfit rule = getBestRuleThatAplies(season, game, rules);
     res ~= new GameAndRule(game, rule);
   }
+  writeln("### Distances: "~to!string(res));
   return res;
 }
 
@@ -271,7 +286,7 @@ string getSeasonBefore(string season) {
 string[] getSeasonsBeforeNoDir(string[] seasons) {
   string[] res;
   foreach (season; seasons) {
-    writeln("Season before : "~season);
+//    writeln("Season before : "~season);
     string seasonBefore = getSeasonBeforeNoDir(season);
     if (seasonBefore != "") {
       res ~= seasonBefore;
@@ -281,7 +296,7 @@ string[] getSeasonsBeforeNoDir(string[] seasons) {
 }
 
 string getSeasonBeforeNoDir(string season) {
-  writeln("Season: "~season);
+//  writeln("Season: "~season);
   string[] tokens1 = season.split('-');
   if (tokens1.length < 2) {
     return "";
