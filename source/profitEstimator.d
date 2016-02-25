@@ -19,19 +19,11 @@ void estimateProfit() {
   writeln("Start");
   RuleAndProfit[] rules = loadRules("results/random-rules");
   writeln("Loading season");
-
   string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
   writeln("Seasons ### ");
 //  writeln(seasonsStr);
-
-//  string[] seasonsStr =     [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-scotland-0-2011", "football-scotland-1-2011", "football-scotland-2-2011", "football-scotland-3-2011", "football-germany-0-2011", "football-germany-1-2011" ];
-//  string[] seasonsStr =     [ "football-england-0-2011", "football-england-1-2011", "football-england-2-2011", "football-england-3-2011", "football-scotland-0-2011", "football-scotland-1-2011", "football-scotland-2-2011", "football-scotland-3-2011", "football-germany-0-2011", "football-germany-1-2011" ];
-  //string[] lastSeasonsStr = [ "football-england-0-2010", "football-england-1-2010", "football-england-2-2010", "football-england-3-2010", "football-scotland-0-2010", "football-scotland-1-2010", "football-scotland-2-2010", "football-scotland-3-2010", "football-germany-0-2010", "football-germany-1-2010"];
-
   Season[] seasons = loadAll(seasonsStr);
-//  Season[] lastSeasons = loadAll(lastSeasonsStr);
   Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr));
-
   linkSeasons(seasons ~ lastSeasons);
   writeln("Linked seasons");
   double profitSum = 0;
@@ -143,7 +135,13 @@ double[] getProfitForSeason(Season season, RuleAndProfit[] rules, double thresho
       // TODO, here last season should probably be passed, as a reference season.
       if (ruleAplies(game, season, rule.rule)) {
         Res result = rule.pao.getBestResult();
-        Res actualResult = game.getResult();
+        Res actualResult;
+        try {
+          actualResult = game.getResult();
+        } catch (Exception e) {
+          // Game does not have an result, continue.
+          continue;
+        }
         double profit;
         if (actualResult == result) {
           profit = game.getProfit();
