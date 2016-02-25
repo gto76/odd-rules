@@ -121,13 +121,13 @@ string getSeasonBeforeNoDir(string season) {
   return ret;
 }
 
-double[] getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold) {
+double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, double threshold) {
   int bets = 0;
   writeln("Getting profit for season");
   double profitSum = 0;
   orderByScore(rules);
   writeln("Starting loop");
-  foreach (game; season.games) {
+  foreach (game; games) {
     foreach (rule; rules) {
       if (rule.distanceFromFront > threshold) {
         break;
@@ -157,7 +157,7 @@ double[] getProfitForSeason(Season season, RuleAndProfit[] rules, double thresho
         writeln(rule);
         writeln("Profit: ");
         writeln(profit);
-        writeln("BetNo: "~to!string(bets++)~"/"~to!string(season.games.length));
+        writeln("BetNo: "~to!string(bets++)~"/"~to!string(games.length));
         writeln("Profit so far");
         writeln(profitSum);
         writeln("Avg profit so far");
@@ -166,6 +166,10 @@ double[] getProfitForSeason(Season season, RuleAndProfit[] rules, double thresho
     }
   }
   return [ profitSum, bets, season.games.length ];
+}
+
+double[] getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold) {
+  return getProfitForGames(season.games, season, rules, threshold);
 }
 
 // Orders list of rules by score - distance to the front of nondominated solutions.

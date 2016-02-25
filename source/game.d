@@ -74,16 +74,19 @@ class Game {
       return dateTime;
     }
     string sResult = sAttrs["Date"];
-    if (sAttrs["Date"] == "" || sAttrs["Time"] == "") {
-      writeln("Date or Time not present in game, returning null");
+    if (sAttrs["Date"] == "") {
+      writeln("Date not present in game, returning null");
     }
     string date = sAttrs["Date"];
+    string time = "12:00";
+    if (sAttrs["Time"] != "") {
+      time = sAttrs["Time"];
+    }
     // '27/02/16'
     string[] dateTokens = date.split('/');
     string year = dateTokens[2];
     string month = dateTokens[1];
     string day = dateTokens[0];
-    string time = sAttrs["Time"];
     // '12:45'
     string[] timeTokens = time.split(':');
     string hour = timeTokens[0];

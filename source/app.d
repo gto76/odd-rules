@@ -47,7 +47,6 @@ void main(string[] args) {
 }
 
 void printUpcomingGames() {
-  writeln("Start");
   RuleAndProfit[] rules = loadRules("results/random-rules");
   orderByScore(rules);
 //  writeln("Loading season");
@@ -65,7 +64,6 @@ void printUpcomingGames() {
   foreach (gar; gamesAndRules) {
     printGar(gar);
   }
-  writeln("\nThe End");
 }
 
 // Orders list of Games with Rules by date.
