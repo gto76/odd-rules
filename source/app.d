@@ -25,9 +25,25 @@ import profitEstimator;
 //////////
 
 void main(string[] args) {
-//  randomRuleSearch();
-//  estimateProfit();
-  printUpcomingGames();
+  if (args.length < 2) {
+    writeln("No arguments passed, use:");
+    writeln("  'forecast' for predicting the upcoming games,");
+    writeln("  'search' for searchning new rules, or");
+    writeln("  'extimate' for estimating the quality of existing rules");
+    return;
+  }
+  if (args[1] == "forecast") {
+    printUpcomingGames();
+    return;
+  }
+  if (args[1] == "search") {
+    randomRuleSearch();
+    return;
+  }
+  if (args[1] == "estimate") {
+    estimateProfit();
+    return;
+  }
 }
 
 void printUpcomingGames() {
@@ -54,10 +70,6 @@ void printUpcomingGames() {
 
 // Orders list of Games with Rules by date.
 void sortByDate(GameAndRule[] gamesAndRules) {
-//  auto nondominatedSolutions = getNondominatedSolutions(rules);
-//  foreach (rule; rules) {
-//    rule.distanceFromFront = getDistanceFromNondominatedLine(nondominatedSolutions, rule);
-//  }
   sort!("a.game.getDateTime() < b.game.getDateTime", SwapStrategy.stable)(gamesAndRules);
 }
 
