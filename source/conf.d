@@ -150,4 +150,4 @@ static this() {
  public static const string BETBRAIN_MAX = "BbMx";
 
  public static const string[] STRING_ATTRIBUTES = [ "Div", "Date", "HomeTeam", "AwayTeam", "FTR",
-                                                    "HTR", "Referee" ];
+                                                    "HTR", "Referee", "Link", "Time" ];

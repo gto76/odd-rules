@@ -199,7 +199,7 @@ Season[] loadAll(string[] seasonsStr) {
       writeln("### Season file does not exist. " ~ filename);
       continue;
     }
-    writeln("### Loading season from file. " ~ filename);
+//    writeln("### Loading season from file. " ~ filename);
     res ~= loadSeason(filename);
   }
   return res;
@@ -305,14 +305,14 @@ public void linkSeasons(Season[] seasons) {
 }
 
 private Season getSeasonBefore(Season[] seasons, Season seasonThis) {
-  writeln("Getting season before");
+//  writeln("Getting season before");
   string[string] fThis = seasonThis.features;
   foreach (seasonOther; seasons) {
     string[string] fOther = seasonOther.features;
     if (sameLeague(fThis, fOther)) {
-      writeln("same league");
+//      writeln("same league");
       if (to!int(fThis["season"]) == to!int(fOther["season"]) + 1) { // Before it was wrongly -1 !!!, so last season was actually next one!!!
-        writeln("found season");
+//        writeln("found season");
         return seasonOther;
       }
     }
