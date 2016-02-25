@@ -4,6 +4,7 @@ import core.exception;
 import std.algorithm;
 import std.array;
 import std.conv;
+import std.datetime;
 import std.format;
 import std.math;
 import std.range;
@@ -24,6 +25,8 @@ import conf;
 class Game {
   string[string] sAttrs;
   double[string] dAttrs;
+  bool dateSet = false;
+  DateTime dateTime;
 
   this(string[string] attrs) {
     foreach (key, value; attrs) {
@@ -63,6 +66,31 @@ class Game {
       return double.nan;
     }
     return dAttrs[column];
+  }
+
+  // Returns null if doesn't exist.
+  public DateTime getDateTime() {
+    if (dateSet) {
+      return dateTime;
+    }
+    string sResult = sAttrs["Date"];
+    if (sAttrs["Date"] == "" || sAttrs["Time"] == "") {
+      writeln("Date or Time not present in game, returning null");
+    }
+    string date = sAttrs["Date"];
+    // '27/02/16'
+    string[] dateTokens = date.split('/');
+    string year = dateTokens[2];
+    string month = dateTokens[1];
+    string day = dateTokens[0];
+    string time = sAttrs["Time"];
+    // '12:45'
+    string[] timeTokens = time.split(':');
+    string hour = timeTokens[0];
+    string minute = timeTokens[1];
+    dateTime = DateTime(to!int(year), to!int(month), to!int(day), to!int(hour), to!int(minute));
+    dateSet = true;
+    return dateTime;
   }
 }
 

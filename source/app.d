@@ -45,10 +45,20 @@ void printUpcomingGames() {
   Game[] upcomingGames = readUpcomingGames();
   addGamesToRightSeason(upcomingGames, seasons);
   GameAndRule[] gamesAndRules = getDistancesOfUpcomingGames(seasons, rules);
+  sortByDate(gamesAndRules);
   foreach (gar; gamesAndRules) {
     printGar(gar);
   }
   writeln("\nThe End");
+}
+
+// Orders list of Games with Rules by date.
+void sortByDate(GameAndRule[] gamesAndRules) {
+//  auto nondominatedSolutions = getNondominatedSolutions(rules);
+//  foreach (rule; rules) {
+//    rule.distanceFromFront = getDistanceFromNondominatedLine(nondominatedSolutions, rule);
+//  }
+  sort!("a.game.getDateTime() < b.game.getDateTime", SwapStrategy.stable)(gamesAndRules);
 }
 
 void addGamesToRightSeason(Game[] upcomingGames, Season[] currentSeasons) {
