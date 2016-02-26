@@ -22,7 +22,8 @@ void estimateProfit() {
   writeln("Loading season");
 //  string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
   string[] seasonsStr = getAllSeasonsOfYear("current-season", 2015);
-  writeln("Seasons ### ");
+//  string[] seasonsStr = [ "football-turkey-0-2015" ];
+//  writeln("Seasons ### ");
 //  writeln(seasonsStr);
   Season[] seasons = loadAll(seasonsStr, "current-season");
   Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr), "csv");
@@ -32,7 +33,9 @@ void estimateProfit() {
   double bets = 0;
   double allBets = 0;
   foreach (season; seasons) {
-    Game[] games = getGamesAfter(season, DateTime(2016, 1, 18, 12, 0));
+//    Game[] games = getGamesAfter(season, DateTime(2016, 1, 18, 12, 0));
+//    Game[] games = getGamesAfter(season, DateTime(2016, 2, 19, 12, 0));
+    Game[] games = season.games;
 //    writeln(games);
 //    double[] profit = getProfitForSeason(season, rules, 0.01);
     double[] profit = getProfitForGames(games, season, rules, 0.01);
@@ -159,8 +162,8 @@ double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, d
         try {
           actualResult = game.getResult();
         } catch (Exception e) {
-          writeln("Game does not have a result: ");
-          writeln(game);
+//          writeln("Game does not have a result: ");
+//          writeln(game);
           continue;
         }
         double profit;
@@ -182,9 +185,10 @@ double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, d
         write("Avg season profit so far: ");
         writeln(profitSum/bets);
       }
+//      writeln("### No rule applied");
     }
   }
-  return [ profitSum, bets, season.games.length ];
+  return [ profitSum, bets, games.length ];
 }
 
 double[] getProfitForSeason(Season season, RuleAndProfit[] rules, double threshold) {

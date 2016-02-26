@@ -165,10 +165,12 @@ public bool ruleAplies(Game game, Season season, Rule rule) {
 private bool evalTeamRule(TeamRule teamRule, Game game, Season season) {
   double[] parameterBounds = getParametersBounds(teamRule.parameter, game, season);
   if (parameterBounds is null) {
+//    writeln("ParameterBounds is null.");
     return false;
   }
   double[] otherParameterBounds = getParametersBounds(teamRule.otherParameter, game, season);
   if (otherParameterBounds is null) {
+//    writeln("OtherParameterBounds is null.");
     return false;
   }
   if (teamRule.numericOperator == NumericOperator.LT) {

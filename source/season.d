@@ -209,9 +209,12 @@ public Season loadSeason(string fileName) {
   auto file = File(fileName, "r");
   auto records = csvReader!(string[string])(file.byLine.joiner("\n"), null);
   Game[] games;
+//  writeln(fileName);
   foreach(record; records) {
+//    write(record["WHH"]~',');
     games ~= new Game(record);
   }
+//  writeln();
   auto features = getSeasonsFeatures(fileName);
   auto season = new Season(features, records.header, games);
   file.close();
