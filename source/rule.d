@@ -184,7 +184,15 @@ class TeamRule {
     auto tokens = split(line, regex("<|>")); // TODO, change > to >= in future versions.
     // [ '("HST", 1) ', ' ("HY", 1) + 0.77' ]
     parameter = new Parameter(tokens[0].strip());
-    setRightHand(tokens[1].strip());
+    // In case there is '>=' instead of '>', they have the same meaning.
+    string rightHandString = tokens[1].strip();
+    rightHandString = chompPrefix(rightHandString, "=");
+    try {
+      setRightHand(rightHandString.strip());
+    } catch (ConvException e) {
+      writeln("Error converting line: "~line);
+      throw e;
+    }
   }
 
   private void setRightHand(string line) {
@@ -193,9 +201,19 @@ class TeamRule {
     // [ ' ("HY", 1) ', ' 0.77' ]
     if (tokens.length > 1) {
       otherParameter = new Parameter(tokens[0].strip());
-      constant = to!double(tokens[1].strip());
+//      try {
+        constant = to!double(tokens[1].strip());
+//      } catch (ConvException e) {
+//        writeln("Error converting line: "~line~";");
+//        throw e;
+//      }
     } else {
-      constant = to!double(line);
+//      try {
+        constant = to!double(line);
+//      } catch (ConvException e) {
+//        writeln("Error converting line: "~line);
+//        throw e;
+//      }
     }
   }
 

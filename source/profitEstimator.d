@@ -33,7 +33,7 @@ void estimateProfit() {
   double allBets = 0;
   foreach (season; seasons) {
     Game[] games = getGamesAfter(season, DateTime(2016, 1, 18, 12, 0));
-    writeln(games);
+//    writeln(games);
 //    double[] profit = getProfitForSeason(season, rules, 0.01);
     double[] profit = getProfitForGames(games, season, rules, 0.01);
     if (!isNaN(profit[0])) {
@@ -51,7 +51,7 @@ void estimateProfit() {
 public Game[] getGamesAfter(Season season, DateTime dateTime) {
   Game[] ret;
   foreach (game; season.games) {
-    writeln(game.getDateTime());
+//    writeln(game.getDateTime());
     if (game.getDateTime() > dateTime) {
       ret ~= game;
     }
@@ -139,10 +139,13 @@ string getSeasonBeforeNoDir(string season) {
 
 double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, double threshold) {
   int bets = 0;
-  writeln("Getting profit for season");
+//  writeln("Getting profit for season");
   double profitSum = 0;
   orderByScore(rules);
-  writeln("Starting loop");
+//  writeln("Starting loop");
+  writeln("===========");
+  writeln("Estimating sason: "~to!string(season.features));
+  writeln("Last sason: "~to!string(season.lastSeason.features));
   foreach (game; games) {
     foreach (rule; rules) {
       if (rule.distanceFromFront > threshold) {
@@ -167,16 +170,18 @@ double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, d
         profitSum += profit;
         // CHECK THE RESULT !!!
         writeln("-----------");
-        writeln("Betting on game: ");
-        writeln(game);
-        writeln("Rule: ");
+//        writeln("Betting on game: ");
+//        writeln(game);
+//        writeln("Rule: ");
+        writeln("Date: "~game.sAttrs["Date"]);
+        writeln("Teams: "~game.sAttrs["HomeTeam"]~" - "~game.sAttrs["AwayTeam"]);
         writeln(rule);
-        writeln("Profit: ");
+        write("Profit: ");
         writeln(profit);
         writeln("BetNo: "~to!string(bets++)~"/"~to!string(games.length));
-        writeln("Profit so far");
+        write("Season profit so far: ");
         writeln(profitSum);
-        writeln("Avg profit so far");
+        write("Avg season profit so far: ");
         writeln(profitSum/bets);
       }
     }

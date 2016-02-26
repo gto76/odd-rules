@@ -156,8 +156,6 @@ sport = ("football") AND ( ("HTAG", 1) < 0.25 OR ("FTHG", 8) < ("AS", 1) + 0.79 
 D: 0.2276 H: -0.1290 A: -0.4093 occ: 89
 sport = ("football") AND ( ("HY", 1) >= 0.12 AND ("HST", 9) >= ("AC", 9) + 0.91 )
 A: 0.2297 H: -0.1138 D: -0.1468 occ: 65
-sport = ("football") AND ( ("HF", 1) >= ("AS", 1) + AND ("AR", 10) >= 0.74 AND ("HF", 1) < 0.14 )
-D: 0.2299 H: -0.1328 A: -0.1604 occ: 85
 sport = ("football") AND ( ("HC", 1) >= ("HST", 10) + 0.89 )
 H: 0.2300 A: -0.1767 D: -0.4332 occ: 85
 sport = ("football") AND ( ("HY", 1) >= ("HTHG", 1) + 0.47 AND ("AY", 1) >= ("HF", 5) + 0.9 )
