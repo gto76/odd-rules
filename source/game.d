@@ -95,6 +95,10 @@ class Game {
     dateSet = true;
     return dateTime;
   }
+
+  override string toString() {
+    return "Date: " ~ sAttrs["Date"] ~ "\nTeams: " ~ sAttrs["HomeTeam"] ~ " - " ~ sAttrs["AwayTeam"];
+  }
 }
 
 ///////////////

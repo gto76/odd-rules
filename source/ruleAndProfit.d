@@ -43,7 +43,7 @@ class RuleAndProfit {
   }
 
   override string toString() {
-    return "\n" ~ to!string(rule) ~ "\n" ~ to!string(pao);
+    return to!string(rule) ~ "\n" ~ to!string(pao);
   }
 
 }

@@ -29,7 +29,7 @@ void main(string[] args) {
     writeln("No arguments passed, use:");
     writeln("  'forecast' for predicting the upcoming games,");
     writeln("  'search' for searchning new rules, or");
-    writeln("  'extimate' for estimating the quality of existing rules");
+    writeln("  'estimate' for estimating the quality of existing rules");
     return;
   }
   if (args[1] == "forecast") {

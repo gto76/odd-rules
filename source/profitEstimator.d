@@ -145,7 +145,8 @@ double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, d
 //  writeln("Starting loop");
   writeln("===========");
   writeln("Estimating sason: "~to!string(season.features));
-  writeln("Last sason: "~to!string(season.lastSeason.features));
+  writeln("Reference sason: "~to!string(season.lastSeason.features));
+  writeln("Number of games: "~to!string(games.length));
   foreach (game; games) {
     foreach (rule; rules) {
       if (rule.distanceFromFront > threshold) {
@@ -158,7 +159,8 @@ double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, d
         try {
           actualResult = game.getResult();
         } catch (Exception e) {
-          // Game does not have an result, continue.
+          writeln("Game does not have a result: ");
+          writeln(game);
           continue;
         }
         double profit;
@@ -170,15 +172,11 @@ double[] getProfitForGames(Game[] games, Season season, RuleAndProfit[] rules, d
         profitSum += profit;
         // CHECK THE RESULT !!!
         writeln("-----------");
-//        writeln("Betting on game: ");
-//        writeln(game);
-//        writeln("Rule: ");
-        writeln("Date: "~game.sAttrs["Date"]);
-        writeln("Teams: "~game.sAttrs["HomeTeam"]~" - "~game.sAttrs["AwayTeam"]);
+        writeln(game);
         writeln(rule);
         write("Profit: ");
         writeln(profit);
-        writeln("BetNo: "~to!string(bets++)~"/"~to!string(games.length));
+        writeln("BetNo: "~to!string(++bets)~"/"~to!string(games.length));
         write("Season profit so far: ");
         writeln(profitSum);
         write("Avg season profit so far: ");
@@ -204,21 +202,17 @@ void orderByScore(RuleAndProfit[] rules) {
 
 RuleAndProfit[] loadRules(string fileName) {
 //    writeln("Loading rules");
-
   RuleAndProfit[] rules;
   string[] lines = readFile(fileName);
 //      writeln("Loading rules 2");
-
   for (int i = 0; i < lines.length; i += 2) {
 //        writeln("Loading rule " ~ to!string(i));
-
     auto rule = new Rule(lines[i]);
 //        writeln("Loading profit " ~ to!string(i+1));
     auto poc = new ProfitAndOccurances(lines[i+1]);
     rules ~= new RuleAndProfit(rule, poc);
   }
 //      writeln("Loading rules 3");
-
   return rules;
 }
 
