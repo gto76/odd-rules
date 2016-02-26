@@ -5,6 +5,7 @@ import std.algorithm;
 import std.array;
 import std.file;
 import std.conv;
+import std.datetime;
 import std.math;
 
 import game;
@@ -17,20 +18,24 @@ import ruleSearch;
 
 void estimateProfit() {
   writeln("Start");
-  RuleAndProfit[] rules = loadRules("results/random-rules");
+  RuleAndProfit[] rules = loadRules("results/rules-2014");
   writeln("Loading season");
-  string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
+//  string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
+  string[] seasonsStr = getAllSeasonsOfYear("current-season", 2015);
   writeln("Seasons ### ");
 //  writeln(seasonsStr);
-  Season[] seasons = loadAll(seasonsStr);
-  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr));
+  Season[] seasons = loadAll(seasonsStr, "current-season");
+  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr), "csv");
   linkSeasons(seasons ~ lastSeasons);
   writeln("Linked seasons");
   double profitSum = 0;
   double bets = 0;
   double allBets = 0;
   foreach (season; seasons) {
-    double[] profit = getProfitForSeason(season, rules, 0.01);
+    Game[] games = getGamesAfter(season, DateTime(2016, 1, 18, 12, 0));
+    writeln(games);
+//    double[] profit = getProfitForSeason(season, rules, 0.01);
+    double[] profit = getProfitForGames(games, season, rules, 0.01);
     if (!isNaN(profit[0])) {
       profitSum += profit[0];
       bets += profit[1];
@@ -41,6 +46,17 @@ void estimateProfit() {
   writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
   writeln("Average profit: "~to!string(profitSum/bets));
   writeln("\nThe End");
+}
+
+public Game[] getGamesAfter(Season season, DateTime dateTime) {
+  Game[] ret;
+  foreach (game; season.games) {
+    writeln(game.getDateTime());
+    if (game.getDateTime() > dateTime) {
+      ret ~= game;
+    }
+  }
+  return ret;
 }
 
 public string[] getAllSeasonsOfYear(string dir, int year) {

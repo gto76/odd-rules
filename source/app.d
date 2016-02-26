@@ -52,8 +52,8 @@ void printUpcomingGames() {
 //  writeln("Loading season");
   string[] seasonsStr = getAllSeasonsOfYear("csv", 2015);
 //  writeln("Seasons ### ");
-  Season[] seasons = loadAll(seasonsStr);
-  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr));
+  Season[] seasons = loadAll(seasonsStr, "csv");
+  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr), "csv");
   linkSeasons(seasons ~ lastSeasons);
 //  writeln("Linked seasons");
 

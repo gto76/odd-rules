@@ -191,10 +191,10 @@ public Season[] loadSeasonsFromDir(string dir) {
   return seasons;
 }
 
-Season[] loadAll(string[] seasonsStr) {
+Season[] loadAll(string[] seasonsStr, string dir) {
   Season[] res;
   foreach (seasonStr; seasonsStr) {
-    string filename = to!string("csv/"~seasonStr~".csv");
+    string filename = to!string(dir~"/"~seasonStr~".csv");
     if (!exists(filename)) {
       writeln("### Season file does not exist. " ~ filename);
       continue;

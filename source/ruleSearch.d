@@ -28,7 +28,7 @@ void randomRuleSearch() {
     RuleAndProfit rap = getRandomRap(seasons);
     if (rap is null ||
         rap.pao.occurances < OCCURANCE_TRESHOLD ||
-        rap.pao.getMaxProfit() < 0.0) {
+        rap.pao.getMaxProfit() < 0.2) {
       continue;
     }
     bestResults ~= rap;

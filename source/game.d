@@ -74,17 +74,17 @@ class Game {
       return dateTime;
     }
     string sResult = sAttrs["Date"];
-    if (sAttrs["Date"] == "") {
-      writeln("Date not present in game, returning null");
+    if ("Date" !in sAttrs) {
+      throw new Exception("Date not present in game, returning null");
     }
     string date = sAttrs["Date"];
     string time = "12:00";
-    if (sAttrs["Time"] != "") {
+    if ("Time" in sAttrs) {
       time = sAttrs["Time"];
     }
     // '27/02/16'
     string[] dateTokens = date.split('/');
-    string year = dateTokens[2];
+    string year = "20"~dateTokens[2];
     string month = dateTokens[1];
     string day = dateTokens[0];
     // '12:45'
