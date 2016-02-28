@@ -123,17 +123,17 @@ class ProfitAndOccurances {
  */
 public void setProfit(ProfitAndOccurances poc, Res res, double profitIn) {
   if (res == Res.H) {
-    poc.profit[Res.H] += profitIn-1;
+    poc.profit[Res.H] += profitIn;
     poc.profit[Res.D] -= 1;
     poc.profit[Res.A] -= 1;
   } else if (res == Res.D) {
     poc.profit[Res.H] -= 1;
-    poc.profit[Res.D] += profitIn-1;
+    poc.profit[Res.D] += profitIn;
     poc.profit[Res.A] -= 1;
   } else if (res == Res.A) {
     poc.profit[Res.H] -= 1;
     poc.profit[Res.D] -= 1;
-    poc.profit[Res.A] += profitIn-1;
+    poc.profit[Res.A] += profitIn;
   }
 }
 

@@ -65,7 +65,7 @@ class Game {
       // No Betbrain attribute.
       return double.nan;
     }
-    return dAttrs[column];
+    return dAttrs[column] - 1;
   }
 
   // Returns null if doesn't exist.
@@ -119,7 +119,7 @@ public ProfitAndOccurances getProfitAndOccurances(Season[] seasons, Rule rule) {
       continue;
     }
     foreach (game; season.games) {
-      if (ruleAplies(game, season, rule)) { // Shouldn't last season be passed here!!! TODO
+      if (ruleAplies(game, season, rule)) {
         Res res;
         try {
           res = game.getResult();
