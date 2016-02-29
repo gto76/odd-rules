@@ -19,7 +19,7 @@ void randomRuleSearch() {
   RuleAndProfit[] bestResults;
 
   int counter = 1;
-  foreach (i; 1 .. NUM_OF_RUNS) {
+  while (true) {
     write("#");
     stdout.flush();
     if (counter++ % 80 == 0) {
@@ -42,6 +42,7 @@ void randomRuleSearch() {
     auto nondominatedSolutions = getNondominatedSolutions(bestResults);
     sort(bestResults);
     foreach (result; bestResults) {
+      writeln();
       writeln(result);
       write("Distance: ");
       writeln(getDistanceFromNondominatedLine(nondominatedSolutions, result));

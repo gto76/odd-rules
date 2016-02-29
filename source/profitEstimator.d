@@ -21,9 +21,10 @@ void estimateProfit() {
 
   writeln("Start");
   RuleAndProfit[] rules = loadRules("results/rules-2014");
+  rules ~= loadRules("results/rules-2014-2");
 //  RuleAndProfit[] rules = loadRules("results/random-rules");
 //  rules = rules ~ loadRules("results/random-rules");
-//  orderByScore(rules);
+  orderByScore(rules);
   writeln("Loading season");
 
 //  string[] seasonsStr = getAllSeasonsOfYear("csv", 2011);
@@ -38,17 +39,39 @@ void estimateProfit() {
   linkSeasons(seasons ~ lastSeasons);
   writeln("Linked seasons");
 
-  double distanceThreshold = double.max;
-  double profitThreshold = 0.3;
+//  double distanceThreshold = double.max;
+//  double profitThreshold = 0.3;
   bool print = false;
-  double[] profit = getEstimateForSeasons(seasons, rules, distanceThreshold, profitThreshold, print);
-  double profitSum = profit[0];
-  double bets = profit[1];
-  double allBets = profit[2];
-  writeln("==============");
-  writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
-  writeln("Average profit: "~to!string(profitSum/bets));
-  writeln("\nThe End");
+
+//  for (int i = 20; i <= 70; i++) {
+//    double profitThreshold = i/100.0;
+//    double[] profit = getEstimateForSeasons(seasons, rules, distanceThreshold, profitThreshold, print);
+//    double profitSum = profit[0];
+//    double bets = profit[1];
+//    double allBets = profit[2];
+//    writeln("==============");
+//    writeln("Profit threshold: " ~ to!string(profitThreshold));
+//    writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
+//    writeln("Average profit: "~to!string(profitSum/bets));
+//    stdout.flush();
+//  //  writeln("\nThe End");
+//  }
+
+//  double distanceThreshold = double.max;
+  double profitThreshold = 0;
+  for (int i = 0; i <= 10; i++) {
+    double distanceThreshold = i/10000.0;
+    double[] profit = getEstimateForSeasons(seasons, rules, distanceThreshold, profitThreshold, print);
+    double profitSum = profit[0];
+    double bets = profit[1];
+    double allBets = profit[2];
+    writeln("==============");
+    writeln("Distance threshold: " ~ to!string(distanceThreshold));
+    writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
+    writeln("Average profit: "~to!string(profitSum/bets));
+    stdout.flush();
+  //  writeln("\nThe End");
+  }
 }
 
 double[] getEstimateForSeasons(Season[] seasons, RuleAndProfit[] rules, double distanceThreshold,

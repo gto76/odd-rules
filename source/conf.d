@@ -5,7 +5,6 @@ import rule;
 /*
  * From app.d
  */
-int NUM_OF_RUNS = 100000;
 string[] ATTRIBUTES = ["FTHG", "FTAG", "HTHG", "HTAG", "HS", "AS", "HST", "AST", "HF", "AF", "HC",
                        "AC", "HY", "AY", "HR", "AR"];
 int WIDEST_WINDOW = 10;
