@@ -200,6 +200,7 @@ Season[] loadAll(string[] seasonsStr, string dir) {
       continue;
     }
 //    writeln("### Loading season from file. " ~ filename);
+    stdout.flush();
     res ~= loadSeason(filename);
   }
   return res;

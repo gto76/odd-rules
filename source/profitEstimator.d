@@ -22,6 +22,7 @@ void estimateProfit() {
   writeln("Start");
   RuleAndProfit[] rules = loadRules("results/rules-2014");
   rules ~= loadRules("results/rules-2014-2");
+  rules ~= loadRules("results/rules-2014-3");
 //  RuleAndProfit[] rules = loadRules("results/random-rules");
 //  rules = rules ~ loadRules("results/random-rules");
   orderByScore(rules);
@@ -29,49 +30,68 @@ void estimateProfit() {
 
 //  string[] seasonsStr = getAllSeasonsOfYear("csv", 2011);
   string[] seasonsStr = getAllSeasonsOfYear("current-season", 2015);
+//  string[] seasonsStr = getAllSeasonsOfYear("eval2", 2009);
+
+//  string[] england = getSeasonsContaining(seasonsStr, "england");
+//  string[] scotland = getSeasonsContaining(seasonsStr, "scotland");
+//  seasonsStr = england ~ scotland;
 
 //  string[] seasonsStr = [ "football-scotland-0-2015" ];
-//  writeln("Seasons ### ");
-//  writeln(seasonsStr);
+  writeln("Seasons ### ");
+  writeln(seasonsStr);
   Season[] seasons = loadAll(seasonsStr, "current-season");
+//  Season[] seasons = loadAll(seasonsStr, "eval2");
+  writeln("Loaded seasons");
+  stdout.flush();
 //  Season[] seasons = loadAll(seasonsStr, "csv");
   Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr), "csv");
+//  Season[] lastSeasons = loadAll(getSeasonsBeforeNoDir(seasonsStr), "eval2");
   linkSeasons(seasons ~ lastSeasons);
   writeln("Linked seasons");
 
-//  double distanceThreshold = double.max;
+  double distanceThreshold = double.max;
 //  double profitThreshold = 0.3;
   bool print = false;
 
-//  for (int i = 20; i <= 70; i++) {
-//    double profitThreshold = i/100.0;
-//    double[] profit = getEstimateForSeasons(seasons, rules, distanceThreshold, profitThreshold, print);
-//    double profitSum = profit[0];
-//    double bets = profit[1];
-//    double allBets = profit[2];
-//    writeln("==============");
-//    writeln("Profit threshold: " ~ to!string(profitThreshold));
-//    writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
-//    writeln("Average profit: "~to!string(profitSum/bets));
-//    stdout.flush();
-//  //  writeln("\nThe End");
-//  }
-
-//  double distanceThreshold = double.max;
-  double profitThreshold = 0;
-  for (int i = 0; i <= 10; i++) {
-    double distanceThreshold = i/10000.0;
+  for (int i = 40; i <= 70; i++) {
+    double profitThreshold = i/100.0;
     double[] profit = getEstimateForSeasons(seasons, rules, distanceThreshold, profitThreshold, print);
     double profitSum = profit[0];
     double bets = profit[1];
     double allBets = profit[2];
     writeln("==============");
-    writeln("Distance threshold: " ~ to!string(distanceThreshold));
+    writeln("Profit threshold: " ~ to!string(profitThreshold));
     writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
     writeln("Average profit: "~to!string(profitSum/bets));
     stdout.flush();
   //  writeln("\nThe End");
   }
+
+//  double distanceThreshold = double.max;
+//  double profitThreshold = 0;
+//  for (int i = 0; i <= 10; i++) {
+//    double distanceThreshold = i/10000.0;
+//    double[] profit = getEstimateForSeasons(seasons, rules, distanceThreshold, profitThreshold, print);
+//    double profitSum = profit[0];
+//    double bets = profit[1];
+//    double allBets = profit[2];
+//    writeln("==============");
+//    writeln("Distance threshold: " ~ to!string(distanceThreshold));
+//    writeln("Betet times: " ~ to!string(bets) ~ "/"  ~ to!string(allBets));
+//    writeln("Average profit: "~to!string(profitSum/bets));
+//    stdout.flush();
+//  //  writeln("\nThe End");
+//  }
+}
+
+string[] getSeasonsContaining(string[] seasons, string word) {
+  string[] ret;
+  foreach (season; seasons) {
+    if (season.canFind(word)) {
+      ret ~= season;
+    }
+  }
+  return ret;
 }
 
 double[] getEstimateForSeasons(Season[] seasons, RuleAndProfit[] rules, double distanceThreshold,
