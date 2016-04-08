@@ -20,18 +20,20 @@ void randomRuleSearch() {
 
   int counter = 1;
   while (true) {
-    write("#");
+//    write("#");
     stdout.flush();
-    if (counter++ % 80 == 0) {
-      writeln();
-    }
+//    if (counter++ % 80 == 0) {
+      //writeln();
+//    }
     RuleAndProfit rap = getRandomRap(seasons);
     if (rap is null ||
         rap.pao.occurances < OCCURANCE_TRESHOLD ||
         rap.pao.getMaxProfit() < 0.2) {
       continue;
     }
-    bestResults ~= rap;
+    writeln();
+    writeln(rap);
+//    bestResults ~= rap;
 
 //    bestResults = getNondominatedSolutions(bestResults);
 //    sort(bestResults);
@@ -39,15 +41,15 @@ void randomRuleSearch() {
 //    writeln(to!string(bestResults));
 //    writeln();
 
-    auto nondominatedSolutions = getNondominatedSolutions(bestResults);
-    sort(bestResults);
-    foreach (result; bestResults) {
-      writeln();
-      writeln(result);
-      write("Distance: ");
-      writeln(getDistanceFromNondominatedLine(nondominatedSolutions, result));
-    }
-    writeln("===============================");
+//    auto nondominatedSolutions = getNondominatedSolutions(bestResults);
+ //   sort(bestResults);
+ //   foreach (result; bestResults) {
+ //     writeln();
+ //     writeln(result);
+ //     write("Distance: ");
+ //     writeln(getDistanceFromNondominatedLine(nondominatedSolutions, result));
+ //   }
+ //   writeln("===============================");
 
     counter = 1;
 //    break;
