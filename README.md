@@ -85,3 +85,25 @@ Manjka še
 How to profile
 --------------
 --build=profile
+
+How to install Dlang on Debian
+------------------------------
+To enable it, add the repository sources:
+```
+$ sudo wget http://netcologne.dl.sourceforge.net/project/d-apt/files/d-apt.list -O /etc/apt/sources.list.d/d-apt.list
+```
+then update local info and install "d-apt" public key (fingerprint 0xEBCF975E5BA24D5E):
+```
+$ sudo apt-get update && sudo apt-get -y --allow-unauthenticated install --reinstall d-apt-keyring && sudo apt-get update
+```
+then install:
+```
+sudo apt-get install dmd-bin
+
+
+
+For setting up git server check
+-------------------------------
+https://git-scm.com/book/it/v2/Git-on-the-Server-Setting-Up-the-Server
+
+
