@@ -1,15 +1,15 @@
 Odd Rules
 =========
 
-#### Živjo!
+Search
+------
 
-Sprogramiral sem algoritem, ki izračuna število pojavitev in dobičkonosnost pravila. 
+#### Algoritem, ki izračuna število pojavitev in dobičkonosnost pravila
 Sama pravila zaenkrat generira naključno.
 
 Za podatke sem podal glavne evropske nogometne lige (zadnje 3 sezone), kar je približno 20000 tekem. Podatke sem dobil iz http://www.football-data.co.uk/data.php
 
-Rezultati po osmih urah
------------------------
+### Rezultati po osmih urah
 
 #### Najbolj dobičkonosna pravila, ki imajo vsaj 50 pojavitev (0.25% vseh tekem)
 ```
@@ -53,8 +53,7 @@ A: 0.32 H: -0.22 D: -0.22 occ: 244
 * HR: Home red cards
 * AR: Away red cards
 
-Pravilo ima obliko
-------------------
+### Pravilo ima obliko
 
 * PRAVILA KI DEFINIRAJO LIGO, AND
   - (šport, država, katera liga v državi, od katere sezone naprej)
@@ -77,12 +76,13 @@ Se pravi naprimer, če je v tekmi ena ekipa dala rekordno število golov (glede 
 prejšnjo sezono), bo ta parameter imel vrednost 1.0, ali če je dala srednjo vrednost 
 golov (mediano), bo imel parameter vrednost 0.5.
 
-#### Živjo
+Estimate
+--------
 
-Sprogramiral sem algoritem ki z uporabo pravil napove na katere izide tekem
-se splača staviti.
+#### Algoritem ki z uporabo pravil napove na katere izide tekem
+se splača staviti
 
-Se pravi algoritem ne poskuša napovedati verjetnosti določenega izida tekem, 
+Algoritem ne poskuša napovedati verjetnosti določenega izida tekem, 
 ampak preveri ali tekma ustreza kaknšnemu od pravil, ter javi povprečen dobiček
 za vsak možen rezultat (home/draw/away), glede na pretekle tekme, ki so zadostovale
 temu pravilu.
