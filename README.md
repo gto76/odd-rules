@@ -77,10 +77,36 @@ Se pravi naprimer, če je v tekmi ena ekipa dala rekordno število golov (glede 
 prejšnjo sezono), bo ta parameter imel vrednost 1.0, ali če je dala srednjo vrednost 
 golov (mediano), bo imel parameter vrednost 0.5.
 
-Manjka še
----------
-* Algoritem, ki bo za podano tekmo vrnil veljavna pravila.
-* Optimizacijski algoritem, ki bo iskal pravila.
+#### Živjo
+
+Sprogramiral sem algoritem ki z uporabo pravil napove na katere izide tekem
+se splača staviti.
+
+Se pravi algoritem ne poskuša napovedati verjetnosti določenega izida tekem, 
+ampak preveri ali tekma ustreza kaknšnemu od pravil, ter javi povprečen dobiček
+za vsak možen rezultat (home/draw/away), glede na pretekle tekme, ki so zadostovale
+temu pravilu.
+
+Kar se tiče *vzorčenja kvot*, piše na strani:
+```
+Betting odds for weekend games are collected Friday afternoons, and on Tuesday afternoons for midweek games.
+```
+Kolikor sem preverjal intervale med tekmami, skoraj nikoli ne pride do tega, da bi eno mostvo imelo dve tekme v času preden se osvežijo kvote.
+
+#### Par možnih razlogov za dobre rezultate:
+
+Model stavi samo ko se mu zdi primerno in ni prisiljen v ocenjevanje verjetnosti za vsako tekmo.
+Model neposredno išče “napake” v igralničinih kvotah in ne posredno preko svojih napovedi verjetnosti.
+Overfiting
+
+##### Mislim da se algoritmu uspe izogniti overfitingu, ker:
+
+  * se pravila generirajo naključno (?),
+  * ker so sestavljena iz največ treh podpravil in
+  * ker se pravila, ki veljajo v manj kot 0.25% primerih zavržejo.
+
+
+
 
 How to profile
 --------------
