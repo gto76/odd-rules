@@ -1,12 +1,12 @@
 Odd Rules
 =========
 
-#### Iskanjem odvisnosti med stavnimi kvotami in statistikami iz preteklih tekem
+#### Iskanje odvisnosti med stavnimi kvotami in statistikami iz preteklih tekem
 
 Search
 ------
 
-##### Algoritem, ki izračuna število pojavitev in dobičkonosnost pravila
+#### Algoritem, ki izračuna število pojavitev in dobičkonosnost pravila
 
 Sama pravila zaenkrat generira naključno.
 Za podatke sem podal glavne evropske nogometne lige (zadnje 3 sezone), kar je približno 20000 tekem. Podatke sem dobil iz http://www.football-data.co.uk/data.php
@@ -117,7 +117,7 @@ Betet times: 55/1695
 Average profit: 0.127455
 ```
 
-#### Par možnih razlogov za dobre rezultate:
+#### Par možnih razlogov za dobre rezultate
 
 Model stavi samo ko se mu zdi primerno in ni prisiljen v ocenjevanje verjetnosti za vsako tekmo.
 Model neposredno išče “napake” v igralničinih kvotah in ne posredno preko svojih napovedi verjetnosti.
