@@ -79,15 +79,14 @@ golov (mediano), bo imel parameter vrednost 0.5.
 Estimate
 --------
 
-#### Algoritem ki z uporabo pravil napove na katere izide tekem
-se splača staviti
+#### Algoritem ki z uporabo pravil napove na katere izide tekem se splača staviti
 
 Algoritem ne poskuša napovedati verjetnosti določenega izida tekem, 
 ampak preveri ali tekma ustreza kaknšnemu od pravil, ter javi povprečen dobiček
 za vsak možen rezultat (home/draw/away), glede na pretekle tekme, ki so zadostovale
 temu pravilu.
 
-Kar se tiče *vzorčenja kvot*, piše na strani:
+Kar se tiče **vzorčenja kvot**, piše na strani:
 ```
 Betting odds for weekend games are collected Friday afternoons, and on Tuesday afternoons for midweek games.
 ```
