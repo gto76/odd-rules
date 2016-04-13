@@ -1,12 +1,14 @@
 Odd Rules
 =========
 
+#### Iskanjem odvisnosti med stavnimi kvotami in statistikami iz preteklih tekem
+
 Search
 ------
 
-#### Algoritem, ki izračuna število pojavitev in dobičkonosnost pravila
-Sama pravila zaenkrat generira naključno.
+##### Algoritem, ki izračuna število pojavitev in dobičkonosnost pravila
 
+Sama pravila zaenkrat generira naključno.
 Za podatke sem podal glavne evropske nogometne lige (zadnje 3 sezone), kar je približno 20000 tekem. Podatke sem dobil iz http://www.football-data.co.uk/data.php
 
 ### Rezultati po osmih urah
@@ -86,11 +88,34 @@ ampak preveri ali tekma ustreza kaknšnemu od pravil, ter javi povprečen dobič
 za vsak možen rezultat (home/draw/away), glede na pretekle tekme, ki so zadostovale
 temu pravilu.
 
-Kar se tiče **vzorčenja kvot**, piše na strani:
+### Rezultati
+
+Rezultati s filtriranjem pravil glede na dobičkonosnost le-teh. Vseh pravil je bilo okoli 8000.
 ```
-Betting odds for weekend games are collected Friday afternoons, and on Tuesday afternoons for midweek games.
+Profit threshold: 0.2
+Betet times: 809/1695
+Average profit: 0.0490235
+==============
+Profit threshold: 0.3
+Betet times: 640/1695
+Average profit: -0.00915625
+==============
+Profit threshold: 0.4
+Betet times: 416/1695
+Average profit: 0.035649
+==============
+Profit threshold: 0.5
+Betet times: 216/1695
+Average profit: 0.0408333
+==============
+Profit threshold: 0.6
+Betet times: 102/1695
+Average profit: 0.161765
+==============
+Profit threshold: 0.7
+Betet times: 55/1695
+Average profit: 0.127455
 ```
-Kolikor sem preverjal intervale med tekmami, skoraj nikoli ne pride do tega, da bi eno mostvo imelo dve tekme v času preden se osvežijo kvote.
 
 #### Par možnih razlogov za dobre rezultate:
 
@@ -104,12 +129,13 @@ Overfiting
   * ker so sestavljena iz največ treh podpravil in
   * ker se pravila, ki veljajo v manj kot 0.25% primerih zavržejo.
 
+### Vzorčenje kvot
+Na football-data.co.uk strani piše:
+```
+Betting odds for weekend games are collected Friday afternoons, and on Tuesday afternoons for midweek games.
+```
+Kolikor sem preverjal intervale med tekmami, skoraj nikoli ne pride do tega, da bi eno mostvo imelo dve tekme v času preden se osvežijo kvote.
 
-
-
-How to profile
---------------
---build=profile
 
 How to install Dlang on Debian
 ------------------------------
@@ -123,12 +149,11 @@ $ sudo apt-get update && sudo apt-get -y --allow-unauthenticated install --reins
 ```
 then install:
 ```
-sudo apt-get install dmd-bin
+$ sudo apt-get install dmd-bin
+```
 
-
-
-For setting up git server check
--------------------------------
-https://git-scm.com/book/it/v2/Git-on-the-Server-Setting-Up-the-Server
+How to profile
+--------------
+--build=profile
 
 
